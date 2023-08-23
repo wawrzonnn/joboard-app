@@ -1,0 +1,38 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 10px;
+}
+
+.checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  appearance: none;
+  width: 17px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.hiddenCheckbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  z-index: -1; 
+}
+
+.label {
+  min-width: 100px;
+  text-align: left;
+  color: #000;
+  color: var(--gray-darkest, #212121);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  cursor: pointer;
+  padding-bottom: 20px;
+}

@@ -1,0 +1,27 @@
+.container {
+    padding: 24px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_title {
+    color: var(--gray-darkest, #212121);
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: -0.8px; 
+}
+
+.clear_button {
+    color: var(--accent-strong, #552882);
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    padding: 0;
+    border: none;
+}

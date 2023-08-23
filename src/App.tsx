@@ -1,11 +1,16 @@
 import React from 'react';
 import './App.css';
-import { Container } from './components/Container/Container'
+import { Container } from './components/Container/Container';
+import FiltersContainer from './components/FiltersContainer/FiltersContainer';
+import OffersContainer from './components/OffersContainer/OffersContainer';
 
 function App() {
    return (
       <Container>
-         <h1>JoBoard 🛹</h1>
+         <div className="container">
+            <FiltersContainer />
+            <OffersContainer />
+         </div>
       </Container>
    );
 }
