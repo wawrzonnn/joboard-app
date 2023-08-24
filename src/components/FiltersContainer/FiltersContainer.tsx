@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './FiltersContainer.module.scss';
 import Logo from '../Logo/Logo';
 import FilterSection from '../FilterSection/FilterSection';
+import FilterSectionSalary from '../FilterSectionSalary/FilterSectionSalary';
 
 const jobType = ['Full-time', 'Contract', 'Part-time', 'Freelance'];
 const seniority = ['Lead', 'Expert', 'Senior', 'Mid/Regular', 'Junior', 'Intern'];
@@ -20,6 +21,7 @@ const FiltersContainer = () => {
                <FilterSection title="Job Type" filters={jobType} />
                <FilterSection title="Seniority" filters={seniority} />
                <FilterSection title="Location" filters={location} />
+               <FilterSectionSalary />
             </section>
          </div>
       </div>

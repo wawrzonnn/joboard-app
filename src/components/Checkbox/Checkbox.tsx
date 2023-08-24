@@ -14,7 +14,7 @@ export interface ChceckboxProps {
    name?: string;
 }
 
-export const Chceckbox = ({
+export const Checkbox = ({
    checked = true,
    id,
    onChange,
@@ -46,7 +46,7 @@ export const Chceckbox = ({
                }}
                id={id}
                name={name}
-               className={styles.hiddenCheckbox}
+               className={styles.hidden_checkbox}
             />
          </div>
          <div>
