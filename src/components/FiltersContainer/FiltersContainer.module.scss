@@ -1,0 +1,35 @@
+.container {
+   padding: 0 40px;
+}
+.filters_wrapper {
+   padding: 24px;
+   border-radius: 5px;
+   border: 1px solid var(--gray-light, #dadada);
+   background: var(--white, #fff);
+}
+.header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 16px;
+   padding: 8px 0;
+}
+
+.header_title {
+   color: var(--gray-darkest, #212121);
+   font-family: Poppins;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 600;
+   letter-spacing: -0.8px;
+}
+
+.clear_button {
+   color: var(--accent-strong, #552882);
+   font-family: Poppins;
+   font-size: 12px;
+   font-style: normal;
+   font-weight: 500;
+   padding: 0;
+   border: none;
+}

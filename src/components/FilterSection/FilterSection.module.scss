@@ -1,0 +1,23 @@
+.container {
+   border-top: 1px solid #dadada;
+   max-width: 250px;
+   padding: 24px 0;
+}
+
+.title {
+   color: var(--gray-darkest, #212121);
+   font-family: Poppins;
+   font-size: 12px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 100%;
+   text-align: left;
+   margin-bottom: 16px;
+}
+
+.checkboxes_container {
+   display: flex;
+   //    justify-content: space-around;
+   flex-wrap: wrap;
+   gap: 12px;
+}
