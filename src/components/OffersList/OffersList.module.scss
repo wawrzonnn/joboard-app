@@ -1,0 +1,95 @@
+.container {
+   background: var(--gray-lightest, #f8f8f8);
+   padding: 0 40px;
+}
+
+.list {
+   margin-top: 16px;
+   list-style: none;
+   background: var(--gray-lightest, #f8f8f8);
+}
+
+.offers_counter {
+   color: var(--gray-darkest, #212121);
+   font-family: Poppins;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 100%;
+   letter-spacing: -0.8px;
+}
+
+.list_element {
+    background-color: white;
+   min-width: 800px;
+   padding: 24px;
+   display: flex;
+   justify-content: space-between;
+   border-radius: 5px;
+   border: 1px solid var(--gray-light, #dadada);
+   margin-bottom: 8px;
+}
+
+.job_title_wrapper {
+   display: flex;
+   gap: 25px;
+}
+
+.job_title {
+   color: var(--gray-darkest, #212121);
+   font-family: Poppins;
+   font-size: 20px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 130%;
+   letter-spacing: -0.4px;
+}
+
+.info_wrapper {
+   margin-top: 5px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 15px;
+}
+
+.single_info {
+   color: var(--gray-dark, #545454);
+   font-family: Poppins;
+   font-size: 12px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 100%;
+   padding: 0 15px;
+   border-right: 1px solid #dadada;
+}
+
+.company_name {
+   color: var(--gray-darkest, #212121);
+   font-family: Poppins;
+   font-size: 12px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 100%;
+   padding-right: 15px;
+   border-right: 1px solid #dadada;
+}
+
+.salary {
+   color: var(--accent, #9564d4);
+   font-family: Poppins;
+   font-size: 12px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 100%;
+}
+
+.offer_date {
+   color: var(--gray-dark, #545454);
+   text-align: right;
+   font-family: Poppins;
+   font-size: 12px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 100%;
+}

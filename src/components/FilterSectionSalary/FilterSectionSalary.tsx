@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './FilterSectionSalary.module.scss';
 
-const FilterSectionSalary = () => {
+export const FilterSectionSalary = () => {
    const [value, setValue] = useState(0);
 
    const leftPosition = (value / 415);
@@ -29,5 +29,3 @@ const FilterSectionSalary = () => {
       </div>
    );
 };
-
-export default FilterSectionSalary;

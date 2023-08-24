@@ -7,7 +7,7 @@ interface FilterSectionProps {
    filters: string[];
 }
 
-const FilterSection = ({ title, filters }: FilterSectionProps) => {
+export const FilterSection = ({ title, filters }: FilterSectionProps) => {
    const handleChange =
       (filter: string) =>
       (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -25,5 +25,3 @@ const FilterSection = ({ title, filters }: FilterSectionProps) => {
       </div>
    );
 };
-
-export default FilterSection;

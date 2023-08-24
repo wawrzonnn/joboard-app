@@ -1,7 +1,7 @@
 .container {
-    border-top: 1px solid #DADADA;
+   border-top: 1px solid #dadada;
    max-width: 250px;
-padding: 24px 0;
+   padding: 24px 0;
 }
 
 .title {
@@ -17,7 +17,7 @@ padding: 24px 0;
 
 .checkboxes_container {
    display: flex;
-//    justify-content: space-around;
+   //    justify-content: space-around;
    flex-wrap: wrap;
    gap: 12px;
 }

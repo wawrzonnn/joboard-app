@@ -5,6 +5,4 @@ export const Logo = () => {
   return (
     <div className={styles.container}><span>👾  JO–BOARD</span></div>
   )
-}
-
-export default Logo
+};
