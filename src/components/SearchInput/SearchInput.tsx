@@ -25,15 +25,27 @@ export const SearchInput = ({
    suggestions = [],
    onSuggestionClick
 }: SearchInputProps) => {
+
+   const renderSuggestion = (title: string) => {
+      const inputValue = value!.toLowerCase();
+      const startIdx = title.toLowerCase().indexOf(inputValue);
+      const endIdx = startIdx + inputValue.length;
+      return (
+         <>
+            {title.substring(0, startIdx)}
+            <strong>{title.substring(startIdx, endIdx)}</strong>
+            {title.substring(endIdx)}
+         </>
+      );
+   };
+   
    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       onChange(event);
    };
 
    const handleSuggestionClick = (title: string) => {
-    if (onSuggestionClick) {
-        onSuggestionClick(title);
-    }
-};
+      onSuggestionClick?.(title);
+   };
 
    return (
       <div className={styles.wrapper}>
@@ -52,9 +64,7 @@ export const SearchInput = ({
                <li key={offer._id} onClick={() => handleSuggestionClick(offer.title)}>
                   <div className={styles.suggestion_content}>
                      <div>
-                        {offer.preHighlight}
-                        <strong>{offer.highlight}</strong>
-                        {offer.postHighlight}
+                        {renderSuggestion(offer.title)}
                      </div>
                      <div className={styles.company_name}>{offer.companyName}</div>
                   </div>
@@ -64,3 +74,8 @@ export const SearchInput = ({
       </div>
    );
 };
+
+
+
+
+

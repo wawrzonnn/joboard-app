@@ -14,15 +14,15 @@ interface OffersListProps {
 export const OffersList = ({ offers, searchForJobTitle, onClearFilters }: OffersListProps) => {
    return (
       <div className={styles.container}>
-         <span className={styles.offers_counter}>
-            {offers.length || 0} offers found{' '}
-            {searchForJobTitle && (
-               <>
-                  for "{searchForJobTitle}"{' '}
-                  <ClearButton onClick={onClearFilters}>Clear search</ClearButton>
-               </>
-            )}
-         </span>
+           <span className={styles.offers_counter}>
+         {offers.length || 0} offers found{' '}
+         {searchForJobTitle && (
+            <>
+               for "{searchForJobTitle}"{' '}
+               {onClearFilters && <ClearButton onClick={onClearFilters}>Clear search</ClearButton>}
+            </>
+         )}
+      </span>
          <ul className={styles.list}>
             {offers.map((offer) => (
                <li key={offer._id} className={styles.list_element}>

@@ -35,8 +35,8 @@
    display: flex;
    flex-direction: column;
    list-style: none;
-   border: 1px solid var(--gray-light, #DADADA);
-   background: var(--white, #FFF);
+   border: 1px solid var(--gray-light, #dadada);
+   background: var(--white, #fff);
    max-height: 186px;
    overflow-y: auto;
    position: absolute;
@@ -52,8 +52,8 @@
 }
 
 .suggestions li {
-   border: 1px solid var(--gray-light, #DADADA);
-background: var(--white, #FFF);
+   border: 1px solid var(--gray-light, #dadada);
+   background: var(--white, #fff);
    cursor: pointer;
 
    .suggestion_content {

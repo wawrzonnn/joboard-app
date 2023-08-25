@@ -16,22 +16,14 @@ export const OffersContainer = () => {
 
    const handleInputForChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const inputValue = event.target.value;
+      const lowerCaseInputValue = inputValue.toLowerCase();
       setSearchForJobTitle(inputValue);
 
       if (jobOffers) {
          if (inputValue) {
-            const filteredOffers = jobOffers
-               .filter((offer) => offer.title.toLowerCase().includes(inputValue.toLowerCase()))
-               .map((offer) => {
-                  const startIdx = offer.title.toLowerCase().indexOf(inputValue.toLowerCase());
-                  const endIdx = startIdx + inputValue.length;
-                  return {
-                     ...offer,
-                     preHighlight: offer.title.substring(0, startIdx),
-                     highlight: offer.title.substring(startIdx, endIdx),
-                     postHighlight: offer.title.substring(endIdx),
-                  };
-               });
+            const filteredOffers = jobOffers.filter((offer) =>
+               offer.title.toLowerCase().includes(lowerCaseInputValue),
+            );
             setSuggestedOffers(filteredOffers);
          } else {
             setSuggestedOffers([]);
@@ -44,8 +36,9 @@ export const OffersContainer = () => {
       setSearchForJobTitle(title);
       setSuggestedOffers([]);
       if (jobOffers) {
+         const lowerCaseTitle = title.toLowerCase();
          const matchingOffers = jobOffers.filter((offer) =>
-            offer.title.toLowerCase().includes(title.toLowerCase()),
+            offer.title.toLowerCase().includes(lowerCaseTitle),
          );
          setFilteredOffers(matchingOffers);
       }
@@ -78,7 +71,8 @@ export const OffersContainer = () => {
             />
             <SearchInput
                placeholder={'Search location'}
-               onChange={() => console.log('click')}
+               onChange={() => console.log('Changed')
+               }
                icon={<MarkerIcon />}
             />
          </div>
