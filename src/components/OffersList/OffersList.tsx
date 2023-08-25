@@ -8,19 +8,29 @@ import { formatDistanceToNow } from 'date-fns';
 interface OffersListProps {
    offers: JobOffer[];
    searchForJobTitle: string;
+   searchForLocation: string;
    onClearFilters: () => void;
 }
 
-export const OffersList = ({ offers, searchForJobTitle, onClearFilters }: OffersListProps) => {
+export const OffersList = ({ offers, searchForJobTitle, onClearFilters, searchForLocation }: OffersListProps) => {
    return (
       <div className={styles.container}>
-           <span className={styles.offers_counter}>
-         {offers.length || 0} offers found{' '}
+          <span className={styles.offers_counter}>
+         {offers.length || 0} offers found
          {searchForJobTitle && (
             <>
-               for "{searchForJobTitle}"{' '}
-               {onClearFilters && <ClearButton onClick={onClearFilters}>Clear search</ClearButton>}
+               {' '}for "{searchForJobTitle}"{' '}
             </>
+         )}
+         {searchForLocation && (
+            <>
+               {' '}in "{searchForLocation}"{' '}
+            </>
+         )}
+         {(searchForJobTitle || searchForLocation) && (
+            onClearFilters && (
+               <ClearButton onClick={onClearFilters}>Clear search</ClearButton>
+            )
          )}
       </span>
          <ul className={styles.list}>
