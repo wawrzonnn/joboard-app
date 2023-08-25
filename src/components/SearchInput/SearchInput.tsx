@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import styles from './SearchInput.module.scss';
 import { JobOffer } from '../../api/types';
 
-export interface SearchInputProps {
+interface SearchInputProps {
    label?: string;
    placeholder?: string;
    id?: string;
@@ -11,10 +11,11 @@ export interface SearchInputProps {
    value?: string;
    icon?: React.ReactNode;
    suggestions?: JobOffer[];
-   onSuggestionClick?: (title: string) => void;
+   onSuggestionClick?: (value: string) => void;
+   suggestionType: 'title' | 'city';
 }
 
-export const SearchInput = ({
+export const SearchInput: React.FC<SearchInputProps> = ({
    label,
    placeholder,
    id,
@@ -23,28 +24,22 @@ export const SearchInput = ({
    value,
    icon,
    suggestions = [],
-   onSuggestionClick
-}: SearchInputProps) => {
-
-   const renderSuggestion = (title: string) => {
+   onSuggestionClick,
+   suggestionType,
+}) => {
+   const renderSuggestion = (offer: JobOffer) => {
       const inputValue = value!.toLowerCase();
-      const startIdx = title.toLowerCase().indexOf(inputValue);
+      const data = offer[suggestionType];
+      const lowerData = data.toLowerCase();
+      const startIdx = lowerData.indexOf(inputValue);
       const endIdx = startIdx + inputValue.length;
       return (
          <>
-            {title.substring(0, startIdx)}
-            <strong>{title.substring(startIdx, endIdx)}</strong>
-            {title.substring(endIdx)}
+            {data.substring(0, startIdx)}
+            <strong>{data.substring(startIdx, endIdx)}</strong>
+            {data.substring(endIdx)}
          </>
       );
-   };
-   
-   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      onChange(event);
-   };
-
-   const handleSuggestionClick = (title: string) => {
-      onSuggestionClick?.(title);
    };
 
    return (
@@ -54,19 +49,19 @@ export const SearchInput = ({
             className={styles.input}
             id={id}
             placeholder={placeholder}
-            onChange={handleChange}
+            onChange={onChange}
             name={name}
             value={value}
          />
          <span className={styles.icon}>{icon}</span>
          <ul className={styles.suggestions}>
             {suggestions.map((offer) => (
-               <li key={offer._id} onClick={() => handleSuggestionClick(offer.title)}>
+               <li key={offer._id} onClick={() => onSuggestionClick?.(offer[suggestionType])}>
                   <div className={styles.suggestion_content}>
-                     <div>
-                        {renderSuggestion(offer.title)}
-                     </div>
-                     <div className={styles.company_name}>{offer.companyName}</div>
+                     <div>{renderSuggestion(offer)}</div>
+                     {suggestionType === 'title' && (
+                        <div className={styles.company_name}>{offer.companyName}</div>
+                     )}
                   </div>
                </li>
             ))}
@@ -74,8 +69,3 @@ export const SearchInput = ({
       </div>
    );
 };
-
-
-
-
-

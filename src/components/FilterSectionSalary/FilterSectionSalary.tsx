@@ -4,7 +4,7 @@ import styles from './FilterSectionSalary.module.scss';
 export const FilterSectionSalary = () => {
    const [value, setValue] = useState(0);
 
-   const leftPosition = (value / 415);
+   const leftPosition = value / 415;
 
    return (
       <div className={styles.container}>
@@ -19,10 +19,7 @@ export const FilterSectionSalary = () => {
                onChange={(e) => setValue(Number(e.target.value))}
                className={styles.slider}
             />
-            <div 
-               className={styles.current_value} 
-               style={{ left: `${leftPosition}%` }}
-            >
+            <div className={styles.current_value} style={{ left: `${leftPosition}%` }}>
                {value}
             </div>
          </div>
