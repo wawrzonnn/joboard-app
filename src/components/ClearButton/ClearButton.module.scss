@@ -1,0 +1,18 @@
+.clear_button {
+   color: var(--accent-strong, #552882);
+   font-family: Poppins;
+   font-size: 12px;
+   font-style: normal;
+   font-weight: 500;
+   padding: 0;
+   border: none;
+   outline: none;
+   cursor: pointer;
+}
+
+.clear_button:active,
+.clear_button:focus {
+   outline: none;
+   border: none;
+   box-shadow: none;
+}

@@ -3,6 +3,7 @@ import styles from './FiltersContainer.module.scss';
 import { Logo } from '../Logo/Logo';
 import { FilterSection } from '../FilterSection/FilterSection';
 import { FilterSectionSalary } from '../FilterSectionSalary/FilterSectionSalary';
+import { ClearButton } from '../ClearButton/ClearButton';
 
 const jobType = ['Full-time', 'Contract', 'Part-time', 'Freelance'];
 const seniority = ['Lead', 'Expert', 'Senior', 'Mid/Regular', 'Junior', 'Intern'];
@@ -15,7 +16,7 @@ export const FiltersContainer = () => {
          <div className={styles.filters_wrapper}>
             <header className={styles.header}>
                <p className={styles.header_title}>Filter offers</p>
-               <button className={styles.clear_button}>Clear filters</button>
+               <ClearButton onClick={() => console.log('click')}>Clear filters</ClearButton>
             </header>
             <section>
                <FilterSection title="Job type" filters={jobType} />
