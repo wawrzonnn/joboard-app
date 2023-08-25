@@ -30,3 +30,52 @@
    right: 15px;
    top: 12px;
 }
+
+.suggestions {
+   display: flex;
+   flex-direction: column;
+   list-style: none;
+   border: 1px solid var(--gray-light, #dadada);
+   background: var(--white, #fff);
+   max-height: 186px;
+   overflow-y: auto;
+   position: absolute;
+   top: 100%;
+   left: 0;
+   width: 100%;
+   z-index: 1;
+   scrollbar-width: none;
+   -ms-overflow-style: none;
+   &::-webkit-scrollbar {
+      display: none;
+   }
+}
+
+.suggestions li {
+   border: 1px solid var(--gray-light, #dadada);
+   background: var(--white, #fff);
+   cursor: pointer;
+
+   .suggestion_content {
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--gray-dark, #545454);
+      font-family: Poppins;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 100%;
+   }
+
+   .company_name {
+      color: var(--gray-dark, #545454);
+      text-align: right;
+      font-family: Poppins;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 100%;
+   }
+}

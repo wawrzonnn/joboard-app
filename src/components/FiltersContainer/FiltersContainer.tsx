@@ -1,21 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './FiltersContainer.module.scss';
 import { Logo } from '../Logo/Logo';
 import { FilterSection } from '../FilterSection/FilterSection';
 import { FilterSectionSalary } from '../FilterSectionSalary/FilterSectionSalary';
+import { ClearButton } from '../ClearButton/ClearButton';
 
 const jobType = ['Full-time', 'Contract', 'Part-time', 'Freelance'];
 const seniority = ['Lead', 'Expert', 'Senior', 'Mid/Regular', 'Junior', 'Intern'];
 const location = ['Remote', 'Part-remote', 'On-site'];
 
 export const FiltersContainer = () => {
+   const [filters, setFilters] = useState('');
+   const handleClearFilters = () => {
+      setFilters('');
+   };
+
    return (
       <div className={styles.container}>
          <Logo />
          <div className={styles.filters_wrapper}>
             <header className={styles.header}>
                <p className={styles.header_title}>Filter offers</p>
-               <button className={styles.clear_button}>Clear filters</button>
+               <ClearButton onClick={handleClearFilters}>Clear filters</ClearButton>
             </header>
             <section>
                <FilterSection title="Job type" filters={jobType} />

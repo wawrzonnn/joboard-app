@@ -17,10 +17,13 @@
    font-weight: 600;
    line-height: 100%;
    letter-spacing: -0.8px;
+   button {
+      margin-left: 10px;
+   }
 }
 
 .list_element {
-    background-color: white;
+   background-color: white;
    min-width: 800px;
    padding: 24px;
    display: flex;

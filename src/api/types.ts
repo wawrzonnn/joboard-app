@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export enum JobType {
   FULL_TIME = 'Full-time',
   CONTRACT = 'Contract',
@@ -21,6 +23,9 @@ export enum WorkLocation {
 }
 
 export interface JobOffer {
+  preHighlight: ReactNode;
+  highlight: ReactNode;
+  postHighlight: ReactNode;
   _id: string;
   title: string;
   companyName: string;
