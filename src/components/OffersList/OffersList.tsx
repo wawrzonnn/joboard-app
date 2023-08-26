@@ -12,44 +12,47 @@ interface OffersListProps {
    onClearFilters: () => void;
 }
 
-export const OffersList = ({ offers, searchForJobTitle, onClearFilters, searchForLocation }: OffersListProps) => {
+export const OffersList = ({
+   offers,
+   searchForJobTitle,
+   onClearFilters,
+   searchForLocation,
+}: OffersListProps) => {
    return (
       <div className={styles.container}>
-          <span className={styles.offers_counter}>
-         {offers.length || 0} offers found
-         {searchForJobTitle && (
-            <>
-               {' '}for "{searchForJobTitle}"{' '}
-            </>
-         )}
-         {searchForLocation && (
-            <>
-               {' '}in "{searchForLocation}"{' '}
-            </>
-         )}
-         {(searchForJobTitle || searchForLocation) && (
-            onClearFilters && (
+         <span className={styles.offers_counter}>
+            {offers.length || 0} offers found
+            {searchForJobTitle && <> for "{searchForJobTitle}" </>}
+            {searchForLocation && <> in "{searchForLocation}" </>}
+            {(searchForJobTitle || searchForLocation) && onClearFilters && (
                <ClearButton onClick={onClearFilters}>Clear search</ClearButton>
-            )
-         )}
-      </span>
+            )}
+         </span>
          <ul className={styles.list}>
             {offers.map((offer) => (
                <li key={offer._id} className={styles.list_element}>
                   <div className={styles.job_title_wrapper}>
-                     <img className={styles.company_logo} src={companyLogo} alt="company logo" />
+                     <img className={styles.company_logo_desktop} src={companyLogo} alt="company logo" />
                      <div>
                         <span className={styles.job_title}>{offer.title}</span>
                         <div className={styles.info_wrapper}>
-                           <p className={styles.company_name}>{offer.companyName}</p>
-                           <p className={styles.single_info}>
-                              {offer.city}, {offer.country}
-                           </p>
-                           <p className={styles.single_info}>{offer.workLocation}</p>
-                           <p className={styles.single_info}>{offer.seniority}</p>
+                        <img className={styles.company_logo_mobile} src={companyLogo} alt="company logo" />
+                           <div className={styles.mobile_info_wrapper}>
+                              <div className={styles.mobile_info_box}>
+                                 <p className={styles.company_name}>{offer.companyName}</p>
+                                 <p className={styles.single_info}>
+                                    {offer.city}, {offer.country}
+                                 </p>
+                              </div>
+                              <div className={styles.mobile_info_box}>
+                                 <p className={styles.single_info}>{offer.workLocation}</p>
+                                 <p className={styles.single_info}>{offer.seniority}</p>
+                              </div>
+                           
                            <p className={styles.salary}>
                               {offer.salaryFrom} – {offer.salaryTo} {offer.currency} net
                            </p>
+                           </div>
                         </div>
                      </div>
                   </div>

@@ -1,12 +1,18 @@
+@import '../../styles.module.scss';
+
 .container {
    background: var(--gray-lightest, #f8f8f8);
    padding: 0 40px;
+   @include mobile {
+      padding: 0 15px;
+   }
 }
 
 .list {
    margin-top: 16px;
    list-style: none;
    background: var(--gray-lightest, #f8f8f8);
+   border: none;
 }
 
 .offers_counter {
@@ -24,7 +30,6 @@
 
 .list_element {
    background-color: white;
-   min-width: 800px;
    padding: 24px;
    display: flex;
    justify-content: space-between;
@@ -32,10 +37,17 @@
    border: 1px solid var(--gray-light, #dadada);
    margin-bottom: 8px;
 }
-
+.company_logo_desktop {
+   @include mobile {
+      display: none;
+   }
+}
 .job_title_wrapper {
    display: flex;
    gap: 25px;
+   @include mobile {
+      gap: 5px;
+   }
 }
 
 .job_title {
@@ -51,8 +63,8 @@
 .info_wrapper {
    margin-top: 5px;
    display: flex;
-   justify-content: center;
-   align-items: center;
+   // justify-content: center;
+   // align-items: center;
    gap: 15px;
 }
 
@@ -63,7 +75,7 @@
    font-style: normal;
    font-weight: 400;
    line-height: 100%;
-   padding: 0 15px;
+   // padding: 0 15px;
    border-right: 1px solid #dadada;
 }
 
@@ -76,6 +88,9 @@
    line-height: 100%;
    padding-right: 15px;
    border-right: 1px solid #dadada;
+   @include mobile {
+      gap: 5px;
+   }
 }
 
 .salary {
@@ -85,6 +100,7 @@
    font-style: normal;
    font-weight: 400;
    line-height: 100%;
+   margin-left: 15px;
 }
 
 .offer_date {
@@ -95,4 +111,34 @@
    font-style: normal;
    font-weight: 400;
    line-height: 100%;
+   @include mobile {
+      align-self: self-end;
+   }
+}
+
+.mobile_info_wrapper {
+   @include mobile {
+      display: flex;
+      flex-direction: column;
+      // align-items: center;
+      // justify-content: flex-start;
+      // gap: 10px;
+   }
+   @include desktop {
+      display: flex;
+      flex-direction: row;
+   }
+}
+
+.mobile_info_box {
+   @include mobile {
+      display: flex;
+      flex-direction: row;
+      // align-items: center;
+      // justify-content: flex-start;
+   }
+   @include desktop {
+      display: flex;
+      flex-direction: row;
+   }
 }
