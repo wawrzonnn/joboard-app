@@ -8,16 +8,16 @@
 }
 
 .header_mobile {
-display: flex;
-justify-content: space-between;
-align-items: center;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
 }
 
 .header_mobile button {
    @include desktop {
       display: none;
    }
-   }
+}
 
 .filters_wrapper {
    padding: 24px;

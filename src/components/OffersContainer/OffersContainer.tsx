@@ -5,8 +5,10 @@ import { SearchIcon } from '../../assets/icons/Search';
 import { MarkerIcon } from '../../assets/icons/Marker';
 import { OffersList } from '../OffersList/OffersList';
 import { useQuery } from 'react-query';
-import { JobOffer } from '../../api/types';
+import { JobOffer, suggestionType } from '../../api/types';
 import { fetchJobOffers } from '../../api/jobOffers';
+import { removeDuplicatesSuggestion } from '../../utils/removeDuplicateSuggestion';
+
 
 export const OffersContainer = () => {
    const { data: jobOffers } = useQuery<JobOffer[]>('jobOffers', fetchJobOffers);
@@ -29,33 +31,37 @@ export const OffersContainer = () => {
    const handleSearchByJobTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
       const inputValue = event.target.value;
       setSearchForJobTitle(inputValue);
+      
       if (!inputValue) {
-          filterOffers('', searchForLocation);
           setTitleSuggestions([]);
       } else if (jobOffers) {
           const matchedOffers = jobOffers.filter((offer) =>
               offer.title.toLowerCase().includes(inputValue.toLowerCase()),
           );
-          setTitleSuggestions(matchedOffers);
+          setTitleSuggestions(removeDuplicatesSuggestion(matchedOffers, suggestionType.TITLE));
       } else {
           setTitleSuggestions([]);
       }
+  
+      filterOffers(inputValue, searchForLocation);
   };
   
   const handleSearchByLocation = (event: React.ChangeEvent<HTMLInputElement>) => {
       const inputValue = event.target.value;
       setSearchForLocation(inputValue);
+      
       if (!inputValue) {
-          filterOffers(searchForJobTitle, '');
           setLocationSuggestions([]);
       } else if (jobOffers) {
           const matchedOffers = jobOffers.filter((offer) =>
               offer.city.toLowerCase().includes(inputValue.toLowerCase()),
           );
-          setLocationSuggestions(matchedOffers);
+          setLocationSuggestions(removeDuplicatesSuggestion(matchedOffers, suggestionType.CITY));
       } else {
           setLocationSuggestions([]);
       }
+  
+      filterOffers(searchForJobTitle, inputValue);
   };
 
    const handleTitleSuggestionClick = (title: string) => {
@@ -94,7 +100,7 @@ export const OffersContainer = () => {
                suggestions={titleSuggestions}
                value={searchForJobTitle}
                icon={<SearchIcon />}
-               suggestionType={'title'}
+               typeOfSuggestion={suggestionType.TITLE}
             />
             <SearchInput
                placeholder={'Search location'}
@@ -103,7 +109,7 @@ export const OffersContainer = () => {
                suggestions={locationSuggestions}
                value={searchForLocation}
                icon={<MarkerIcon />}
-               suggestionType={'city'}
+               typeOfSuggestion={suggestionType.CITY}
             />
          </div>
          <OffersList

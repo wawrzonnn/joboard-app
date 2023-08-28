@@ -22,6 +22,11 @@ export enum WorkLocation {
   ON_SITE = 'On-site',
 }
 
+export enum suggestionType {
+  TITLE = 'title',
+  CITY = 'city'
+}
+
 export interface JobOffer {
   preHighlight: ReactNode;
   highlight: ReactNode;

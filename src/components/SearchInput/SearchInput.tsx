@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import styles from './SearchInput.module.scss';
-import { JobOffer } from '../../api/types';
-
+import { JobOffer, suggestionType } from '../../api/types';
+import { useOutsideClick } from '../../hooks/useOutsideClick';
 interface SearchInputProps {
    label?: string;
    placeholder?: string;
@@ -12,7 +12,7 @@ interface SearchInputProps {
    icon?: React.ReactNode;
    suggestions?: JobOffer[];
    onSuggestionClick?: (value: string) => void;
-   suggestionType: 'title' | 'city';
+   typeOfSuggestion: suggestionType;
 }
 
 export const SearchInput = ({
@@ -25,30 +25,22 @@ export const SearchInput = ({
    icon,
    suggestions = [],
    onSuggestionClick,
-   suggestionType,
+   typeOfSuggestion,
 }: SearchInputProps) => {
    const [showSuggestions, setShowSuggestions] = useState<boolean>(true);
    const wrapperRef = useRef<HTMLDivElement | null>(null);
 
-   const handleClickOutside = (event: MouseEvent) => {
-      if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
-         setShowSuggestions(false);
-      }
-   };
+   useOutsideClick(wrapperRef, () => {
+      setShowSuggestions(false);
+   });
+
    const handleFocus = () => {
       setShowSuggestions(true);
    };
 
-   useEffect(() => {
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => {
-         document.removeEventListener('mousedown', handleClickOutside);
-      };
-   }, []);
-
    const renderSuggestion = (offer: JobOffer) => {
       const inputValue = value!.toLowerCase();
-      const data = offer[suggestionType];
+      const data = offer[typeOfSuggestion];
       const lowerData = data.toLowerCase();
       const startIdx = lowerData.indexOf(inputValue);
       const endIdx = startIdx + inputValue.length;
@@ -60,6 +52,7 @@ export const SearchInput = ({
          </>
       );
    };
+
    return (
       <div className={styles.wrapper} ref={wrapperRef}>
          <label htmlFor={id}>{label}</label>
@@ -77,10 +70,13 @@ export const SearchInput = ({
             {showSuggestions && (
                <ul className={styles.suggestions}>
                   {suggestions.map((offer) => (
-                     <li key={offer._id} onClick={() => onSuggestionClick?.(offer[suggestionType])}>
+                     <li
+                        key={offer._id}
+                        onClick={() => onSuggestionClick?.(offer[typeOfSuggestion])}
+                     >
                         <div className={styles.suggestion_content}>
                            <div>{renderSuggestion(offer)}</div>
-                           {suggestionType === 'title' && (
+                           {typeOfSuggestion === suggestionType.TITLE && (
                               <div className={styles.company_name}>{offer.companyName}</div>
                            )}
                         </div>
