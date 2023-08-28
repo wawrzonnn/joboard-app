@@ -1,6 +1,14 @@
+@import '../../styles.module.scss';
+
 .inputs_wrapper {
    display: flex;
-   gap: 12px;
+   justify-content: space-between;
+   width: 100%;
+   gap: 20px;
    padding: 40px 40px 24px 40px;
    background: var(--gray-lightest, #f8f8f8);
+   @include mobile {
+      flex-direction: column;
+      padding: 40px 15px;
+   }
 }

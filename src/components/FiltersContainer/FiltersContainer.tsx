@@ -4,6 +4,7 @@ import { Logo } from '../Logo/Logo';
 import { FilterSection } from '../FilterSection/FilterSection';
 import { FilterSectionSalary } from '../FilterSectionSalary/FilterSectionSalary';
 import { ClearButton } from '../ClearButton/ClearButton';
+import FiltersButton from '../FiltersButton/FiltersButton';
 
 const jobType = ['Full-time', 'Contract', 'Part-time', 'Freelance'];
 const seniority = ['Lead', 'Expert', 'Senior', 'Mid/Regular', 'Junior', 'Intern'];
@@ -17,7 +18,10 @@ export const FiltersContainer = () => {
 
    return (
       <div className={styles.container}>
-         <Logo />
+         <div className={styles.header_mobile}>
+            <Logo />
+            <FiltersButton />
+         </div>
          <div className={styles.filters_wrapper}>
             <header className={styles.header}>
                <p className={styles.header_title}>Filter offers</p>
