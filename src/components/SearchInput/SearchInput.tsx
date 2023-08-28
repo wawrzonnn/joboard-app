@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import styles from './SearchInput.module.scss';
 import { JobOffer } from '../../api/types';
 
@@ -15,7 +15,7 @@ interface SearchInputProps {
    suggestionType: 'title' | 'city';
 }
 
-export const SearchInput: React.FC<SearchInputProps> = ({
+export const SearchInput = ({
    label,
    placeholder,
    id,
@@ -26,7 +26,26 @@ export const SearchInput: React.FC<SearchInputProps> = ({
    suggestions = [],
    onSuggestionClick,
    suggestionType,
-}) => {
+}: SearchInputProps) => {
+   const [showSuggestions, setShowSuggestions] = useState<boolean>(true);
+   const wrapperRef = useRef<HTMLDivElement | null>(null);
+
+   const handleClickOutside = (event: MouseEvent) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
+         setShowSuggestions(false);
+      }
+   };
+   const handleFocus = () => {
+      setShowSuggestions(true);
+   };
+
+   useEffect(() => {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+         document.removeEventListener('mousedown', handleClickOutside);
+      };
+   }, []);
+
    const renderSuggestion = (offer: JobOffer) => {
       const inputValue = value!.toLowerCase();
       const data = offer[suggestionType];
@@ -41,31 +60,35 @@ export const SearchInput: React.FC<SearchInputProps> = ({
          </>
       );
    };
-
    return (
-      <div className={styles.wrapper}>
+      <div className={styles.wrapper} ref={wrapperRef}>
          <label htmlFor={id}>{label}</label>
-         <input
-            className={styles.input}
-            id={id}
-            placeholder={placeholder}
-            onChange={onChange}
-            name={name}
-            value={value}
-         />
-         <span className={styles.icon}>{icon}</span>
-         <ul className={styles.suggestions}>
-            {suggestions.map((offer) => (
-               <li key={offer._id} onClick={() => onSuggestionClick?.(offer[suggestionType])}>
-                  <div className={styles.suggestion_content}>
-                     <div>{renderSuggestion(offer)}</div>
-                     {suggestionType === 'title' && (
-                        <div className={styles.company_name}>{offer.companyName}</div>
-                     )}
-                  </div>
-               </li>
-            ))}
-         </ul>
+         <div className={styles.icon_wrapper}>
+            <input
+               className={styles.input}
+               id={id}
+               placeholder={placeholder}
+               onChange={onChange}
+               name={name}
+               value={value}
+               onFocus={handleFocus}
+            />
+            <span className={styles.icon}>{icon}</span>
+            {showSuggestions && (
+               <ul className={styles.suggestions}>
+                  {suggestions.map((offer) => (
+                     <li key={offer._id} onClick={() => onSuggestionClick?.(offer[suggestionType])}>
+                        <div className={styles.suggestion_content}>
+                           <div>{renderSuggestion(offer)}</div>
+                           {suggestionType === 'title' && (
+                              <div className={styles.company_name}>{offer.companyName}</div>
+                           )}
+                        </div>
+                     </li>
+                  ))}
+               </ul>
+            )}
+         </div>
       </div>
    );
 };
