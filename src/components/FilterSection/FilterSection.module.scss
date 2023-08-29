@@ -1,7 +1,12 @@
+@import '../../styles.module.scss';
+
 .container {
    border-top: 1px solid #dadada;
    max-width: 250px;
    padding: 24px 0;
+   @include mobile {
+      max-width: none;
+   }
 }
 
 .title {
@@ -17,7 +22,9 @@
 
 .checkboxes_container {
    display: flex;
-   //    justify-content: space-around;
    flex-wrap: wrap;
    gap: 12px;
+   @include mobile {
+      gap: 32px;
+   }
 }
