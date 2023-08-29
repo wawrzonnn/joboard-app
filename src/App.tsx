@@ -10,6 +10,7 @@ function App() {
    const [selectedJobTypes, setSelectedJobTypes] = useState<string[]>([]);
    const [selectedSeniority, setSelectedSeniority] = useState<string[]>([]);
    const [selectedLocation, setSelectedLocation] = useState<string[]>([]);
+   const [selectedSalary, setSelectedSalary] = useState<number>(0)
    return (
       <QueryClientProvider client={queryClient}>
          <Container>
@@ -18,11 +19,13 @@ function App() {
                   setSelectedJobTypes={setSelectedJobTypes}
                   setSelectedSeniority={setSelectedSeniority}
                   setSelectedLocation={setSelectedLocation}
+                  setSelectedSalary={setSelectedSalary}
                />
                <OffersContainer
                   selectedJobTypes={selectedJobTypes}
                   selectedSeniority={selectedSeniority}
                   selectedLocation={selectedLocation}
+                  selectedSalary={selectedSalary}
                />
             </div>
          </Container>
