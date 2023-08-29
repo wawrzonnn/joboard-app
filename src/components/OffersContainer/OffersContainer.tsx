@@ -12,10 +12,11 @@ import { removeDuplicatesSuggestion } from '../../utils/removeDuplicateSuggestio
 
 interface OffersContainerProps {
    selectedJobTypes: string[];
+   selectedSeniority: string[];
 }
-export const OffersContainer = ({selectedJobTypes}:OffersContainerProps) => {
+export const OffersContainer = ({selectedJobTypes, selectedSeniority}:OffersContainerProps) => {
    const { data: jobOffers } = useQuery<JobOffer[]>('jobOffers', fetchJobOffers);
-   const [filteredOffers, setFilteredOffers] = useState<JobOffer[]>(jobOffers || []);
+   const [filteredOffers, setFilteredOffers] = useState<JobOffer[]>([]);
    const [searchForJobTitle, setSearchForJobTitle] = useState('');
    const [searchForLocation, setSearchForLocation] = useState('');
    const [titleSuggestions, setTitleSuggestions] = useState<JobOffer[]>([]);
@@ -26,7 +27,8 @@ export const OffersContainer = ({selectedJobTypes}:OffersContainerProps) => {
          const matchedOffers = jobOffers.filter((offer) =>
             (!title || offer.title.toLowerCase().includes(title.toLowerCase())) &&
             (!location || offer.city.toLowerCase().includes(location.toLowerCase())) &&
-            (!selectedJobTypes.length || selectedJobTypes.includes(offer.jobType))
+            (!selectedJobTypes.length || selectedJobTypes.includes(offer.jobType)) &&
+            (!selectedSeniority.length || selectedSeniority.includes(offer.seniority))
          );
          setFilteredOffers(matchedOffers);
       }
@@ -90,7 +92,7 @@ export const OffersContainer = ({selectedJobTypes}:OffersContainerProps) => {
 
    useEffect(() => {
       filterOffers(searchForJobTitle, searchForLocation);
-   }, [selectedJobTypes]);
+   }, [jobOffers, selectedJobTypes, selectedSeniority]);
 
    return (
       <div className={styles.container}>

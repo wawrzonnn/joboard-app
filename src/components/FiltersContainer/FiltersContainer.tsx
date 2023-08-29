@@ -11,11 +11,17 @@ const jobType = Object.values(JobType);
 const seniority = Object.values(Seniority);
 const location = Object.values(WorkLocation);
 
+type SetState<T> = React.Dispatch<React.SetStateAction<T>>;
+
 interface FiltersContainerProps {
-   setSelectedJobTypes: React.Dispatch<React.SetStateAction<string[]>>;
+   setSelectedJobTypes: SetState<string[]>;
+   setSelectedSeniority: SetState<string[]>;
 }
 
-export const FiltersContainer = ({ setSelectedJobTypes }: FiltersContainerProps) => {
+export const FiltersContainer = ({
+   setSelectedJobTypes,
+   setSelectedSeniority,
+}: FiltersContainerProps) => {
    const [filters, setFilters] = useState('');
    const handleClearFilters = () => {
       setFilters('');
@@ -38,7 +44,11 @@ export const FiltersContainer = ({ setSelectedJobTypes }: FiltersContainerProps)
                   filters={jobType}
                   onFilterChange={setSelectedJobTypes}
                />
-               <FilterSection title="Seniority" filters={seniority} />
+               <FilterSection
+                  title="Seniority"
+                  filters={seniority}
+                  onFilterChange={setSelectedSeniority}
+               />
                <FilterSection title="Location" filters={location} />
                <FilterSectionSalary />
             </section>
