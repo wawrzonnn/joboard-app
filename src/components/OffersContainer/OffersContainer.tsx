@@ -9,12 +9,16 @@ import { JobOffer, suggestionType } from '../../api/types';
 import { fetchJobOffers } from '../../api/jobOffers';
 import { removeDuplicatesSuggestion } from '../../utils/removeDuplicateSuggestion';
 
-
 interface OffersContainerProps {
    selectedJobTypes: string[];
    selectedSeniority: string[];
+   selectedLocation: string[];
 }
-export const OffersContainer = ({selectedJobTypes, selectedSeniority}:OffersContainerProps) => {
+export const OffersContainer = ({
+   selectedJobTypes,
+   selectedSeniority,
+   selectedLocation,
+}: OffersContainerProps) => {
    const { data: jobOffers } = useQuery<JobOffer[]>('jobOffers', fetchJobOffers);
    const [filteredOffers, setFilteredOffers] = useState<JobOffer[]>([]);
    const [searchForJobTitle, setSearchForJobTitle] = useState('');
@@ -24,11 +28,13 @@ export const OffersContainer = ({selectedJobTypes, selectedSeniority}:OffersCont
 
    const filterOffers = (title: string, location: string) => {
       if (jobOffers) {
-         const matchedOffers = jobOffers.filter((offer) =>
-            (!title || offer.title.toLowerCase().includes(title.toLowerCase())) &&
-            (!location || offer.city.toLowerCase().includes(location.toLowerCase())) &&
-            (!selectedJobTypes.length || selectedJobTypes.includes(offer.jobType)) &&
-            (!selectedSeniority.length || selectedSeniority.includes(offer.seniority))
+         const matchedOffers = jobOffers.filter(
+            (offer) =>
+               (!title || offer.title.toLowerCase().includes(title.toLowerCase())) &&
+               (!location || offer.city.toLowerCase().includes(location.toLowerCase())) &&
+               (!selectedJobTypes.length || selectedJobTypes.includes(offer.jobType)) &&
+               (!selectedSeniority.length || selectedSeniority.includes(offer.seniority)) &&
+               (!selectedLocation.length || selectedLocation.includes(offer.workLocation)),
          );
          setFilteredOffers(matchedOffers);
       }
@@ -37,38 +43,38 @@ export const OffersContainer = ({selectedJobTypes, selectedSeniority}:OffersCont
    const handleSearchByJobTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
       const inputValue = event.target.value;
       setSearchForJobTitle(inputValue);
-      
+
       if (!inputValue) {
-          setTitleSuggestions([]);
+         setTitleSuggestions([]);
       } else if (jobOffers) {
-          const matchedOffers = jobOffers.filter((offer) =>
-              offer.title.toLowerCase().includes(inputValue.toLowerCase()),
-          );
-          setTitleSuggestions(removeDuplicatesSuggestion(matchedOffers, suggestionType.TITLE));
+         const matchedOffers = jobOffers.filter((offer) =>
+            offer.title.toLowerCase().includes(inputValue.toLowerCase()),
+         );
+         setTitleSuggestions(removeDuplicatesSuggestion(matchedOffers, suggestionType.TITLE));
       } else {
-          setTitleSuggestions([]);
+         setTitleSuggestions([]);
       }
-  
+
       filterOffers(inputValue, searchForLocation);
-  };
-  
-  const handleSearchByLocation = (event: React.ChangeEvent<HTMLInputElement>) => {
+   };
+
+   const handleSearchByLocation = (event: React.ChangeEvent<HTMLInputElement>) => {
       const inputValue = event.target.value;
       setSearchForLocation(inputValue);
-      
+
       if (!inputValue) {
-          setLocationSuggestions([]);
+         setLocationSuggestions([]);
       } else if (jobOffers) {
-          const matchedOffers = jobOffers.filter((offer) =>
-              offer.city.toLowerCase().includes(inputValue.toLowerCase()),
-          );
-          setLocationSuggestions(removeDuplicatesSuggestion(matchedOffers, suggestionType.CITY));
+         const matchedOffers = jobOffers.filter((offer) =>
+            offer.city.toLowerCase().includes(inputValue.toLowerCase()),
+         );
+         setLocationSuggestions(removeDuplicatesSuggestion(matchedOffers, suggestionType.CITY));
       } else {
-          setLocationSuggestions([]);
+         setLocationSuggestions([]);
       }
-  
+
       filterOffers(searchForJobTitle, inputValue);
-  };
+   };
 
    const handleTitleSuggestionClick = (title: string) => {
       setSearchForJobTitle(title);
@@ -92,7 +98,7 @@ export const OffersContainer = ({selectedJobTypes, selectedSeniority}:OffersCont
 
    useEffect(() => {
       filterOffers(searchForJobTitle, searchForLocation);
-   }, [jobOffers, selectedJobTypes, selectedSeniority]);
+   }, [jobOffers, selectedJobTypes, selectedSeniority, selectedLocation]);
 
    return (
       <div className={styles.container}>

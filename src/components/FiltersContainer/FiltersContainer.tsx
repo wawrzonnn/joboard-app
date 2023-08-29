@@ -16,11 +16,13 @@ type SetState<T> = React.Dispatch<React.SetStateAction<T>>;
 interface FiltersContainerProps {
    setSelectedJobTypes: SetState<string[]>;
    setSelectedSeniority: SetState<string[]>;
+   setSelectedLocation: SetState<string[]>;
 }
 
 export const FiltersContainer = ({
    setSelectedJobTypes,
    setSelectedSeniority,
+   setSelectedLocation,
 }: FiltersContainerProps) => {
    const [filters, setFilters] = useState('');
    const handleClearFilters = () => {
@@ -49,7 +51,11 @@ export const FiltersContainer = ({
                   filters={seniority}
                   onFilterChange={setSelectedSeniority}
                />
-               <FilterSection title="Location" filters={location} />
+               <FilterSection
+                  title="Location"
+                  filters={location}
+                  onFilterChange={setSelectedLocation}
+               />
                <FilterSectionSalary />
             </section>
          </div>
