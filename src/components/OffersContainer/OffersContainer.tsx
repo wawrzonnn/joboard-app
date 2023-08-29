@@ -13,11 +13,13 @@ interface OffersContainerProps {
    selectedJobTypes: string[];
    selectedSeniority: string[];
    selectedLocation: string[];
+   selectedSalary: number;
 }
 export const OffersContainer = ({
    selectedJobTypes,
    selectedSeniority,
    selectedLocation,
+   selectedSalary
 }: OffersContainerProps) => {
    const { data: jobOffers } = useQuery<JobOffer[]>('jobOffers', fetchJobOffers);
    const [filteredOffers, setFilteredOffers] = useState<JobOffer[]>([]);
@@ -34,7 +36,8 @@ export const OffersContainer = ({
                (!location || offer.city.toLowerCase().includes(location.toLowerCase())) &&
                (!selectedJobTypes.length || selectedJobTypes.includes(offer.jobType)) &&
                (!selectedSeniority.length || selectedSeniority.includes(offer.seniority)) &&
-               (!selectedLocation.length || selectedLocation.includes(offer.workLocation)),
+               (!selectedLocation.length || selectedLocation.includes(offer.workLocation)) &&
+               (!selectedSalary || (selectedSalary <= offer.salaryFrom)) 
          );
          setFilteredOffers(matchedOffers);
       }
@@ -98,7 +101,7 @@ export const OffersContainer = ({
 
    useEffect(() => {
       filterOffers(searchForJobTitle, searchForLocation);
-   }, [jobOffers, selectedJobTypes, selectedSeniority, selectedLocation]);
+   }, [jobOffers, selectedJobTypes, selectedSeniority, selectedLocation, selectedSalary]);
 
    return (
       <div className={styles.container}>

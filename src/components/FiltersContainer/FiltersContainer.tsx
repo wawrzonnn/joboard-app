@@ -17,12 +17,14 @@ interface FiltersContainerProps {
    setSelectedJobTypes: SetState<string[]>;
    setSelectedSeniority: SetState<string[]>;
    setSelectedLocation: SetState<string[]>;
+   setSelectedSalary: (value: number) => void;
 }
 
 export const FiltersContainer = ({
    setSelectedJobTypes,
    setSelectedSeniority,
    setSelectedLocation,
+   setSelectedSalary
 }: FiltersContainerProps) => {
    const [filters, setFilters] = useState('');
    const handleClearFilters = () => {
@@ -56,7 +58,7 @@ export const FiltersContainer = ({
                   filters={location}
                   onFilterChange={setSelectedLocation}
                />
-               <FilterSectionSalary />
+               <FilterSectionSalary setSelectedSalary={setSelectedSalary} />
             </section>
          </div>
       </div>
