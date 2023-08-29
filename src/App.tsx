@@ -8,12 +8,13 @@ import { queryClient } from './api/queryClient'
 
 function App() {
    const [selectedJobTypes, setSelectedJobTypes] = useState<string[]>([]);
+   const [ selectedSeniority, setSelectedSeniority] = useState<string[]>([]);
    return (
       <QueryClientProvider client={queryClient}>
          <Container>
             <div className="container">
-               <FiltersContainer setSelectedJobTypes={setSelectedJobTypes} />
-               <OffersContainer selectedJobTypes={selectedJobTypes} />
+               <FiltersContainer setSelectedJobTypes={setSelectedJobTypes} setSelectedSeniority={setSelectedSeniority} />
+               <OffersContainer selectedJobTypes={selectedJobTypes} selectedSeniority={selectedSeniority} />
             </div>
          </Container>
       </QueryClientProvider>
