@@ -8,19 +8,10 @@ import { useQuery } from 'react-query';
 import { JobOffer, suggestionType } from '../../api/types';
 import { fetchJobOffers } from '../../api/jobOffers';
 import { removeDuplicatesSuggestion } from '../../utils/removeDuplicateSuggestion';
+import { useFilters } from '../../contexts/FilterContext';
 
-interface OffersContainerProps {
-   selectedJobTypes: string[];
-   selectedSeniority: string[];
-   selectedLocation: string[];
-   selectedSalary: number;
-}
-export const OffersContainer = ({
-   selectedJobTypes,
-   selectedSeniority,
-   selectedLocation,
-   selectedSalary
-}: OffersContainerProps) => {
+export const OffersContainer = () => {
+   const { selectedJobTypes, selectedSeniority, selectedLocation, selectedSalary } = useFilters();
    const { data: jobOffers } = useQuery<JobOffer[]>('jobOffers', fetchJobOffers);
    const [filteredOffers, setFilteredOffers] = useState<JobOffer[]>([]);
    const [searchForJobTitle, setSearchForJobTitle] = useState('');
@@ -37,7 +28,7 @@ export const OffersContainer = ({
                (!selectedJobTypes.length || selectedJobTypes.includes(offer.jobType)) &&
                (!selectedSeniority.length || selectedSeniority.includes(offer.seniority)) &&
                (!selectedLocation.length || selectedLocation.includes(offer.workLocation)) &&
-               (!selectedSalary || (selectedSalary <= offer.salaryFrom)) 
+               (!selectedSalary || selectedSalary <= offer.salaryFrom),
          );
          setFilteredOffers(matchedOffers);
       }

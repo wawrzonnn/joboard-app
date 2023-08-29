@@ -6,29 +6,20 @@ import { FilterSectionSalary } from '../FilterSectionSalary/FilterSectionSalary'
 import { ClearButton } from '../ClearButton/ClearButton';
 import FiltersButton from '../FiltersButton/FiltersButton';
 import { JobType, Seniority, WorkLocation } from '../../api/types';
-
+import { useFilters } from '../../contexts/FilterContext';
 const jobType = Object.values(JobType);
 const seniority = Object.values(Seniority);
 const location = Object.values(WorkLocation);
 
-type SetState<T> = React.Dispatch<React.SetStateAction<T>>;
+export const FiltersContainer = () => {
+   const { setSelectedJobTypes, setSelectedSeniority, setSelectedLocation, setSelectedSalary, clearAllFilters } =
+      useFilters();
 
-interface FiltersContainerProps {
-   setSelectedJobTypes: SetState<string[]>;
-   setSelectedSeniority: SetState<string[]>;
-   setSelectedLocation: SetState<string[]>;
-   setSelectedSalary: (value: number) => void;
-}
+   const [clearFiltersCount, setClearFiltersCount] = useState<number>(0);
 
-export const FiltersContainer = ({
-   setSelectedJobTypes,
-   setSelectedSeniority,
-   setSelectedLocation,
-   setSelectedSalary
-}: FiltersContainerProps) => {
-   const [filters, setFilters] = useState('');
    const handleClearFilters = () => {
-      setFilters('');
+      clearAllFilters()
+      setClearFiltersCount((prev) => prev + 1);
    };
 
    return (
@@ -47,18 +38,24 @@ export const FiltersContainer = ({
                   title="Job type"
                   filters={jobType}
                   onFilterChange={setSelectedJobTypes}
+                  clearFiltersCount={clearFiltersCount}
                />
                <FilterSection
                   title="Seniority"
                   filters={seniority}
                   onFilterChange={setSelectedSeniority}
+                  clearFiltersCount={clearFiltersCount}
                />
                <FilterSection
                   title="Location"
                   filters={location}
                   onFilterChange={setSelectedLocation}
+                  clearFiltersCount={clearFiltersCount}
                />
-               <FilterSectionSalary setSelectedSalary={setSelectedSalary} />
+               <FilterSectionSalary
+                  setSelectedSalary={setSelectedSalary}
+                  clearFiltersCount={clearFiltersCount}
+               />
             </section>
          </div>
       </div>

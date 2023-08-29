@@ -1,10 +1,8 @@
 import * as React from 'react';
 import { PropsWithChildren, useEffect, useState } from 'react';
 import styles from './Checkbox.module.scss';
-
 import { CheckboxChecked } from '../../assets/icons/Checkbox/Checked';
 import { CheckboxUnchecked } from '../../assets/icons/Checkbox/Unchecked';
-
 
 export interface CheckboxProps {
    checked?: boolean;
@@ -12,6 +10,7 @@ export interface CheckboxProps {
    id?: string;
    label: string;
    name?: string;
+   clearFiltersCount: number;
 }
 
 export const Checkbox = ({
@@ -20,20 +19,21 @@ export const Checkbox = ({
    onChange,
    label,
    name,
+   clearFiltersCount,
 }: PropsWithChildren<CheckboxProps>) => {
    const [isChecked, setIsChecked] = useState(checked);
 
    useEffect(() => {
       setIsChecked(checked);
-   }, [checked]);
+   }, [checked, clearFiltersCount]);
 
    const handleToggle = (e: React.MouseEvent) => {
       setIsChecked(!isChecked);
       const fakeEvent = {
          target: {
             checked: !isChecked,
-            name: name
-         }
+            name: name,
+         },
       } as unknown as React.ChangeEvent<HTMLInputElement>;
       onChange(fakeEvent);
    };
