@@ -5,12 +5,17 @@ import { FilterSection } from '../FilterSection/FilterSection';
 import { FilterSectionSalary } from '../FilterSectionSalary/FilterSectionSalary';
 import { ClearButton } from '../ClearButton/ClearButton';
 import FiltersButton from '../FiltersButton/FiltersButton';
+import { JobType, Seniority, WorkLocation } from '../../api/types';
 
-const jobType = ['Full-time', 'Contract', 'Part-time', 'Freelance'];
-const seniority = ['Lead', 'Expert', 'Senior', 'Mid/Regular', 'Junior', 'Intern'];
-const location = ['Remote', 'Part-remote', 'On-site'];
+const jobType = Object.values(JobType);
+const seniority = Object.values(Seniority);
+const location = Object.values(WorkLocation);
 
-export const FiltersContainer = () => {
+interface FiltersContainerProps {
+   setSelectedJobTypes: React.Dispatch<React.SetStateAction<string[]>>;
+}
+
+export const FiltersContainer = ({ setSelectedJobTypes }: FiltersContainerProps) => {
    const [filters, setFilters] = useState('');
    const handleClearFilters = () => {
       setFilters('');
@@ -28,7 +33,11 @@ export const FiltersContainer = () => {
                <ClearButton onClick={handleClearFilters}>Clear filters</ClearButton>
             </header>
             <section>
-               <FilterSection title="Job type" filters={jobType} />
+               <FilterSection
+                  title="Job type"
+                  filters={jobType}
+                  onFilterChange={setSelectedJobTypes}
+               />
                <FilterSection title="Seniority" filters={seniority} />
                <FilterSection title="Location" filters={location} />
                <FilterSectionSalary />

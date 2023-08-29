@@ -6,7 +6,7 @@ import { CheckboxChecked } from '../../assets/icons/Checkbox/Checked';
 import { CheckboxUnchecked } from '../../assets/icons/Checkbox/Unchecked';
 
 
-export interface ChceckboxProps {
+export interface CheckboxProps {
    checked?: boolean;
    onChange(e: React.ChangeEvent<HTMLInputElement>): void;
    id?: string;
@@ -15,50 +15,47 @@ export interface ChceckboxProps {
 }
 
 export const Checkbox = ({
-   checked = true,
+   checked = false,
    id,
    onChange,
    label,
    name,
-}: PropsWithChildren<ChceckboxProps>) => {
+}: PropsWithChildren<CheckboxProps>) => {
    const [isChecked, setIsChecked] = useState(checked);
 
    useEffect(() => {
       setIsChecked(checked);
    }, [checked]);
 
+   const handleToggle = (e: React.MouseEvent) => {
+      setIsChecked(!isChecked);
+      const fakeEvent = {
+         target: {
+            checked: !isChecked,
+            name: name
+         }
+      } as unknown as React.ChangeEvent<HTMLInputElement>;
+      onChange(fakeEvent);
+   };
 
    return (
-      <div className={styles.wrapper}>
-         <div
-            className={styles.checkbox}
-            onClick={(e) => {
-               setIsChecked(!isChecked);
-            }}
-         >
+      <div className={styles.wrapper} onClick={handleToggle}>
+         <div className={styles.checkbox}>
             {isChecked ? <CheckboxChecked /> : <CheckboxUnchecked />}
             <input
                type="checkbox"
                checked={isChecked}
-               onChange={(e) => {
-                  setIsChecked(!isChecked);
-                  onChange(e);
-               }}
+               onChange={() => {}}
                id={id}
                name={name}
                className={styles.hidden_checkbox}
             />
          </div>
          <div>
-         <label
-            htmlFor={id}
-            className={styles.label}
-            onClick={(e) => {
-               setIsChecked(!isChecked);
-            }}
-         >
-            {label}
-         </label></div>
+            <label htmlFor={id} className={styles.label}>
+               {label}
+            </label>
+         </div>
       </div>
    );
 };

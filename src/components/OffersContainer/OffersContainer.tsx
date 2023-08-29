@@ -10,7 +10,10 @@ import { fetchJobOffers } from '../../api/jobOffers';
 import { removeDuplicatesSuggestion } from '../../utils/removeDuplicateSuggestion';
 
 
-export const OffersContainer = () => {
+interface OffersContainerProps {
+   selectedJobTypes: string[];
+}
+export const OffersContainer = ({selectedJobTypes}:OffersContainerProps) => {
    const { data: jobOffers } = useQuery<JobOffer[]>('jobOffers', fetchJobOffers);
    const [filteredOffers, setFilteredOffers] = useState<JobOffer[]>(jobOffers || []);
    const [searchForJobTitle, setSearchForJobTitle] = useState('');
@@ -22,7 +25,8 @@ export const OffersContainer = () => {
       if (jobOffers) {
          const matchedOffers = jobOffers.filter((offer) =>
             (!title || offer.title.toLowerCase().includes(title.toLowerCase())) &&
-            (!location || offer.city.toLowerCase().includes(location.toLowerCase()))
+            (!location || offer.city.toLowerCase().includes(location.toLowerCase())) &&
+            (!selectedJobTypes.length || selectedJobTypes.includes(offer.jobType))
          );
          setFilteredOffers(matchedOffers);
       }
@@ -85,10 +89,8 @@ export const OffersContainer = () => {
    };
 
    useEffect(() => {
-      if (jobOffers) {
-         setFilteredOffers(jobOffers);
-      }
-   }, [jobOffers]);
+      filterOffers(searchForJobTitle, searchForLocation);
+   }, [selectedJobTypes]);
 
    return (
       <div className={styles.container}>
