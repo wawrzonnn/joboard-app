@@ -1,8 +1,14 @@
+@import '../../styles.module.scss';
+
 .wrapper {
    display: flex;
    align-items: flex-end;
    gap: 10px;
    min-width: 115px;
+   @include mobile {
+      height: 36px;
+      min-width: 135px;
+   }
 }
 
 .checkbox {

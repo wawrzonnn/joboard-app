@@ -5,15 +5,19 @@ const cx = classNames.bind(styles);
 
 interface FiltersButtonProps {
    onToggle?: () => void;
+   onClick?: () => void;
 }
 
-export const FiltersButton = ({ onToggle }: FiltersButtonProps) => {
+export const FiltersButton = ({ onToggle, onClick }: FiltersButtonProps) => {
    const [isToggled, setIsToggled] = useState(false);
 
    const handleToggle = () => {
       setIsToggled(!isToggled);
       if (onToggle) {
          onToggle();
+      }
+      if (onClick) {
+         onClick(); 
       }
    };
 

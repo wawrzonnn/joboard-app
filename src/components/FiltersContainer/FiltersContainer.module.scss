@@ -2,6 +2,7 @@
 
 .container {
    padding: 0 40px;
+   position: relative;
    @include mobile {
       padding: 0 5px;
    }
@@ -11,6 +12,10 @@
    display: flex;
    justify-content: space-between;
    align-items: center;
+}
+
+.header_mobile_padding {
+   padding-bottom: 40px;
 }
 
 .header_mobile button {
@@ -25,7 +30,12 @@
    border: 1px solid var(--gray-light, #dadada);
    background: var(--white, #fff);
    @include mobile {
-      display: none;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      z-index: 999;
+      width: 100%;
+      margin-top: 20px;
    }
 }
 .header {
@@ -53,4 +63,8 @@
    font-weight: 500;
    padding: 0;
    border: none;
+}
+
+.hidden {
+   display: none;
 }
