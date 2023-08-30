@@ -19,11 +19,17 @@ export const OffersList = ({
    onClearFilters,
    searchForLocation,
 }: OffersListProps) => {
+   const [selectedOffer, setSelectedOffer] = useState<JobOffer | null>(null);
    const [showJobOfferModal, setShowJobOfferModal] = useState<boolean>(false);
 
-   const handleShowJobOfferModal = () => {
-      setShowJobOfferModal(!showJobOfferModal);
+   const handleShowJobOfferModal = (offer: JobOffer) => {
+      setSelectedOffer(offer);
+      setShowJobOfferModal(true);
    };
+
+   const handleCloseJobOfferModal = () => {
+      setShowJobOfferModal(false)
+   }
    return (
       <div className={styles.container}>
          <span className={styles.offers_counter}>
@@ -39,7 +45,7 @@ export const OffersList = ({
                <li
                   key={offer._id}
                   className={styles.list_element}
-                  onClick={handleShowJobOfferModal}
+                  onClick={() => handleShowJobOfferModal(offer)}
                >
                   <div className={styles.job_title_wrapper}>
                      <img
@@ -87,7 +93,7 @@ export const OffersList = ({
                </li>
             ))}
          </ul>
-         {showJobOfferModal && <JobOfferModal onClick={handleShowJobOfferModal} />}
+         {showJobOfferModal && <JobOfferModal offer={selectedOffer} onClick={handleCloseJobOfferModal} />}
       </div>
    );
 };
