@@ -42,9 +42,7 @@ const JobDetailsList = ({ offer }: JobDetailsListProps) => {
          </li>
          <li className={styles.list_element_salary}>
             <span className={styles.list_element_header}>Salary</span>
-            <p className={styles.data_item}>
-               {offer.salaryFrom} – {offer.salaryTo} {offer.currency} net
-            </p>
+            <p className={styles.data_item}>{offer.salaryFrom} – {offer.salaryTo} {offer.currency} net</p>
          </li>
       </ul>
    );

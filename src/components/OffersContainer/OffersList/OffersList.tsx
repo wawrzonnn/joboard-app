@@ -26,15 +26,17 @@ export const OffersList = ({
    const { data: jobOffers, isLoading } = useQuery('jobOffers', fetchJobOffers);
 
    if (isLoading) {
-       return <span>Loading...</span>;
+      return <span>Loading...</span>;
    }
    const handleShowJobOfferModal = (offer: JobOffer) => {
       setSelectedOffer(offer);
       setShowJobOfferModal(true);
+      document.body.style.overflow = 'hidden';
    };
 
    const handleCloseJobOfferModal = () => {
       setShowJobOfferModal(false);
+      document.body.style.overflow = 'auto';
    };
    return (
       <div className={styles.container}>
