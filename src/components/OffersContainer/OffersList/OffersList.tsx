@@ -5,6 +5,8 @@ import { ClearButton } from '../../ClearButton/ClearButton';
 import { JobOffer } from '../../../api/types';
 import { formatDistanceToNow } from 'date-fns';
 import { JobOfferModal } from '../../JobOfferModal/JobOfferModal';
+import { useQuery } from 'react-query';
+import { fetchJobOffers } from '../../../api/jobOffers';
 
 interface OffersListProps {
    offers: JobOffer[];
@@ -21,7 +23,11 @@ export const OffersList = ({
 }: OffersListProps) => {
    const [selectedOffer, setSelectedOffer] = useState<JobOffer | null>(null);
    const [showJobOfferModal, setShowJobOfferModal] = useState<boolean>(false);
+   const { data: jobOffers, isLoading } = useQuery('jobOffers', fetchJobOffers);
 
+   if (isLoading) {
+       return <span>Loading...</span>;
+   }
    const handleShowJobOfferModal = (offer: JobOffer) => {
       setSelectedOffer(offer);
       setShowJobOfferModal(true);
