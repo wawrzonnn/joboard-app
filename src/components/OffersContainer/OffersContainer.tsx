@@ -3,7 +3,7 @@ import styles from './OffersContainer.module.scss';
 import { SearchInput } from '../SearchInput/SearchInput';
 import { SearchIcon } from '../../assets/icons/Search';
 import { MarkerIcon } from '../../assets/icons/Marker';
-import { OffersList } from '../OffersList/OffersList';
+import { OffersList } from './OffersList/OffersList';
 import { useQuery } from 'react-query';
 import { JobOffer, suggestionType } from '../../api/types';
 import { fetchJobOffers } from '../../api/jobOffers';

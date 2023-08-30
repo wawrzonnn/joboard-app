@@ -1,0 +1,133 @@
+.container {
+   position: fixed;
+   width: 57%;
+   height: 85%;
+   background: var(--white, #fff);
+   z-index: 999;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   border-radius: 5px;
+   border: 1px solid var(--gray-light, #dadada);
+   padding: 60px;
+}
+
+.xmark {
+   position: absolute;
+   top: 20px;
+   right: 20px;
+   cursor: pointer;
+}
+
+.job_title_wrapper {
+   display: flex;
+   align-items: center;
+   gap: 20px;
+}
+
+.header_wrapper {
+   display: flex;
+   flex-direction: column;
+   gap: 16px;
+}
+
+.job_title {
+   color: #000;
+   font-family: Poppins;
+   font-size: 28px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 100%;
+}
+
+.company_logo_desktop {
+   width: 80px;
+   height: 80px;
+}
+
+.tech_stack {
+   color: var(--gray-dark, #545454);
+   font-family: Poppins;
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 130%;
+}
+
+.content_container {
+   display: flex;
+   gap: 15px;
+   height: 100%;
+   width: 100%;
+   padding-bottom: 10.5%;
+   margin: 20px 0;
+}
+
+.description_wrapper {
+   display: block;
+   width: 65%;
+   height: 100%;
+   padding: 20px;
+   background: var(--gray-lightest, #f8f8f8);
+   overflow-y: auto;
+   &::-webkit-scrollbar {
+      display: none;
+   }
+}
+
+.description_title {
+   display: block;
+   color: var(--gray-dark, #545454);
+   font-family: Poppins;
+   font-size: 20px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 130%;
+   letter-spacing: -0.4px;
+   padding: 20px 0;
+}
+
+.data_wrapper {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.description_text {
+   color: var(--gray-dark, #545454);
+   font-family: Poppins;
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 170%;
+}
+
+.visit_offer_button {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 252px;
+   padding: 10px 25px;
+   justify-content: center;
+   align-items: center;
+   border-radius: 28px;
+   background: var(--accent-strong, #552882);
+   color: #fff;
+   font-family: Poppins;
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 100%;
+   border: none;
+   outline: none;
+   cursor: pointer;
+   margin: 10px 25px;
+}
+
+.button_wrapper {
+    background: var(--gray-lightest, #F8F8F8);
+    a {
+        text-decoration: none;
+    }
+}

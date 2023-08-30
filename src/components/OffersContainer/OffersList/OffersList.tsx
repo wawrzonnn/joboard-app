@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './OffersList.module.scss';
-import companyLogo from '../../assets/images/companyLogo.jpg';
-import { ClearButton } from '../ClearButton/ClearButton';
-import { JobOffer } from '../../api/types';
+import companyLogo from '../../../assets/images/companyLogo.jpg';
+import { ClearButton } from '../../ClearButton/ClearButton';
+import { JobOffer } from '../../../api/types';
 import { formatDistanceToNow } from 'date-fns';
+import { JobOfferModal } from '../../JobOfferModal/JobOfferModal';
 
 interface OffersListProps {
    offers: JobOffer[];
@@ -18,6 +19,11 @@ export const OffersList = ({
    onClearFilters,
    searchForLocation,
 }: OffersListProps) => {
+   const [showJobOfferModal, setShowJobOfferModal] = useState<boolean>(false);
+
+   const handleShowJobOfferModal = () => {
+      setShowJobOfferModal(!showJobOfferModal);
+   };
    return (
       <div className={styles.container}>
          <span className={styles.offers_counter}>
@@ -30,7 +36,11 @@ export const OffersList = ({
          </span>
          <ul className={styles.list}>
             {offers.map((offer) => (
-               <li key={offer._id} className={styles.list_element}>
+               <li
+                  key={offer._id}
+                  className={styles.list_element}
+                  onClick={handleShowJobOfferModal}
+               >
                   <div className={styles.job_title_wrapper}>
                      <img
                         className={styles.company_logo_desktop}
@@ -77,6 +87,7 @@ export const OffersList = ({
                </li>
             ))}
          </ul>
+         {showJobOfferModal && <JobOfferModal onClick={handleShowJobOfferModal} />}
       </div>
    );
 };
