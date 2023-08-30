@@ -5,6 +5,8 @@ import { ClearButton } from '../../ClearButton/ClearButton';
 import { JobOffer } from '../../../api/types';
 import { formatDistanceToNow } from 'date-fns';
 import { JobOfferModal } from '../../JobOfferModal/JobOfferModal';
+import { useQuery } from 'react-query';
+import { fetchJobOffers } from '../../../api/jobOffers';
 
 interface OffersListProps {
    offers: JobOffer[];
@@ -19,10 +21,20 @@ export const OffersList = ({
    onClearFilters,
    searchForLocation,
 }: OffersListProps) => {
+   const [selectedOffer, setSelectedOffer] = useState<JobOffer | null>(null);
    const [showJobOfferModal, setShowJobOfferModal] = useState<boolean>(false);
+   const { data: jobOffers, isLoading } = useQuery('jobOffers', fetchJobOffers);
 
-   const handleShowJobOfferModal = () => {
-      setShowJobOfferModal(!showJobOfferModal);
+   if (isLoading) {
+       return <span>Loading...</span>;
+   }
+   const handleShowJobOfferModal = (offer: JobOffer) => {
+      setSelectedOffer(offer);
+      setShowJobOfferModal(true);
+   };
+
+   const handleCloseJobOfferModal = () => {
+      setShowJobOfferModal(false);
    };
    return (
       <div className={styles.container}>
@@ -39,7 +51,7 @@ export const OffersList = ({
                <li
                   key={offer._id}
                   className={styles.list_element}
-                  onClick={handleShowJobOfferModal}
+                  onClick={() => handleShowJobOfferModal(offer)}
                >
                   <div className={styles.job_title_wrapper}>
                      <img
@@ -87,7 +99,9 @@ export const OffersList = ({
                </li>
             ))}
          </ul>
-         {showJobOfferModal && <JobOfferModal onClick={handleShowJobOfferModal} />}
+         {showJobOfferModal && (
+            <JobOfferModal offer={selectedOffer} onClick={handleCloseJobOfferModal} />
+         )}
       </div>
    );
 };
