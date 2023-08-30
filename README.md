@@ -23,3 +23,6 @@ This project is a job board for tech people.
 - Preview specific job offer with details (benefits, salary ranges, etc.)
 - Fetch job postings from an external API
 - Implement responsive design for the job board
+
+### LIVE
+<a href=https://joboard-app-five.vercel.app/>Click</a>
