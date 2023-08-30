@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styles from './FilterSection.module.scss';
-import { Checkbox } from '../Checkbox/Checkbox';
+import { Checkbox } from '../../Checkbox/Checkbox';
 
 interface FilterSectionProps {
    title: string;

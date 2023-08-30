@@ -37,6 +37,9 @@
       width: 100%;
       margin-top: 20px;
    }
+   @include desktop {
+      display: block !important;
+   }
 }
 .header {
    display: flex;
