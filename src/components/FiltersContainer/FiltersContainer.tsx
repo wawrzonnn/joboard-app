@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styles from './FiltersContainer.module.scss';
 import { Logo } from '../Logo/Logo';
-import { FilterSection } from '../FilterSection/FilterSection';
-import { FilterSectionSalary } from '../FilterSectionSalary/FilterSectionSalary';
+import { FilterSection } from './FilterSection/FilterSection';
+import { FilterSectionSalary } from './FilterSectionSalary/FilterSectionSalary';
 import { ClearButton } from '../ClearButton/ClearButton';
-import FiltersButton from '../FiltersButton/FiltersButton';
+import FiltersButton from './FiltersButton/FiltersButton';
 import { JobType, Seniority, WorkLocation } from '../../api/types';
 import { useFilters } from '../../contexts/FilterContext';
 import classNames from 'classnames/bind';
@@ -37,14 +37,13 @@ export const FiltersContainer = () => {
 
    const getMobileMenuClasses = cx({
       [styles.filters_wrapper]: true,
-      [styles.hidden]: !openMenu
+      [styles.hidden]: !openMenu,
    });
 
    const getMobileHeaderClasses = cx({
       [styles.header_mobile]: true,
-      [styles.header_mobile_padding]: openMenu
+      [styles.header_mobile_padding]: openMenu,
    });
-
 
    return (
       <div className={styles.container}>

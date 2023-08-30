@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.scss';
+import styles from './App.module.scss';
 import { Container } from './components/Container/Container';
 import { FiltersContainer } from './components/FiltersContainer/FiltersContainer';
 import { OffersContainer } from './components/OffersContainer/OffersContainer';
@@ -11,7 +11,7 @@ function App() {
    return (
       <QueryClientProvider client={queryClient}>
          <Container>
-            <div className="container">
+            <div className={styles.container}>
                <FilterProvider>
                   <FiltersContainer />
                   <OffersContainer />
