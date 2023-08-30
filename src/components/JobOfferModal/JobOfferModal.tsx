@@ -14,17 +14,20 @@ export const JobOfferModal = ({ offer, onClick }: JobOfferModalProps) => {
 
    return (
       <div className={styles.container}>
-         <div className={styles.xmark} onClick={onClick}>
-            <XMark />
-         </div>
-         <div className={styles.job_title_wrapper}>
-            <img className={styles.company_logo_desktop} src={companyLogo} alt="company logo" />
-            <div className={styles.header_wrapper}>
-               <span className={styles.job_title}>{offer.title}</span>
-               <p className={styles.tech_stack}>{offer.technologies.join('・').toUpperCase()}</p>
+         <div className={styles.huj}>
+            <img className={styles.company_logo_mobile} src={companyLogo} alt="company logo" />
+            <div className={styles.xmark} onClick={onClick}>
+               <XMark />
+            </div>
+            <div className={styles.job_title_wrapper}>
+               <img className={styles.company_logo_desktop} src={companyLogo} alt="company logo" />
+               <div className={styles.header_wrapper}>
+                  <span className={styles.job_title}>{offer.title}</span>
+                  <p className={styles.tech_stack}>{offer.technologies.join('・').toUpperCase()}</p>
+               </div>
             </div>
          </div>
-         <section className={styles.content_container}>
+         <div className={styles.content_container}>
             <div className={styles.description_wrapper}>
                <span className={styles.description_title}>{offer.title}</span>
                <p className={styles.description_text}>{offer.description}</p>
@@ -32,12 +35,12 @@ export const JobOfferModal = ({ offer, onClick }: JobOfferModalProps) => {
             <div className={styles.data_wrapper}>
                <div className={styles.button_wrapper}>
                   <a href={offer.offerUrl}>
-                     <button className={styles.visit_offer_button}>Visit offer ➔</button>
+                     <button className={styles.visit_offer_button}><span>Visit offer ➔</span></button>
                   </a>
                </div>
                <JobDetailsList offer={offer} />
             </div>
-         </section>
+         </div>
       </div>
    );
 };
