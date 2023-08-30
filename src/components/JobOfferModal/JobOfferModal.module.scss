@@ -88,10 +88,10 @@
 }
 
 .data_wrapper {
-    background: white;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+   background: white;
+   display: flex;
+   flex-direction: column;
+   gap: 18px;
 }
 
 .description_text {
@@ -126,8 +126,8 @@
 }
 
 .button_wrapper {
-    background: var(--gray-lightest, #F8F8F8);
-    a {
-        text-decoration: none;
-    }
+   background: var(--gray-lightest, #f8f8f8);
+   a {
+      text-decoration: none;
+   }
 }
