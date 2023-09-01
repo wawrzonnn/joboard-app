@@ -29,7 +29,7 @@
    position: relative;
 
    &:focus {
-      outline-width: 0; 
+      outline-width: 0;
       box-shadow: none;
       border-color: transparent;
       border-bottom: none;
@@ -43,10 +43,9 @@
    }
 }
 .input {
-
-   border: 0 !important; 
-   border-width: 0 !important; 
-   border-style: none !important; 
+   border: 0 !important;
+   border-width: 0 !important;
+   border-style: none !important;
    -webkit-appearance: none;
    -moz-appearance: none;
    appearance: none;
