@@ -2,7 +2,7 @@
 
 .container {
    background: var(--gray-lightest, #f8f8f8);
-   padding: 40px;
+   padding: 0 40px;
    @include mobile {
       padding: 0 15px;
    }
@@ -10,8 +10,8 @@
 
 .list {
    position: absolute;
-   top: 20%;
-   height: 75%;
+   top: 15%;
+   height: 80%;
    overflow-y: scroll;
    margin-top: 16px;
    list-style: none;
