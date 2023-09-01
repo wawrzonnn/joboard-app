@@ -67,7 +67,7 @@ export const SearchInput = ({
                onFocus={handleFocus}
             />
             <span className={styles.icon}>{icon}</span>
-            {showSuggestions && (
+            {showSuggestions && suggestions.length > 0 && (
                <ul className={styles.suggestions}>
                   {suggestions.map((offer) => (
                      <li
