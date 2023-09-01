@@ -27,13 +27,29 @@
    font-weight: 500;
    line-height: 100%;
    position: relative;
-}
 
-.input {
+   &:focus {
+      outline-width: 0; 
+      box-shadow: none;
+      border-color: transparent;
+      border-bottom: none;
+      border: none;
+      outline: none;
+   }
+
    @include mobile {
       box-shadow: none;
       min-width: 100px;
    }
+}
+.input {
+
+   border: 0 !important; 
+   border-width: 0 !important; 
+   border-style: none !important; 
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
 }
 
 .icon_wrapper {
@@ -50,7 +66,7 @@
    display: flex;
    flex-direction: column;
    list-style: none;
-   border: 1px solid var(--gray-light, #dadada);
+   border: 2px solid var(--gray-light, #dadada);
    background: var(--white, #fff);
    max-height: 186px;
    overflow-y: auto;
@@ -58,6 +74,7 @@
    top: 100%;
    left: 0;
    width: 100%;
+   z-index: 2;
    scrollbar-width: none;
    -ms-overflow-style: none;
    &::-webkit-scrollbar {
@@ -69,10 +86,13 @@
 }
 
 .suggestions li {
-   border: 1px solid var(--gray-light, #dadada);
+   border-top: 1px solid var(--gray-light, #dadada);
    background: var(--white, #fff);
    cursor: pointer;
-   z-index: 999;
+   z-index: 1002;
+   &:first-child {
+      border-top: none;
+   }
 
    .suggestion_content {
       padding: 15px;

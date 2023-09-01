@@ -2,14 +2,17 @@
 
 .container {
    background: var(--gray-lightest, #f8f8f8);
-   padding: 0 40px;
-   position: relative;
+   padding: 40px;
    @include mobile {
       padding: 0 15px;
    }
 }
 
 .list {
+  position: absolute;
+  top: 20%;
+   height: 75%;
+   overflow-y: scroll;
    margin-top: 16px;
    list-style: none;
    background: var(--gray-lightest, #f8f8f8);
@@ -164,7 +167,6 @@
    @include mobile {
       display: flex;
       flex-direction: row;
-
    }
    @include desktop {
       display: flex;

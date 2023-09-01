@@ -1,5 +1,10 @@
 @import '../../styles.module.scss';
 
+.container {
+   background: var(--gray-lightest, #f8f8f8);
+   height: 100vh;
+}
+
 .inputs_wrapper {
    display: flex;
    justify-content: space-between;

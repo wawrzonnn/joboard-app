@@ -3,7 +3,7 @@
 .container {
    position: fixed;
    width: 57%;
-   height: 85%;
+   max-height: 85%;
    background: var(--white, #fff);
    z-index: 999;
    top: 50%;
@@ -22,7 +22,15 @@
       flex-direction: column;
    }
 }
-
+.modal_overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.2);
+   z-index: 998; 
+}
 .xmark {
    position: absolute;
    top: 20px;
@@ -101,6 +109,8 @@
    width: 65%;
    padding: 20px;
    background: var(--gray-lightest, #f8f8f8);
+   max-height: 560px;
+   overflow-y: auto;
    &::-webkit-scrollbar {
       display: none;
    }
@@ -176,7 +186,6 @@
 .button_wrapper {
    display: flex;
    justify-content: center;
-   flex-grow: 1;
    background: var(--gray-lightest, #f8f8f8);
    a {
       text-decoration: none;
@@ -186,3 +195,4 @@
       justify-content: center;
    }
 }
+
