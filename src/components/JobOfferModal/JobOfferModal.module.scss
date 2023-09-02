@@ -4,6 +4,7 @@
    position: fixed;
    width: 57%;
    max-height: 85%;
+   overflow-y: auto;
    background: var(--white, #fff);
    z-index: 999;
    top: 50%;
