@@ -88,10 +88,10 @@ export const OffersList = ({
                                  </p>
                                  <p className={styles.single_info}>{offer.seniority}</p>
                               </div>
-                              <p className={styles.salary}>
-                                 {offer.salaryFrom} – {offer.salaryTo} {offer.currency} net
-                              </p>
                            </div>
+                           <p className={styles.salary}>
+                              {offer.salaryFrom} – {offer.salaryTo} {offer.currency} net
+                           </p>
                         </div>
                      </div>
                   </div>
