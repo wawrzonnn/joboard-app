@@ -11,5 +11,6 @@
    position: fixed;
    @include mobile {
       flex-direction: column;
+      position: relative;
    }
 }
