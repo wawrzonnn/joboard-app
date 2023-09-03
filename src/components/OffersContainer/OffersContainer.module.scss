@@ -14,6 +14,6 @@
    background: var(--gray-lightest, #f8f8f8);
    @include mobile {
       flex-direction: column;
-      padding: 40px 15px;
+      padding: 40px 10px;
    }
 }
