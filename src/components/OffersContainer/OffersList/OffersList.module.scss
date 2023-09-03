@@ -61,6 +61,7 @@
 .company_logo_mobile {
    @include mobile {
       height: 100%;
+      margin-bottom: 40px;
    }
    @include desktop {
       display: none;
@@ -87,6 +88,7 @@
    display: flex;
    gap: 15px;
    @include mobile {
+      position: relative;
       margin-top: 15px;
    }
 }
@@ -142,8 +144,9 @@
    line-height: 100%;
    margin-left: 15px;
    @include mobile {
-      margin-left: -225px;
-      margin-top: 80px;
+      position: absolute;
+      bottom: 0;
+      left: -15px;
    }
 }
 
