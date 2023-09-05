@@ -8,7 +8,6 @@
 
 .container {
    display: flex;
-   position: fixed;
    @include mobile {
       flex-direction: column;
       position: relative;

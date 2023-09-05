@@ -3,8 +3,12 @@
 .container {
    padding: 0 40px;
    background-color: white;
+   overflow-y: auto;
+   height: 100%;
+   position: relative;
    @include mobile {
       padding: 0 15px;
+      overflow-y: visible;
    }
 }
 
