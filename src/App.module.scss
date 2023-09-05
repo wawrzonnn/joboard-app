@@ -1,5 +1,6 @@
 @import './styles.module.scss';
 
+
 * {
    margin: 0;
    padding: 0;
@@ -8,7 +9,6 @@
 
 .container {
    display: flex;
-   position: fixed;
    @include mobile {
       flex-direction: column;
       position: relative;
