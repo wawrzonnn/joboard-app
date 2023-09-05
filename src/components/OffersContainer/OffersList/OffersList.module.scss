@@ -4,7 +4,7 @@
    background: var(--gray-lightest, #f8f8f8);
    padding: 0 40px;
    position: relative;
-height: 100vh;
+   height: 100vh;
    @include mobile {
       padding: 10px;
    }
@@ -21,8 +21,8 @@ height: 100vh;
    border: none;
    @include mobile {
       position: relative;
-      height: 100%;
-      overflow-y: visible;
+      max-height: 800px;
+      overflow-y: auto;
       padding-bottom: 30px;
    }
 }
