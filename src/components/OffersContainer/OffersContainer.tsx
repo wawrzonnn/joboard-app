@@ -93,6 +93,7 @@ export const OffersContainer = () => {
 
    useEffect(() => {
       filterOffers(searchForJobTitle, searchForLocation);
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [jobOffers, selectedJobTypes, selectedSeniority, selectedLocation, selectedSalary]);
 
    return (

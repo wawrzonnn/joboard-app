@@ -1,5 +1,7 @@
+
 import React from 'react';
 import styles from './JobOfferModal.module.scss';
+import Image from 'next/image'
 import companyLogo from '../../assets/images/companyLogo.jpg';
 import { XMark } from '../../assets/icons/XMark';
 import JobDetailsList from './JobDetailsList/JobDetailsList';
@@ -17,12 +19,12 @@ export const JobOfferModal = ({ offer, onClick }: JobOfferModalProps) => {
          <div className={styles.modal_overlay} onClick={onClick}></div>
          <div className={styles.container}>
             <div>
-               <img className={styles.company_logo_mobile} src={companyLogo} alt="company logo" />
+               <Image className={styles.company_logo_mobile} src={companyLogo} alt="company logo"/>
                <div className={styles.xmark} onClick={onClick}>
                   <XMark />
                </div>
                <div className={styles.job_title_wrapper}>
-                  <img
+               <Image
                      className={styles.company_logo_desktop}
                      src={companyLogo}
                      alt="company logo"
