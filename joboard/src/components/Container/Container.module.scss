@@ -1,0 +1,10 @@
+@import '../../styles.module.scss';
+
+.container {
+   max-width: 1440px;
+   margin: 0 auto;
+   padding: 0 5rem;
+   @include mobile {
+      padding: 0;
+   }
+}

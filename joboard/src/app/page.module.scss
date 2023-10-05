@@ -1,0 +1,9 @@
+@import '../styles.module.scss';
+
+.container {
+   display: flex;
+   @include mobile {
+      flex-direction: column;
+      position: relative;
+   }
+}

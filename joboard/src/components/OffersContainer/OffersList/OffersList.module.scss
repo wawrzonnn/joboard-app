@@ -1,0 +1,193 @@
+@import '../../../styles.module.scss';
+
+.container {
+   background: var(--gray-lightest, #f8f8f8);
+   padding: 0 40px;
+   position: relative;
+   height: 100vh;
+   @include mobile {
+      padding: 10px;
+   }
+}
+
+.list {
+   position: absolute;
+   top: 0%;
+   margin-top: 35px;
+   height: 80%;
+   overflow-y: auto;
+   list-style: none;
+   background: var(--gray-lightest, #f8f8f8);
+   border: none;
+   @include mobile {
+      position: relative;
+      max-height: 800px;
+      overflow-y: auto;
+      margin-top: 15px;
+   }
+}
+
+.offers_counter {
+   color: var(--gray-darkest, #212121);
+   font-family: Poppins;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 100%;
+   letter-spacing: -0.8px;
+   button {
+      margin-left: 10px;
+   }
+}
+
+.list_element {
+   min-width: 800px;
+   background-color: white;
+   padding: 24px;
+   display: flex;
+   justify-content: space-between;
+   border-radius: 5px;
+   border: 1px solid var(--gray-light, #dadada);
+   margin-bottom: 8px;
+   cursor: pointer;
+   @include mobile {
+      min-width: 200px;
+      position: relative;
+   }
+}
+.company_logo_desktop {
+   @include mobile {
+      display: none;
+   }
+}
+
+.company_logo_mobile {
+   @include mobile {
+      height: 100%;
+      margin-bottom: 40px;
+   }
+   @include desktop {
+      display: none;
+   }
+}
+
+.job_title_wrapper {
+   display: flex;
+   gap: 25px;
+}
+
+.job_title {
+   color: var(--gray-darkest, #212121);
+   font-family: 'Poppins', sans-serif;
+   font-size: 20px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 130%;
+   letter-spacing: -0.4px;
+}
+
+.info_wrapper {
+   margin-top: 5px;
+   display: flex;
+   gap: 15px;
+   @include mobile {
+      position: relative;
+      margin-top: 15px;
+   }
+}
+
+.single_info {
+   color: var(--gray-dark, #545454);
+   font-family: 'Poppins', sans-serif;
+   font-size: 12px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 100%;
+   padding: 0 15px;
+   border-right: 1px solid #dadada;
+   @include mobile {
+      border-right: none;
+      padding: 0;
+      white-space: nowrap;
+      width: 100%;
+   }
+}
+
+.company_name {
+   color: var(--gray-darkest, #212121);
+   font-family: 'Poppins', sans-serif;
+   font-size: 12px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 100%;
+   padding-right: 15px;
+   border-right: 1px solid #dadada;
+   @include mobile {
+      padding-right: 0;
+      white-space: nowrap;
+      width: 100%;
+   }
+}
+
+.single_info_mobile {
+   @include mobile {
+      border-right: 1px solid #dadada;
+      padding-right: 15px;
+      margin-right: 15px;
+      width: 100%;
+   }
+}
+
+.salary {
+   color: var(--accent, #9564d4);
+   font-family: 'Poppins', sans-serif;
+   font-size: 12px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 100%;
+   margin-left: 15px;
+   @include mobile {
+      position: absolute;
+      bottom: 0;
+      left: -15px;
+   }
+}
+
+.offer_date {
+   color: var(--gray-dark, #545454);
+   text-align: right;
+   font-family: 'Poppins', sans-serif;
+   font-size: 12px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 100%;
+   @include mobile {
+      position: absolute;
+      bottom: 25px;
+      right: 10px;
+   }
+}
+
+.mobile_info_wrapper {
+   @include mobile {
+      display: flex;
+      flex-direction: column;
+      height: 45px;
+      justify-content: space-between;
+   }
+   @include desktop {
+      display: flex;
+      flex-direction: row;
+   }
+}
+
+.mobile_info_box {
+   @include mobile {
+      display: flex;
+      flex-direction: row;
+   }
+   @include desktop {
+      display: flex;
+      flex-direction: row;
+   }
+}
