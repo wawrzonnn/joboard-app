@@ -6,23 +6,31 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "scrap:offers": "ts-node ./src/scripts/runScraper.ts"
   },
   "dependencies": {
     "@next/font": "^13.5.4",
+    "@types/puppeteer": "^7.0.4",
     "classnames": "^2.3.2",
+    "csv-writer": "^1.6.0",
     "date-fns": "^2.30.0",
     "next": "13.5.4",
+    "puppeteer": "^21.3.7",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-query": "^3.39.3",
     "sass": "^1.68.0",
-    "sharp": "^0.32.6"
+    "sharp": "^0.32.6",
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/yargs": "^17.0.26",
     "eslint": "^8",
     "eslint-config-next": "13.5.4",
     "typescript": "^5"
