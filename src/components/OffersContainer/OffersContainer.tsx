@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect } from 'react';
 import styles from './OffersContainer.module.scss';
 import { SearchInput } from '../SearchInput/SearchInput';

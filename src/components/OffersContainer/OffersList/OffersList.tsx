@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import styles from './OffersList.module.scss';
 import companyLogo from '../../../assets/images/companyLogo.jpg';
 import { ClearButton } from '../../ClearButton/ClearButton';
@@ -56,18 +57,22 @@ export const OffersList = ({
                   onClick={() => handleShowJobOfferModal(offer)}
                >
                   <div className={styles.job_title_wrapper}>
-                     <img
+                     <Image
                         className={styles.company_logo_desktop}
-                        src={companyLogo}
-                        alt="company logo"
+                        src="/src/assets/images/companyLogo.jpg"
+                        alt="company logo" 
+                        width={100}
+                        height={100}
                      />
                      <div>
                         <span className={styles.job_title}>{offer.title}</span>
                         <div className={styles.info_wrapper}>
-                           <img
+                           <Image
                               className={styles.company_logo_mobile}
-                              src={companyLogo}
-                              alt="company logo"
+                              src="/src/assets/images/companyLogo.jpg"
+                              alt="company logo" 
+                              width={100}
+                              height={100}
                            />
                            <div className={styles.mobile_info_wrapper}>
                               <div className={styles.mobile_info_box}>
