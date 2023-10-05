@@ -21,7 +21,7 @@
    justify-content: center;
    flex-grow: 1;
    color: var(--gray-dark, #545454);
-   font-family: Poppins;
+   font-family: 'Poppins', sans-serif;
    font-size: 14px;
    font-style: normal;
    font-weight: 500;
@@ -100,7 +100,7 @@
       justify-content: space-between;
       align-items: center;
       color: var(--gray-dark, #545454);
-      font-family: Poppins;
+      font-family: 'Poppins', sans-serif;
       font-size: 14px;
       font-style: normal;
       font-weight: 500;
@@ -110,7 +110,7 @@
    .company_name {
       color: var(--gray-dark, #545454);
       text-align: right;
-      font-family: Poppins;
+      font-family: 'Poppins', sans-serif;
       font-size: 12px;
       font-style: normal;
       font-weight: 400;

@@ -1,10 +1,4 @@
-@import './styles.module.scss';
-
-* {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-}
+@import '../styles.module.scss';
 
 .container {
    display: flex;
