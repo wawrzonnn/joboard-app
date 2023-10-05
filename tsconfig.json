@@ -15,7 +15,7 @@
     "target": "ES2019",
     "module": "commonjs",
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": "./",
     "esModuleInterop": true,
     "sourceMap": true,
     "plugins": [
