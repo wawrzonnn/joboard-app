@@ -53,7 +53,7 @@ export const scrapeOffers = async (searchTerm: string, limit: number = 10) => {
         Salary_From: offer.salaryFrom,
         Salary_To: offer.salaryTo,
         Currency: offer.currency,
-        Offer_URL: offer.offerURL,
+        // Offer_URL: offer.offerURL,
         Technologies: offer.technologies,
         Added_At: offer.addedAt
     }));
@@ -68,7 +68,7 @@ export const scrapeOffers = async (searchTerm: string, limit: number = 10) => {
         console.log('Salary From:', offer.salaryFrom);
         console.log('SalaryTo:', offer.salaryTo);
         console.log('Currency:', offer.currency);
-        console.log('OfferURL:', offer.offerURL);
+        // console.log('OfferURL:', offer.offerURL);
         console.log('technologies:', offer.technologies);
         console.log('addedAt:', offer.addedAt);
         console.log('----------');

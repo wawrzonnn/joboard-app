@@ -44,13 +44,13 @@ export class ScraperBulldogJob extends ScraperBase {
 		const jobOffersLiElements = await this.page.$$('.container a')
 		const offers = await Promise.all(
 			jobOffersLiElements.map(async offer => {
-				const [salaryText, title, description, company, technologies, offerURL] = await Promise.all([
+				const [salaryText, title, description, company, technologies, ] = await Promise.all([
 					this.extractFromElement(offer, '.text-dm div'),
 					this.extractFromElement(offer, 'div > h3'),
 					this.extractFromElement(offer, '.job-snippet'),
 					this.extractFromElement(offer, '.text-xxs'),
 					this.extractTechStackFromOffer(offer, 'span.py-2'),
-					offer.evaluate(a => a.getAttribute('href')),
+					// offer.evaluate(a => a.getAttribute('href')),
 				])
 
 				const { salaryFrom, salaryTo, currency } = await this.parseSalary(salaryText)
@@ -59,7 +59,7 @@ export class ScraperBulldogJob extends ScraperBase {
 				try {
 					if (!this.page) throw new Error('Page is null');
 					// @ts-ignore
-					await this.page.goto(offerURL, { waitUntil: 'networkidle0' as const });
+					// await this.page.goto(offerURL, { waitUntil: 'networkidle0' as const });
 					addedAt = await this.page.$eval('h1', h1 => h1.textContent ? h1.textContent.trim() : '');
 				} catch (error) {
 					console.error('error:', error)
@@ -73,7 +73,7 @@ export class ScraperBulldogJob extends ScraperBase {
 					salaryFrom,
 					salaryTo,
 					currency,
-					offerURL,
+					// offerURL,
 					technologies,
 					addedAt,
 				}
