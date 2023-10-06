@@ -10,7 +10,7 @@ export interface JobOffer {
 	salaryFrom: string
 	salaryTo: string
 	currency: string
-	offerURL: string | null;
+	// offerURL: string | null;
 	technologies: string[]
 	addedAt: string
 
