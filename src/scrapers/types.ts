@@ -5,13 +5,19 @@ export interface ScraperOptions {
 
 export interface JobOffer {
 	title: string
-	description: string
+	// description: string
 	company: string
-	salaryFrom: string
-	salaryTo: string
-	currency: string
-	// offerURL: string | null;
+	// salaryFrom: string
+	// salaryTo: string
+	// currency: string
+	offerLink: string;
 	technologies: string[]
-	addedAt: string
-
+	location: string
+	jobType: string
+	seniority: string
+	addedAt: string 
+	employmentType: string
+	salary: string
+	description: string
+	city: string
 }

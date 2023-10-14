@@ -14,12 +14,12 @@ const JobDetailsList = ({ offer }: JobDetailsListProps) => {
          <li className={styles.list_element_wrapper}>
             <span className={styles.list_element_header}>Added</span>
             <p className={styles.data_item}>
-               {formatDistanceToNow(new Date(offer.createdAt), { addSuffix: true })}
+               {offer.addedAt}
             </p>
          </li>
          <li className={styles.list_element_wrapper}>
             <span className={styles.list_element_header}>Company</span>
-            <p className={styles.data_item}>{offer.companyName}</p>
+            <p className={styles.data_item}>{offer.company}</p>
          </li>
          <li className={styles.list_element_wrapper}>
             <span className={styles.list_element_header}>Seniority</span>
@@ -28,13 +28,12 @@ const JobDetailsList = ({ offer }: JobDetailsListProps) => {
          <li className={styles.list_element_wrapper}>
             <span className={styles.list_element_header}>Location</span>
             <div className={styles.data_wrapper}>
-               <p className={styles.data_item}>{offer.city},</p>
-               <p className={styles.data_item}>{offer.country}</p>
+               <p className={styles.data_item}>{offer.location}</p>
             </div>
          </li>
          <li className={styles.list_element_wrapper}>
-            <span className={styles.list_element_header}>Job type</span>
-            <p className={styles.data_item}>{offer.workLocation}</p>
+            <span className={styles.list_element_header}>Employment Type</span>
+            <p className={styles.data_item}>{offer.employmentType}</p>
          </li>
          <li className={styles.list_element_wrapper}>
             <span className={styles.list_element_header}>Contract</span>
@@ -42,7 +41,7 @@ const JobDetailsList = ({ offer }: JobDetailsListProps) => {
          </li>
          <li className={styles.list_element_salary}>
             <span className={styles.list_element_header}>Salary</span>
-            <p className={styles.data_item}>{offer.salaryFrom} – {offer.salaryTo} {offer.currency} net</p>
+            <p className={styles.data_item}>{offer.salary}</p>
          </li>
       </ul>
    );

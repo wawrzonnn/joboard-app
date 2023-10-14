@@ -1,226 +1,268 @@
 [
   {
-    "Title": "FrontEnd Developer (Travel industry)",
-    "Description": "",
-    "Company": "Cyclad Sp. z o.o.",
-    "Salary_From": "16000",
-    "Salary_To": "28000",
-    "Currency": "PLN",
-    "Technologies": [
+    "title": "Java Developer with French/German",
+    "company": "Sollers Consulting",
+    "technologies": [
+      "Java"
+    ],
+    "addedAt": "15.09.2023",
+    "location": "Białystok",
+    "jobType": "Kontrakt B2B/Umowa o pracę",
+    "seniority": "Mid/Regular",
+    "employmentType": "Full-time",
+    "salary": "10 200 - 22 000 PLN",
+    "description": "About Software Development at Sollers:\nVersatility is the keyword when it comes to what we do in IT. Development is just the beginning of a long journey where we get familiar with business, processes, and architecture. But at the end of the day, the result is always the same: a ready-to-use solution used by everyone around us.As a Sollers developer, you'll have the opportunity to continuously expand your skill set, navigate complex challenges, and contribute to the creation of solutions that empower businesses and individuals alike. \n\n About the role. You will:\n• Implement and customise core insurance systems such as Guidewire, Salesforce, TIA or INSIS.• Develop our own systems as a part of the internal R&D team.• Design IT solutions and prepare documentation.• Create unit tests.• Work directly with our clients as an active member of an agile project team. About Software Development at Sollers: Versatility is the keyword when it comes to what we do in IT. Development is just the beginning of a long journey where we get familiar with business, processes, and architecture. But at the end of the day, the result is always the same: a ready-to-use solution used by everyone around us.As a Sollers developer, you'll have the opportunity to continuously expand your skill set, navigate complex challenges, and contribute to the creation of solutions that empower businesses and individuals alike.  About the role. You will: • Implement and customise core insurance systems such as Guidewire, Salesforce, TIA or INSIS.• Develop our own systems as a part of the internal R&D team.• Design IT solutions and prepare documentation.• Create unit tests.• Work directly with our clients as an active member of an agile project team.",
+    "city": "Białystok",
+    "offerLink": "https://bulldogjob.pl/companies/jobs/146883-java-developer-with-french-german-bialystok-gdansk-krakow-lublin-lodz-poznan-szczecin-warszawa-wroclaw-sollers-consulting"
+  },
+  {
+    "title": "IT Infrastructure (Chief) Specialist / Server Operations",
+    "company": "Skanska",
+    "technologies": [
+      "Windows Server",
+      "Hyper-V",
+      "NetBackup",
+      "VMware",
+      "PowerShell"
+    ],
+    "addedAt": "16.09.2023",
+    "location": "Kraków",
+    "jobType": "Umowa o pracę",
+    "seniority": "Junior",
+    "employmentType": "Full-time",
+    "salary": "Ask",
+    "description": "We are looking for IT Infrastructure Specialist – Server Operations fot IT Global Infrastructure (Nordics, UK, CE, USA). The person will manage IT systems and infrastructure. Within these tasks, he/she will be reporting directly to the Server Operations Manager in Skanska IT Global Infrastructure. \n\nWorkplace: preferred place of work: Kraków we are also open to other locations (remote work possible)\n\n\nProvides IT Infrastructure services in Server Operations area for Skanska Global\nInstalls and manages server Windows Server (Linux not req, but good to have)\nPerforms virtual server administration (Hyper-V and VMware)\nBacks up servers and applications (NetBackup)\nPerforms scripting (PowerShell)\nManages File service\nWorks with server hardware in our Data Center in Krakow\nPerforms system monitoring (SCOM)\nInstalls and configures network elements\nManages storage\nDocumentation of Infrastructure\nManages or prepares and implements at least one global IT project in the field of IT infrastructure We are looking for IT Infrastructure Specialist – Server Operations fot IT Global Infrastructure (Nordics, UK, CE, USA). The person will manage IT systems and infrastructure. Within these tasks, he/she will be reporting directly to the Server Operations Manager in Skanska IT Global Infrastructure.  Workplace: preferred place of work: Kraków we are also open to other locations (remote work possible) ",
+    "city": "Krakow",
+    "offerLink": "https://bulldogjob.pl/companies/jobs/146917-it-infrastructure-chief-specialist-server-operations-krakow-skanska"
+  },
+  {
+    "title": "Senior Golang Developer (eBPF Focused)",
+    "company": "On the Spot Development",
+    "technologies": [
+      "Go",
+      "eBPF",
+      "Linux"
+    ],
+    "addedAt": "19.09.2023",
+    "location": "Remote",
+    "jobType": "Kontrakt B2B",
+    "seniority": "Senior",
+    "employmentType": "Full-time",
+    "salary": "26 000 - 29 000 PLN",
+    "description": "Cycode is a complete software supply chain security solution that provides visibility, security, and integrity across all phases of the SDLC. Cycode integrates with DevOps tools and infrastructure providers, hardens their security postures by implementing consistent governance, and reduces the risk of breaches with a series of scanning engines that look for issues like hardcoded secrets, infrastructure as code misconfigurations, code leaks, and more. \nAbout the role \nCycode, a cybersecurity startup, is looking for a full-time Senior Golang Engineer (eBPF focused) to join our team. We’re an enterprise security startup pioneering the cybersecurity industry’s first-ever solution for source code control, detection, and response. \nWe officially emerged from stealth mid-2019 with backing from YL Ventures and leading cybersecurity executives and experts including Mike Fey (former president & COO of Symantec), Andy Grolnick (former president & CEO, LogRhythm), and Justin Somaini (CSO, Unity Technologies). We’ve been on a roll ever since and are ready to grow our team and reach new milestones. \nThis is an incredible opportunity to immerse yourself in the exciting world of cybersecurity and break new ground in source code security, the future of the industry. You’ll work alongside a dynamic team of experts on a passionate mission to make an impact, as well as an incredible network of legendary cybersecurity luminaries and leaders.\n\n\nDeveloping high-quality eBPF code while following open source development principles and best practices;\nActive participation in the open-source community;\nAbility to speak at public conferences about achievements. Cycode is a complete software supply chain security solution that provides visibility, security, and integrity across all phases of the SDLC. Cycode integrates with DevOps tools and infrastructure providers, hardens their security postures by implementing consistent governance, and reduces the risk of breaches with a series of scanning engines that look for issues like hardcoded secrets, infrastructure as code misconfigurations, code leaks, and more. About the role Cycode, a cybersecurity startup, is looking for a full-time Senior Golang Engineer (eBPF focused) to join our team. We’re an enterprise security startup pioneering the cybersecurity industry’s first-ever solution for source code control, detection, and response. We officially emerged from stealth mid-2019 with backing from YL Ventures and leading cybersecurity executives and experts including Mike Fey (former president & COO of Symantec), Andy Grolnick (former president & CEO, LogRhythm), and Justin Somaini (CSO, Unity Technologies). We’ve been on a roll ever since and are ready to grow our team and reach new milestones. This is an incredible opportunity to immerse yourself in the exciting world of cybersecurity and break new ground in source code security, the future of the industry. You’ll work alongside a dynamic team of experts on a passionate mission to make an impact, as well as an incredible network of legendary cybersecurity luminaries and leaders.  ",
+    "city": "Warsaw",
+    "offerLink": "https://bulldogjob.pl/companies/jobs/146993-senior-golang-developer-ebpf-focused-warszawa-krakow-poznan-lodz-gdansk-wroclaw-lublin-on-the-spot-development"
+  },
+  {
+    "title": "AI Travel Tech - Senior Node.js Engineer (Remote OR On-site)",
+    "company": "Baldur Connect",
+    "technologies": [
+      "Node.js"
+    ],
+    "addedAt": "05.10.2023",
+    "location": "Remote",
+    "jobType": "Umowa o pracę",
+    "seniority": "Senior",
+    "employmentType": "Full-time",
+    "salary": "60 000 - 80 000 EUR",
+    "description": "Having navigated the Covid Pandemic successfully, my client within the travel tech space is building a new Engineering team in Munich from scratch. Besides working on the existing web platform, you would get a chance to build new products such as an AI booking Tool to diversity their offering. \nWhat we offer\n\nCompany Pension Scheme\nAdditional Health Insurance\nAbility to work 100% remote or on site. Whatever you prefer!\nBase salary for our Senior Developers between 60,000-80,000 EUR\nFree German classes\nDiscount on our travel tech platform\nHome office as much as you need it\nThe chance to build a new team and products\nModern office and setup (should you be sick of working from home)\nFor relocators we offer a relocation package as well as a company flat option\nGym and transport ticket\nTraining Budget and career coaching\nRegular company Events\n\n\n\nSenior Web Engineer in a completely new team\nNot only code maintenance but the chance to build 4 new products and bring in your ideas to make them a hit with millions of users across the EU\nUse a modern tech stack: Node.js, JavaScript, React.js, Redux.js\nWork within an agile and continuous delivery environment\nYou can choose between a Backend focused role or a Fullstack one.\nAs part of the current growth our client are also looking to Fastrack Engineers into Team Leads, should this be of interest\nAll starters will get the chance to come and work in the UK Headquarters for an onboarding period (with current vaccine rollout this should be possible by the Summer) Having navigated the Covid Pandemic successfully, my client within the travel tech space is building a new Engineering team in Munich from scratch. Besides working on the existing web platform, you would get a chance to build new products such as an AI booking Tool to diversity their offering. What we offer ",
+    "city": "Munich",
+    "offerLink": "https://bulldogjob.pl/companies/jobs/147099-ai-travel-tech-senior-node-js-engineer-remote-or-on-site-monachium-baldur-connect"
+  },
+  {
+    "title": "Senior Software Engineer (Python Back-end AWS)",
+    "company": "Adtran Networks Sp. z o. o.",
+    "technologies": [
+      "Python",
+      "Linux",
+      "Docker",
       "Angular",
-      "TypeScript",
+      "JavaScript"
+    ],
+    "addedAt": "23.09.2023",
+    "location": "Gdynia",
+    "jobType": "Umowa o pracę",
+    "seniority": "Mid/Regular",
+    "employmentType": "Full-time",
+    "salary": "17 000 - 22 000 PLN",
+    "description": "Adtran (formerly ADVA) is looking for an outstanding Senior Software Engineer to work on its exciting new Software-as-a-Service (SaaS) product: Mosaic One. Mosaic One is a cloud-based system that aggregates information from many management and orchestration platforms, broadband access, and consumer in-home devices to produce helpful, targeted workflows for our users and AI driven insights that ensure our customers’ success.\nThe successful candidate will be responsible for designing, developing, and continually improving our product using new technologies and best agile practices, and will work closely with other engineers and stakeholders to ensure the product meets the needs of our customers.\nThe Software Engineer will be a member of a full-stack team responsible for designing, analyzing requirements, developing, implementing, testing, debugging, and maintaining software solutions for Adtran products including but not limited to the following:  application development, system software architecture, software test development, and customer assistance. Requires ability to perform engineering tasks for a major project or for projects of moderate complexity with limited direction. \n\n\nExample target projects: design or assist in the design and development of the Mosaic One SaaS product; design or assist in the design and development of CI pipeline infrastructure needed to carry out build and test requirements for Mosaic One. \nPerform or assist in high-level and low-level software design and implementation of new modules and enhancements to existing software.   \nPerform or assist in feasibility studies of needed software development.   \nDocument the design including features definition and architecture.   \nConduct and participate in design reviews and code reviews. \nPlan and perform unit and system level testing of implemented software modules and enhancements. \nHelp fix software bugs found during all testing phases. \nWork with team to deploy and test incremental software releases. \nOrganize and coordinate development activities within schedule and product constraints. \nOther projects and assignments may result and be assigned to accommodate the changing needs of the department and the Company. Adtran (formerly ADVA) is looking for an outstanding Senior Software Engineer to work on its exciting new Software-as-a-Service (SaaS) product: Mosaic One. Mosaic One is a cloud-based system that aggregates information from many management and orchestration platforms, broadband access, and consumer in-home devices to produce helpful, targeted workflows for our users and AI driven insights that ensure our customers’ success. The successful candidate will be responsible for designing, developing, and continually improving our product using new technologies and best agile practices, and will work closely with other engineers and stakeholders to ensure the product meets the needs of our customers. The Software Engineer will be a member of a full-stack team responsible for designing, analyzing requirements, developing, implementing, testing, debugging, and maintaining software solutions for Adtran products including but not limited to the following:  application development, system software architecture, software test development, and customer assistance. Requires ability to perform engineering tasks for a major project or for projects of moderate complexity with limited direction. ",
+    "city": "Gdynia",
+    "offerLink": "https://bulldogjob.pl/companies/jobs/147188-senior-software-engineer-python-back-end-aws-gdynia-adva-optical-networking-sp-z-o-o"
+  },
+  {
+    "title": "Frontend Developer (JS/TypeScript) - Germany (Relocation + VISA)",
+    "company": "Baldur Connect",
+    "technologies": [
+      "JavaScript",
+      "TypeScript"
+    ],
+    "addedAt": "05.10.2023",
+    "location": "Remote",
+    "jobType": "Umowa o pracę",
+    "seniority": "Mid/Regular",
+    "employmentType": "Full-time",
+    "salary": "Up to 80 000 EUR",
+    "description": "Did you know that Germany has 3.5 Million registered companies? Of these, only 1500 count as hidden champions. What are hidden champions you may ask? They are relatively small but highly successful companies. My client is one of them.\nThey have set out to digitize communication, which is considered a more traditional industry. With a focus on automatization, they have over 1500 customers that rely on their product. 14 of the biggest Banks in Europe and all 5 of the biggest energy providers in Germany have been using their solutions for many years.\nWith HQ in the Stuttgart area, over half of the company works in IT + Research & Development for innovative technologies. Here they have 200 Employees from over 30 different nationalities spread across 5 locations and are looking for you in order to grow their business even more. \nWhat is on offer?\n\nSponsor VISA/relocation\nFree language courses\nOwn Software Engineering Training Academy for individual development\nA family-friendly workplace with a parent-child office\nFlat hierarchies, short decision-making processes, open-door policy\nCompany canteen with employee discount on food and drinks\nJob bike, subsidized public transport (VVS), free employee parking\nEmployee events & parties\nFree Gym membership\nFree Company pension scheme and accident insurance\nHealth care package\n\n\n\nThey are looking for a Frontend Engineer with a programming experience of at least 4 years\nYou will be working on their newest and strongest growing product and be responsible for building and maintaining new features\nThe main tech stack is JavaScript and Typescript. It is also nice to have experience working with Docker, Kubernetes, and Open Shift\nYou will actively participate in agile teams (Scrum)\nMutual code reviews and pair programming, continuous integration, and refactoring\nGood knowledge of English is required Did you know that Germany has 3.5 Million registered companies? Of these, only 1500 count as hidden champions. What are hidden champions you may ask? They are relatively small but highly successful companies. My client is one of them. They have set out to digitize communication, which is considered a more traditional industry. With a focus on automatization, they have over 1500 customers that rely on their product. 14 of the biggest Banks in Europe and all 5 of the biggest energy providers in Germany have been using their solutions for many years. With HQ in the Stuttgart area, over half of the company works in IT + Research & Development for innovative technologies. Here they have 200 Employees from over 30 different nationalities spread across 5 locations and are looking for you in order to grow their business even more. What is on offer? ",
+    "city": "Stuttgart",
+    "offerLink": "https://bulldogjob.pl/companies/jobs/147086-frontend-developer-js-typescript-germany-relocation-visa-stuttgart-baldur-connect"
+  },
+  {
+    "title": "Sports Tech - React Frontend Engineer - 100% Remote OR in Germany",
+    "company": "Baldur Connect",
+    "technologies": [
       "HTML",
       "CSS",
-      "AWS"
+      "Reac"
     ],
-    "Added_At": "Oferty pracy na stanowisko Frontend Developer"
+    "addedAt": "05.10.2023",
+    "location": "Remote",
+    "jobType": "Umowa o pracę",
+    "seniority": "Mid/Regular",
+    "employmentType": "Full-time",
+    "salary": "Up to 90 000 EUR",
+    "description": "What’s on offer.\n\nSalary up to 80,000 EUR package\nGreat opportunities for personal and professional growth and an attractive working, dynamically growing, entrepreneurial environment.\nHigh-level responsibility from day one in a highly professional and vibrant IT team, with a steep learning curve, flat command structures and a friendly open-minded culture\nEveryday use of modern development tools and frameworks\nHigh degree of responsibility and autonomy\nA competitive salary combined with the opportunity to actively shape BSTN’s future.\nParticipation in conferences and events relevant to your professional and personal development\nRegular company and team events as well as a modern and spacious campus, fitness center and a bodega where you get fresh, seasonal meals.\n\n\n\nBuild new features for their high traffic E-Commerce products in the AWS cloud.\nWork with technologies such as: React, Redux, JavaScript, Vue.js, Knockout.js, node.js, AWS, git, Jenkins.\nBring in your ideas and make this Munich founded brand go global.\nKeep to best practices, work in an agile, effective, and highly autonomous team in which your opinion matters.\nHelp create new services, products, and apps from scratch.\nGive your input into what technologies should be used for their tech stack. What’s on offer. ",
+    "city": "",
+    "offerLink": "https://bulldogjob.pl/companies/jobs/147088-sports-tech-react-frontend-engineer-100-remote-or-in-germany-baldur-connect"
   },
   {
-    "Title": "Flutter Frontend Developer (m/f/x)",
-    "Description": "",
-    "Company": "Fabit",
-    "Salary_From": "unknown",
-    "Salary_To": "unknown",
-    "Currency": "unknown",
-    "Technologies": [
-      "Frontend development"
-    ],
-    "Added_At": "Oferty pracy na stanowisko Frontend Developer"
-  },
-  {
-    "Title": "Frontend Developer",
-    "Description": "",
-    "Company": "BrainForge IT",
-    "Salary_From": "unknown",
-    "Salary_To": "unknown",
-    "Currency": "unknown",
-    "Technologies": [
-      "JavaScript",
-      "React"
-    ],
-    "Added_At": "Oferty pracy na stanowisko Frontend Developer"
-  },
-  {
-    "Title": "Frontend Cloud Streaming Developer – React Immersive",
-    "Description": "",
-    "Company": "Baldur Connect",
-    "Salary_From": "5000",
-    "Salary_To": "6600",
-    "Currency": "EUR",
-    "Technologies": [
+    "title": "Digital Health – Senior JavaScript Engineer",
+    "company": "Baldur Connect",
+    "technologies": [
       "JavaScript"
     ],
-    "Added_At": "Oferty pracy na stanowisko Frontend Developer"
+    "addedAt": "10.10.2023",
+    "location": "Monachium",
+    "jobType": "Umowa o pracę",
+    "seniority": "Senior",
+    "employmentType": "Full-time",
+    "salary": "70 000 - 80 000 EUR",
+    "description": "Our VC funded client is currently building a web platform that is causing a major shift in an industry known to be outdated and conservative.\nAs part of this shift they are looking for a Senior JavaScript Engineer to join their tech team of 35 in Munich with the mission of becoming the best IT Team within their given industry.\nYour goal as an Engineer will be to help build their large, cleanly architected, modern JavaScript ecosystem. \nThe company:\n\n120 employee tech Startup with secured long-term funding\nSetup of cross-functional teams and communities (Frontend/Backend Developers, Testing, DevOps, Claims, Marketing etc.)\nAround 35 IT Staff and growing\nVery involved in the German tech community and known as using the latest technologies on the market\nVoted best employer in Germany in IT by an independent organization based on neutral interviews with the current employees\nUses some of following technologies – JavaScript, Docker, Node.js, TypeScript, PHP, redis, AWS, git, Sass, Karma-runner, Terraform, Jenkins, Go, Python, json, Microservices, dredd, firebase, behat, Postresql and many more\n\nWhat is on offer:\n\nSalary from 70,000-80,000 EUR + yearly Bonus\nCompany flat\nRemote working  \nFree Gym\nCompany Pension Scheme\nMutual feedback culture\nBest equipment on the market\nBudget for books, e-learning, conferences & coaching\nRegular Hackathons\nTravel allowance for public transportation\nRelocation support\nSupport with visa application process Our VC funded client is currently building a web platform that is causing a major shift in an industry known to be outdated and conservative. As part of this shift they are looking for a Senior JavaScript Engineer to join their tech team of 35 in Munich with the mission of becoming the best IT Team within their given industry. Your goal as an Engineer will be to help build their large, cleanly architected, modern JavaScript ecosystem. The company: What is on offer: ",
+    "city": "Munich",
+    "offerLink": "https://bulldogjob.pl/companies/jobs/147264-digital-health-senior-javascript-engineer-monachium-baldur-connect"
   },
   {
-    "Title": "Senior Software Developer",
-    "Description": "",
-    "Company": "DTP, Digital Technology Poland",
-    "Salary_From": "unknown",
-    "Salary_To": "unknown",
-    "Currency": "unknown",
-    "Technologies": [],
-    "Added_At": "Oferty pracy na stanowisko Frontend Developer"
-  },
-  {
-    "Title": "ServiceNow Vulnerability Response Developer",
-    "Description": "",
-    "Company": "Sii Polska",
-    "Salary_From": "unknown",
-    "Salary_To": "unknown",
-    "Currency": "unknown",
-    "Technologies": [
-      "ServiceNow",
-      "Vulnerability"
+    "title": "Frontend Greenfield Engineer - code Digitalization for All",
+    "company": "Baldur Connect",
+    "technologies": [
+      "JavaScript"
     ],
-    "Added_At": "Oferty pracy na stanowisko Frontend Developer"
+    "addedAt": "10.10.2023",
+    "location": "Remote",
+    "jobType": "Umowa o pracę",
+    "seniority": "Mid/Regular",
+    "employmentType": "Full-time",
+    "salary": "60 000 - 100 000 EUR",
+    "description": "Our Nürnberg based client has a remarkable vision: to redesign the way small and medium sized businesses across the world manage their digitalization.\nAs such they are looking to build a new web platform from scratch that will redesign the digitization of millions of companies, not just in the tech space, but across all Industries.\nWith already over 200,000 companies showing interest through their other product channels, they are looking for Developers to join their ambitious mission and scale their product and Tech Team in Nürnberg. \nWhat is on offer:\n\nBase salary up to 100,000 EUR + Benefits\nCompany pension scheme & private health insurance\nHoliday flats for employees - multiple vacation homes in Spain and Italy\nRemote friendly culture\nFree transportation ticket & company car park\nGym membership, participation in B2Run & health programs\nYou can take our word that you will not be bored in this role. This role is demanding and the tasks vary constantly\nThe chance to work on a highly complex and innovative product with technologies such as: AWS, Lambda, React, Vue.js, Java, Maven, Spring/Spring Boot, Docker, Kubernetes, Elasticsearch, JavaScript / TypeScript\nA truly agile company (yes really!)\nMacBooks and company phone as standard. Happy to get you any equipment you need though\nCareer progression in a highly successful company group and your own tailored training budget Our Nürnberg based client has a remarkable vision: to redesign the way small and medium sized businesses across the world manage their digitalization. As such they are looking to build a new web platform from scratch that will redesign the digitization of millions of companies, not just in the tech space, but across all Industries. With already over 200,000 companies showing interest through their other product channels, they are looking for Developers to join their ambitious mission and scale their product and Tech Team in Nürnberg. What is on offer: ",
+    "city": "Nuremberg",
+    "offerLink": "https://bulldogjob.pl/companies/jobs/147266-frontend-greenfield-engineer-code-digitalization-for-all-norymberga-baldur-connect"
   },
   {
-    "Title": "ServiceNow Developer",
-    "Description": "",
-    "Company": "Sii Polska",
-    "Salary_From": "unknown",
-    "Salary_To": "unknown",
-    "Currency": "unknown",
-    "Technologies": [
-      "AngularJS",
-      "CSS",
-      "JavaScript",
+    "title": "Frontend Cloud Streaming Developer – React Immersive",
+    "company": "Baldur Connect",
+    "technologies": [
+      "JavaScript"
+    ],
+    "addedAt": "10.10.2023",
+    "location": "Remote",
+    "jobType": "Umowa o pracę",
+    "seniority": "Mid/Regular",
+    "employmentType": "Full-time",
+    "salary": "60 000 - 80 000 EUR",
+    "description": "Our Munich based client is building a highly innovative web platform in the streaming space. Due to company and sector growth, they are looking to hire across the company, including for the Frontend Engineering Team. \nAs a Frontend Engineer you will contribute towards growing out the product further with new features and further product launches in virtual reality and AI. \nThis is an opportunity to work on a product that is redefining the entertainment landscape. The opportunity will also allow you to share tech knowledge with Developers from partners such as Netflix, Amazon and Dazn. \nWhat is on offer:\n\nOption for share ownership in the company + competitive salary\nRemote friendly culture\nYou can take our word that you will not be bored in this role. This role is demanding and the tasks vary constantly.\nThe chance to work on a highly complex and innovative product with technologies such as: React, JavaScript, Vanilla JS, Preact, WebDriverIO, CI Testing & CD, Video and Audio Streaming, AWS, Apollo, GraphQL, Mustaches and many more\nFlat hierarchies. You report directly to the CTO\nA truly agile company (yes really!)\nMacBooks and company phone as standard. Happy to get you any equipment you need though\nYour own tailored training budget\nWhen home office becomes lonely, you can come work in our new office in central Munich Our Munich based client is building a highly innovative web platform in the streaming space. Due to company and sector growth, they are looking to hire across the company, including for the Frontend Engineering Team. As a Frontend Engineer you will contribute towards growing out the product further with new features and further product launches in virtual reality and AI. This is an opportunity to work on a product that is redefining the entertainment landscape. The opportunity will also allow you to share tech knowledge with Developers from partners such as Netflix, Amazon and Dazn. What is on offer: ",
+    "city": "Munich",
+    "offerLink": "https://bulldogjob.pl/companies/jobs/147278-frontend-cloud-streaming-developer-react-immersive-monachium-baldur-connect"
+  },
+  {
+    "title": "Fullstack Developer (WŻ)",
+    "company": "Pivotal Polska",
+    "technologies": [
+      "SQL",
+      "Confluence",
+      "BPMN",
+      "React",
+      "Angular"
+    ],
+    "addedAt": "20.09.2023",
+    "location": "Remote",
+    "jobType": "Kontrakt B2B/Umowa o pracę",
+    "seniority": "Mid/Regular",
+    "employmentType": "Pełny etat",
+    "salary": "Ask",
+    "description": "Oferujemy \n\nMożliwość wyboru formy zatrudnienia\nSzeroki wachlarz zagadnień – u nas nie ma miejsca na nudę \nDużą samodzielność przy wykonywanych obowiązkach\nStabilność zatrudnienia w dynamicznie rozwijającej się firmie o ugruntowanej pozycji\nUdział w tworzeniu rozwiązań dla największych instytucji i firm\n\nBenefity\n\nDofinansowanie o zajęć sportowych\nPrywatna opieka medyczna\nInicjatywy dobroczynne \nSpotkania integracyjne\n\n\nTechnologie, których używamy:\n\nSQL, \nJira\nConfluence\nBPMN\n\n\nMile widziana znajomość:\n\nInnych technik przechowywania danych (np. bazy NoSQL, Redis)\nIdentity Server\nRozumienie notacji UML i BPMN\n\n\n\nPrace programistyczne związane z implementacją procesów biznesowych i przepływów integracyjnych\nIntegracja bazodanowa aplikacji biznesowych Oferujemy Benefity  Technologie, których używamy:  Mile widziana znajomość:  ",
+    "city": "Warszawa",
+    "offerLink": "https://bulldogjob.pl/companies/jobs/146576-fullstack-developer-wz-warszawa-pivotal-polska"
+  },
+  {
+    "title": "Fullstack Developer (BR)",
+    "company": "Pivotal Polska",
+    "technologies": [
+      "MS SQL",
+      ".NET",
+      "C#"
+    ],
+    "addedAt": "20.09.2023",
+    "location": "Remote",
+    "jobType": "Kontrakt B2B/Umowa o pracę",
+    "seniority": "Mid/Regular",
+    "employmentType": "Pełny etat",
+    "salary": "Ask",
+    "description": "Oferujemy \n\nMożliwość wyboru formy zatrudnienia\nSzeroki wachlarz zagadnień – u nas nie ma miejsca na nudę \nDużą samodzielność przy wykonywanych obowiązkach\nStabilność zatrudnienia w dynamicznie rozwijającej się firmie o ugruntowanej pozycji\nUdział w tworzeniu rozwiązań dla największych instytucji i firm\n\nBenefity\n\nDofinansowanie o zajęć sportowych\nPrywatna opieka medyczna\nInicjatywy dobroczynne \nSpotkania integracyjne\n\n\nTechnologie, których używamy:\n\nSQL, \nJira\nConfluence\nBPMN\n\n\n\nPrace programistyczne związane z implementacją procesów biznesowych i przepływów integracyjnych\nIntegracja bazodanowa aplikacji biznesowych Oferujemy Benefity  Technologie, których używamy:  ",
+    "city": "Warszawa",
+    "offerLink": "https://bulldogjob.pl/companies/jobs/146577-fullstack-developer-br-warszawa-pivotal-polska"
+  },
+  {
+    "title": "Mid Java Developer",
+    "company": "Horus sp. z o.o.",
+    "technologies": [
+      "Java",
+      "Git",
       "REST",
-      "SOAP"
+      "SQL"
     ],
-    "Added_At": "Oferty pracy na stanowisko Frontend Developer"
+    "addedAt": "16.09.2023",
+    "location": "Warszawa",
+    "jobType": "Kontrakt B2B/Umowa o pracę",
+    "seniority": "Mid/Regular",
+    "employmentType": "Pełny etat",
+    "salary": "10 000 - 15 000 PLN",
+    "description": "Jesteśmy polską spółką wytwarzającą oprogramowanie, integrującą systemy i aplikacje biznesowe. Doradzamy klientom korporacyjnym  z wielu branż: m.in. telekomunikacyjnej, ubezpieczeniowej, medycznej, FMCG, zarówno w Polsce, jak i za granicą. Ponieważ intensywnie się rozwijamy, poszukujemy utalentowanych juniorów.  Obecnie szukamy juniorów chcących rozwijać swoje umiejętności zarówno backendowe, jak i frontendowe w projektach wspierających i automatyzujących różnego rodzaju procesy biznesowe dla klienta korporacyjnego z branży telekomunikacyjnej. \nOperujemy na stacku Javowym wykorzystując platformę BPM i low-code Bonita. Używamy głównie języków Groovy, JavaScript, SQL  i korzystamy z narzędzi takich jak GIT, Hibernate, Maven, IntelliJ Idea.\n\n\nimplementacja logiki biznesowej w modułach domenowych Java/Groovy w podejściu DDD\nimplementacja logiki procesowej w BPMN i skryptach Groovy\nmodelowanie encji (Hibernate/SQL)\ntworzenie GUI w narzędziu low code bazującym na AngularJS\nintegracje z systemami zewnętrznymi\npisanie testów automatycznych (jednostkowych i integracyjnych)\ncode-review\nprzygotowywanie procedur wdrożeniowych\nidentyfikacja i naprawa błędów aplikacji Jesteśmy polską spółką wytwarzającą oprogramowanie, integrującą systemy i aplikacje biznesowe. Doradzamy klientom korporacyjnym  z wielu branż: m.in. telekomunikacyjnej, ubezpieczeniowej, medycznej, FMCG, zarówno w Polsce, jak i za granicą. Ponieważ intensywnie się rozwijamy, poszukujemy utalentowanych juniorów.  Obecnie szukamy juniorów chcących rozwijać swoje umiejętności zarówno backendowe, jak i frontendowe w projektach wspierających i automatyzujących różnego rodzaju procesy biznesowe dla klienta korporacyjnego z branży telekomunikacyjnej. Operujemy na stacku Javowym wykorzystując platformę BPM i low-code Bonita. Używamy głównie języków Groovy, JavaScript, SQL  i korzystamy z narzędzi takich jak GIT, Hibernate, Maven, IntelliJ Idea. ",
+    "city": "Warszawa",
+    "offerLink": "https://bulldogjob.pl/companies/jobs/146551-mid-java-developer-warszawa-horus-sp-z-o-o"
   },
   {
-    "Title": "Front-End Developer",
-    "Description": "",
-    "Company": "DTP, Digital Technology Poland",
-    "Salary_From": "unknown",
-    "Salary_To": "unknown",
-    "Currency": "unknown",
-    "Technologies": [],
-    "Added_At": "Oferty pracy na stanowisko Frontend Developer"
+    "title": "Full-stack Developer #PHP #JavaScript Cross-Channel Solution - E-business innovation",
+    "company": "Baldur Connect",
+    "technologies": [
+      "PHP",
+      "MySQL",
+      "CSS",
+      "HTML"
+    ],
+    "addedAt": "04.10.2023",
+    "location": "Remote",
+    "jobType": "Umowa o pracę",
+    "seniority": "Mid/Regular",
+    "employmentType": "Full-time",
+    "salary": "Up to 70 000 EUR",
+    "description": "Join my client’s team where eCommerce is more than just a job – it’s a passion. They specialize in eCommerce solutions for brand manufacturers with retailer integration and have been advising clients on eCommerce and mCommerce for many years. They offer multi-channel solutions for international manufacturers and their distribution partners.\nAs a Full-Stack Developer, you'll be joining a passionate and innovative team dedicated to empowering clients in the digital world. You'll play a crucial role in developing and maintaining their web platform, creating new modules for their eCommerce application, and designing and implementing web-based software.\nJoining this team means more than just a job - you'll have a fulfilling career with growth opportunities. You'll work on exciting projects with diverse national and international clients and be part of a success-driven team. \n What is on offer?\n\nSalary up to 70k Eur base + Bonus & Benefits\nWork from-home allowance and budget for training courses\nRemote working 2-3 days per week\nA nice office by Lake Starnberg\nA safe and stable Job in the booming streaming Industry\nOpen culture, transparent and bureaucracy-free organization\nState-of-the-art coffee machines, free snacks, fruits and beverages\nA lot of responsibility and decision-making power in a growing and dynamic environment Join my client’s team where eCommerce is more than just a job – it’s a passion. They specialize in eCommerce solutions for brand manufacturers with retailer integration and have been advising clients on eCommerce and mCommerce for many years. They offer multi-channel solutions for international manufacturers and their distribution partners. As a Full-Stack Developer, you'll be joining a passionate and innovative team dedicated to empowering clients in the digital world. You'll play a crucial role in developing and maintaining their web platform, creating new modules for their eCommerce application, and designing and implementing web-based software. Joining this team means more than just a job - you'll have a fulfilling career with growth opportunities. You'll work on exciting projects with diverse national and international clients and be part of a success-driven team. What is on offer? ",
+    "city": "Munich",
+    "offerLink": "https://bulldogjob.pl/companies/jobs/147037-full-stack-developer-php-javascript-cross-channel-solution-e-business-innovation-monachium-baldur-connect"
   },
   {
-    "Title": "AEM Developer",
-    "Description": "",
-    "Company": "DTP, Digital Technology Poland",
-    "Salary_From": "unknown",
-    "Salary_To": "unknown",
-    "Currency": "unknown",
-    "Technologies": [],
-    "Added_At": "Oferty pracy na stanowisko Frontend Developer"
-  },
-  {
-    "Title": "Frontend Greenfield Engineer - code Digitalization for All",
-    "Description": "",
-    "Company": "Baldur Connect",
-    "Salary_From": "5000",
-    "Salary_To": "8300",
-    "Currency": "EUR",
-    "Technologies": [
+    "title": "Full-Stack Mastery - Fintech 5.0",
+    "company": "Baldur Connect",
+    "technologies": [
+      "PHP",
       "JavaScript"
     ],
-    "Added_At": "Oferty pracy na stanowisko Frontend Developer"
-  },
-  {
-    "Title": "Frontend Development",
-    "Description": "NET MVC Framework, especially MVC 4.\n Looking for Entry, Mid, and Senior level web developer applicants.\n Ability to write HTML & SCSS code from scratch.",
-    "Company": "iNET-Web",
-    "Salary_From": "unknown",
-    "Salary_To": "unknown",
-    "Currency": "unknown",
-    "Technologies": [],
-    "Added_At": "2023-09-06"
-  },
-  {
-    "Title": "Frontend Software Engineer I",
-    "Description": "The Experienced engineer uses code to develop visual experiences; web, mobile and other UIs.\n An engineer is responsible for understanding business problems,…",
-    "Company": "Bread Financial",
-    "Salary_From": "unknown",
-    "Salary_To": "unknown",
-    "Currency": "unknown",
-    "Technologies": [],
-    "Added_At": "2023-09-15"
-  },
-  {
-    "Title": "Frontend Engineer, Campaign Creation Core",
-    "Description": "3+ years of non-internship professional front end, web or mobile software development using JavaScript, HTML and CSS experience.",
-    "Company": "Amazon.com Services LLC",
-    "Salary_From": "unknown",
-    "Salary_To": "unknown",
-    "Currency": "unknown",
-    "Technologies": [],
-    "Added_At": "2023-10-03"
-  },
-  {
-    "Title": "Senior Engineer I - International Digital Commerce (SFCC, Frontend)",
-    "Description": "Work closely with onsite and remote frontend, backend and operations engineers to ensure deliverables are well-documented, secure and resilient.",
-    "Company": "Lululemon",
-    "Salary_From": "unknown",
-    "Salary_To": "unknown",
-    "Currency": "unknown",
-    "Technologies": [],
-    "Added_At": "2023-10-06"
-  },
-  {
-    "Title": "Frontend Developer",
-    "Description": "Build and maintain user-friendly, data-rich JavaScript/HTML/CSS applications.\n Bind our front-end and back-end services together.",
-    "Company": "Practical Logix",
-    "Salary_From": "unknown",
-    "Salary_To": "unknown",
-    "Currency": "unknown",
-    "Technologies": [],
-    "Added_At": "2023-09-06"
-  },
-  {
-    "Title": "Senior Frontend Engineer",
-    "Description": "Frontend Architecture: Design and implement scalable and maintainable frontend architecture, ensuring modular and reusable code components using VueJS.",
-    "Company": "Reorg Research",
-    "Salary_From": "unknown",
-    "Salary_To": "unknown",
-    "Currency": "unknown",
-    "Technologies": [],
-    "Added_At": "2023-09-15"
-  },
-  {
-    "Title": "Middle Frontend Developer ReactJS/ Remote",
-    "Description": "As a Middle Frontend Developer, you will be part of an agile team with Backend and Front-End developers, Product Owners, and QA engineers.",
-    "Company": "HRS",
-    "Salary_From": "unknown",
-    "Salary_To": "unknown",
-    "Currency": "unknown",
-    "Technologies": [],
-    "Added_At": "2023-09-06"
-  },
-  {
-    "Title": "Frontend Engineer",
-    "Description": "Frontend Engineers are an essential part of the Hive Data and Hive Enterprise products.\n Working closely with designers, product owners, and other engineers, we…",
-    "Company": "Hive",
-    "Salary_From": "unknown",
-    "Salary_To": "unknown",
-    "Currency": "unknown",
-    "Technologies": [],
-    "Added_At": "2023-10-03"
-  },
-  {
-    "Title": "html Coder",
-    "Description": "We have an ongoing need for HTML coders working offsite on a CONTRACT basis.\n Hand-write basic, clean html code on a contract basis.",
-    "Company": "Resmatic Inc.",
-    "Salary_From": "unknown",
-    "Salary_To": "unknown",
-    "Currency": "unknown",
-    "Technologies": [],
-    "Added_At": "2023-09-06"
-  },
-  {
-    "Title": "Frontend Software Engineer",
-    "Description": "As a foundational member of our software engineering team, you'll work closely with our product, operations, data, and robotics teams to make Flow, our…",
-    "Company": "Hadrian",
-    "Salary_From": "unknown",
-    "Salary_To": "unknown",
-    "Currency": "unknown",
-    "Technologies": [],
-    "Added_At": "2023-09-26"
+    "addedAt": "05.10.2023",
+    "location": "Monachium",
+    "jobType": "Umowa o pracę",
+    "seniority": "Mid/Regular",
+    "employmentType": "Full-time",
+    "salary": "Up to 90 000 EUR",
+    "description": "With online transactions surpassing $1 trillion globally, the demand for expert developers to lead the change has never been higher. \nPicture this: You'll be part of a full-service platform connecting retailers, brands, and consumers globally, handling billions of requests every minute. The products you create will empower partners and drive solutions in payment processing. Sound interesting? Chances are you've used their products in the last 24 hours, and now you have the chance to work on them!\nJoin the game-changing team at my client's company and help shape the future of payments. They're looking for a Senior Full-Stack Developer with a passion for innovation to take on a lead role alongside the Team Lead. \nBenefits:\n\nEmployee stock options, shopping voucher benefits\nInternational projects and collaboration opportunities\nCasual dress code, food and drinks provided\nPersonal development opportunities, regular social events.\nHybrid work\nOffice location: Munich (relocation provided if needed)\n\nReady to make your mark on the payments industry? \n\n\nWrite top-notch PHP and JavaScript code\nOptimize software through testing and development\nCollaborate with the team on web solution design and development\nMentor and lead junior developers\nCommunicate with partners and stakeholders With online transactions surpassing $1 trillion globally, the demand for expert developers to lead the change has never been higher. Picture this: You'll be part of a full-service platform connecting retailers, brands, and consumers globally, handling billions of requests every minute. The products you create will empower partners and drive solutions in payment processing. Sound interesting? Chances are you've used their products in the last 24 hours, and now you have the chance to work on them! Join the game-changing team at my client's company and help shape the future of payments. They're looking for a Senior Full-Stack Developer with a passion for innovation to take on a lead role alongside the Team Lead. Benefits: Ready to make your mark on the payments industry? ",
+    "city": "Munich",
+    "offerLink": "https://bulldogjob.pl/companies/jobs/147079-full-stack-mastery-fintech-5-0-monachium-baldur-connect"
   }
 ]

@@ -1,78 +1,57 @@
-import { ScraperBulldogJob } from '../scrapers/scraperBulldogJob';
-import { ScraperIndeed } from '../scrapers/scraperIndeed';
-import { ScraperOptions } from '../scrapers/types';
-import fs from 'fs';
-import path from 'path';
-import { createObjectCsvWriter } from 'csv-writer';
+import { ScraperBulldogJob } from '../scrapers/scraperBulldogJob'
+import { ScraperIndeed } from '../scrapers/scraperIndeed'
+import { ScraperOptions } from '../scrapers/types'
+import fs from 'fs'
+import path from 'path'
 
-export const scrapeOffers = async (searchTerm: string, limit: number = 10) => {
-    console.log('Scrapping...');
-    const options: ScraperOptions = {
-        searchValue: searchTerm,
-        maxRecords: limit,
-    };
+export const scrapeOffers = async (searchTerms: string[], limit: number = 5) => {
+	console.log('Scrapping...')
+	const offers = []
 
+	for (const searchTerm of searchTerms) {
+		const options: ScraperOptions = {
+			searchValue: searchTerm,
+			maxRecords: limit,
+		}
 
-    const bulldogScraper = new ScraperBulldogJob(options);
-    await bulldogScraper.initialize();
-    await bulldogScraper.navigate();
-    const bulldogOffers = await bulldogScraper.getJobOffers();
-    await bulldogScraper.close();
+		const bulldogScraper = new ScraperBulldogJob(options)
+		await bulldogScraper.initialize()
+		await bulldogScraper.navigate()
+		const bulldogOffers = await bulldogScraper.getJobOffers()
+		await bulldogScraper.close()
 
-    const indeedScraper = new ScraperIndeed(options);
-    await indeedScraper.initialize();
-    await indeedScraper.navigate();
-    const indeedOffers = await indeedScraper.getJobOffers();
-    await indeedScraper.close();
+		offers.push(...bulldogOffers)
+	}
+	// const indeedScraper = new ScraperIndeed(options);
+	// await indeedScraper.initialize();
+	// await indeedScraper.navigate();
+	// const indeedOffers = await indeedScraper.getJobOffers();
+	// await indeedScraper.close();
 
-    const offers = [...bulldogOffers, ...indeedOffers];
-    console.log(`Found ${offers.length} job offers:`);
+	console.log(`Found ${offers.length} job offers:`)
 
-    const offersToSaveCSV = createObjectCsvWriter({
-        path: path.join(__dirname, '../../scrap-results/results.csv'),
-        header: [
-            {id: 'title', title: 'Title'},
-            {id: 'description', title: 'Description'},
-            {id: 'company', title: 'Company'},
-            {id: 'salaryFrom', title: 'Salary From'},
-            {id: 'salaryTo', title: 'Salary To'},
-            {id: 'currency', title: 'Currency'},
-            {id: 'offerURL', title: 'Offer URL'},
-            {id: 'technologies', title: 'Technologies'},
-            {id: 'addedAt', title: 'Added At'}
-        ]
-    });
-    
-    await offersToSaveCSV.writeRecords(offers);
+	const offersToSaveJSON = offers.map(offer => ({
+		title: offer.title,
+		// description: offer.description,
+		company: offer.company,
+		// salaryFrom: offer.salaryFrom,
+		// salaryTo: offer.salaryTo,
+		// currency: offer.currency,
+		technologies: offer.technologies,
+		addedAt: offer.addedAt,
+		location: offer.location,
+		jobType: offer.jobType,
+		seniority: offer.seniority,
+		employmentType: offer.employmentType,
+		salary: offer.salary,
+		description: offer.description,
+		city: offer.city,
+		offerLink: offer.offerLink,
+	}))
 
+	const outputPath = path.join(__dirname, '../../public/results.json')
+	fs.writeFileSync(outputPath, JSON.stringify(offersToSaveJSON, null, 2))
 
-    const offersToSaveJSON = offers.map(offer => ({
-        Title: offer.title,
-        Description: offer.description,
-        Company: offer.company,
-        Salary_From: offer.salaryFrom,
-        Salary_To: offer.salaryTo,
-        Currency: offer.currency,
-        // Offer_URL: offer.offerURL,
-        Technologies: offer.technologies,
-        Added_At: offer.addedAt
-    }));
-
-    const outputPath = path.join(__dirname, '../../scrap-results/results.json');
-    fs.writeFileSync(outputPath, JSON.stringify(offersToSaveJSON, null, 2));
-
-    offers.forEach(offer => {
-        console.log('Title:', offer.title);
-        console.log('Description:', offer.description);
-        console.log('Company:', offer.company);
-        console.log('Salary From:', offer.salaryFrom);
-        console.log('SalaryTo:', offer.salaryTo);
-        console.log('Currency:', offer.currency);
-        // console.log('OfferURL:', offer.offerURL);
-        console.log('technologies:', offer.technologies);
-        console.log('addedAt:', offer.addedAt);
-        console.log('----------');
-    });
-
+	// Log the saved offers to console
+	console.log(offersToSaveJSON)
 }
-

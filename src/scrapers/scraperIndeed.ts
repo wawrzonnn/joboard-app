@@ -1,5 +1,7 @@
 import { ScraperOptions, JobOffer } from './types';
 import { ScraperBase } from './scraperBase';
+import { sub, parse, format } from 'date-fns';
+import { ElementHandle } from 'puppeteer';
 
 export class ScraperIndeed extends ScraperBase {
   options: ScraperOptions;
@@ -22,6 +24,93 @@ export class ScraperIndeed extends ScraperBase {
     }
   }
 
+  async extractLocation(offer: ElementHandle): Promise<string> {
+    const locationText = await this.extractFromElement(offer, '.location');
+    if (locationText) return locationText;
+
+    return await this.extractFromElement(offer, 'div span.text-xs') || '';
+  }
+
+  async getJobOffers(): Promise<JobOffer[]> {
+    if (!this.browser || !this.page) {
+      throw new Error('Browser has not been initialized. Please call initialize() first.');
+    }
+
+    const jobOffersLiElements = await this.page.$$('.css-zu9cdh li');
+    const offers = await Promise.all(
+      jobOffersLiElements.map(async (offer, index) => {
+        const [title, company, technologies, location, jobType, seniority] = await Promise.all([
+          this.extractFromElement(offer, 'h2 > a > span'),
+          this.extractFromElement(offer, '.companyName'),
+          this.extractTechStackFromOffer(offer, '.tech-stack'),
+          this.extractLocation(offer),
+          this.extractFromElement(offer, 'div.flex.items-start > span'),
+          this.extractFromElement(offer, '  div.flex.items-start:nth-of-type(3) > span'),
+        ]);
+
+        let addedAt: string = '';
+        let employmentType: string = '';
+        let salaryFrom: string = '';
+        let salaryTo: string = '';
+        let currency: string = '';
+        let description: string = '';
+        let offerLink: string = '';
+        try {
+          offerLink = 'https://www.indeed.com' + (await this.extractFromElement(offer, 'h2 > a', 'href'));
+
+          console.log(`Offer URL for element ${index + 1}:`, offerLink);
+          if (offerLink && this.browser) {
+            const newPage = await this.browser.newPage();
+            await newPage.goto(offerLink, { waitUntil: 'networkidle0' });
+
+            const salaryText = await newPage.$eval('.salaryText', el => el.textContent);
+            const salaryInfo = await this.parseSalary(salaryText);
+            salaryFrom = salaryInfo.salaryFrom;
+            salaryTo = salaryInfo.salaryTo;
+            currency = salaryInfo.currency;
+
+            const dateElements = await newPage.$x('//div[contains(text(), "Posted Date")]/following-sibling::div');
+
+            if (dateElements.length) {
+              const dateElement = dateElements[0];
+              const dateString = await newPage.evaluate(p => (p.textContent ? p.textContent.trim() : ''), dateElement);
+              const offerDate = parse(dateString, 'dd.MM.yyyy', new Date());
+              const offerDateMinusOneMonth = sub(offerDate, { months: 1 });
+              addedAt = format(offerDateMinusOneMonth, 'dd.MM.yyyy');
+            }
+
+            const descriptionElement = await newPage.$('.jobDescriptionText');
+            if (descriptionElement) {
+              description = await newPage.evaluate(el => (el.textContent ? el.textContent.trim() : ''), descriptionElement);
+            }
+
+            await newPage.close();
+          }
+        } catch (error) {
+          console.error('error:', error);
+        }
+
+        return {
+          title,
+          company,
+          technologies,
+          location,
+          jobType,
+          seniority,
+          addedAt,
+          employmentType,
+          salaryFrom,
+          salaryTo,
+          currency,
+          description,
+          offerLink
+        };
+      })
+    );
+
+    return offers.filter(offer => offer && offer.title).slice(0, this.options.maxRecords);
+  }
+
   async parseSalary(salaryText: string): Promise<{ salaryFrom: string; salaryTo: string; currency: string }> {
     const regex = /Estimated ([\$€£¥])?([\d\.]+[KMB]?) - ([\$€£¥])?([\d\.]+[KMB]?)/;
     const match = salaryText.match(regex);
@@ -35,49 +124,4 @@ export class ScraperIndeed extends ScraperBase {
     }
     return { salaryFrom: 'unknown', salaryTo: 'unknown', currency: 'unknown' };
   }
-
-  async getJobOffers(): Promise<JobOffer[]> {
-		if (!this.page) {
-			throw new Error('Page has not been initialized. Please call initialize() first.')
-		}
-	
-const jobOffersLiElements = await this.page.$$('.css-zu9cdh li');
-		const offers = await Promise.all(
-			jobOffersLiElements.map(async offer => {
-				const salaryText = await this.extractFromElement(offer, '.estimated-salary > span')
-				const { salaryFrom, salaryTo, currency } = await this.parseSalary(salaryText)
-				
-				const offerURL = 'https://www.indeed.com' + (await this.extractFromElement(offer, 'h2 > a', 'href'))
-
-				let addedAtText = await this.extractFromElement(offer, '.date')
-				let daysAgo = 0
-				const match = addedAtText.match(/(\d+|30\+?) days ago/)
-				if (match) {
-					if (match[1] === '30+?') {
-						daysAgo = 30
-					} else {
-						daysAgo = parseInt(match[1])
-					}
-				}
-				const postedDate = new Date()
-				postedDate.setDate(postedDate.getDate() - daysAgo)
-
-				return {
-					title: await this.extractFromElement(offer, 'h2 > a > span'),
-					description: await this.extractFromElement(offer, '.job-snippet'),
-					company: await this.extractFromElement(offer, '.companyName'),
-					salaryFrom,
-					salaryTo,
-					currency,
-					offerURL,
-					technologies: await this.extractTechStackFromOffer(offer, '.tech-stack'),
-					addedAt: postedDate.toISOString().split('T')[0],
-				}
-			})
-		)
-
-		return offers
-			.filter(offer => offer && offer.title && offer.description && offer.company)
-			.slice(0, this.options.maxRecords)
-	}
 }
