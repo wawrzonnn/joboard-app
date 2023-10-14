@@ -56,13 +56,13 @@ export const OffersList = ({ offers, searchForJobTitle, onClearFilters, searchFo
 			{scrapedOffers.map((offer, index) => (
 					<li key={index} className={styles.list_element} onClick={() => handleShowJobOfferModal(offer)}>
 						<div className={styles.job_title_wrapper}>
-							<img
+							{/* <img
 								className={styles.company_logo_desktop}
 								src={'../../../../public/companyLogo.jpg'}
 										alt='company logo'
-							/>
+							/> */}
 							<div>
-								<span className={styles.job_title}>{offer.Title}</span>
+								<span className={styles.job_title}>{offer.title}</span>
 								<div className={styles.info_wrapper}>
 									<img
 										className={styles.company_logo_mobile}
@@ -72,24 +72,24 @@ export const OffersList = ({ offers, searchForJobTitle, onClearFilters, searchFo
 									/>
 									<div className={styles.mobile_info_wrapper}>
 										<div className={styles.mobile_info_box}>
-											<p className={` ${styles.company_name} ${styles.single_info_mobile}`}>{offer.Company}</p>
+											<p className={` ${styles.company_name} ${styles.single_info_mobile}`}>{offer.company}</p>
 											<p className={styles.single_info}>
-											Warszawa, Polska
+											{offer.city}
 											</p>
 										</div>
 										<div className={styles.mobile_info_box}>
-											<p className={` ${styles.single_info} ${styles.single_info_mobile}`}>Remote</p>
-											<p className={styles.single_info}>Junior</p>
+											<p className={` ${styles.single_info} ${styles.single_info_mobile}`}>{offer.location !== "Remote" ? "On-Site" : offer.location}</p>
+											<p className={styles.single_info}>{offer.seniority}</p>
 										</div>
 									</div>
 									<p className={styles.salary}>
-										{offer.Salary_From} – {offer.Salary_To} {offer.Currency} net
+										{offer.salary}
 									</p>
 								</div>
 							</div>
 						</div>
 						<span className={styles.offer_date}>
-							4 days ago
+						{offer.addedAt}
 						</span>
 					</li>
 				))}

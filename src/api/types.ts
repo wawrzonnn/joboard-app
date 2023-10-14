@@ -33,12 +33,12 @@ export interface JobOffer {
   postHighlight: ReactNode;
   _id: string;
   title: string;
-  companyName: string;
+  company: string;
   city: string;
   country: string;
   jobType: JobType;
   seniority: Seniority;
-  workLocation: WorkLocation;
+  location: WorkLocation;
   salaryFrom: number;
   salaryTo: number;
   currency: string;
@@ -47,4 +47,8 @@ export interface JobOffer {
   offerUrl: string;
   createdAt: string;
   updatedAt: string;
+  employmentType: string;
+  addedAt: string;
+  salary: string;
+  offerLink: string
 }

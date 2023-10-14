@@ -40,11 +40,11 @@ export const JobOfferModal = ({ offer, onClick }: JobOfferModalProps) => {
             <div className={styles.content_container}>
                <div className={styles.description_wrapper}>
                   <span className={styles.description_title}>{offer.title}</span>
-                  <p className={styles.description_text}>{offer.description}{offer.description}{offer.description}{offer.description}{offer.description}{offer.description}{offer.description}</p>
+                  <p className={styles.description_text}>{offer.description}</p>
                </div>
                <div className={styles.data_wrapper}>
                   <div className={styles.button_wrapper}>
-                     <a href={offer.offerUrl}>
+                     <a href={offer.offerLink} target="_blank" rel="noopener noreferrer">
                         <button className={styles.visit_offer_button}>
                            <span>Visit offer ➔</span>
                         </button>
