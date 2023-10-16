@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './OffersList.module.scss';
@@ -5,7 +6,7 @@ import { ClearButton } from '../../ClearButton/ClearButton';
 import { JobOffer } from '../../../api/types';
 import { formatDistanceToNow } from 'date-fns';
 import { JobOfferModal } from '../../JobOfferModal/JobOfferModal';
-import companyLogos from '../../../../public/companyLogo.jpg'
+import companyLogo from '../../../../public/companyLogo.jpg'
 interface OffersListProps {
 	offers: JobOffer[];
 	searchForJobTitle: string;
@@ -56,17 +57,17 @@ export const OffersList = ({ offers, searchForJobTitle, onClearFilters, searchFo
 			{scrapedOffers.map((offer, index) => (
 					<li key={index} className={styles.list_element} onClick={() => handleShowJobOfferModal(offer)}>
 						<div className={styles.job_title_wrapper}>
-							{/* <img
+							<img
 								className={styles.company_logo_desktop}
-								src={'../../../../public/companyLogo.jpg'}
+								src={offer.image}
 										alt='company logo'
-							/> */}
+							/>
 							<div>
 								<span className={styles.job_title}>{offer.title}</span>
 								<div className={styles.info_wrapper}>
 									<img
 										className={styles.company_logo_mobile}
-										src={'../../../../public/companyLogo.jpg'}
+										src={offer.image}
 										alt='company logo'
 								
 									/>

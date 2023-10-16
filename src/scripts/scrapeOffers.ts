@@ -47,6 +47,7 @@ export const scrapeOffers = async (searchTerms: string[], limit: number = 5) => 
 		description: offer.description,
 		city: offer.city,
 		offerLink: offer.offerLink,
+		image: offer.image
 	}))
 
 	const outputPath = path.join(__dirname, '../../public/results.json')

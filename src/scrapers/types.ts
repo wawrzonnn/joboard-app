@@ -20,4 +20,5 @@ export interface JobOffer {
 	salary: string
 	description: string
 	city: string
+	image: string
 }

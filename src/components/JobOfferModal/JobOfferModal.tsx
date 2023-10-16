@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 
 import React from 'react';
 import styles from './JobOfferModal.module.scss';
@@ -19,14 +20,14 @@ export const JobOfferModal = ({ offer, onClick }: JobOfferModalProps) => {
          <div className={styles.modal_overlay} onClick={onClick}></div>
          <div className={styles.container}>
             <div>
-               <Image className={styles.company_logo_mobile} src={companyLogo} alt="company logo"/>
+               <img className={styles.company_logo_mobile} src={offer.image} alt="company logo"/>
                <div className={styles.xmark} onClick={onClick}>
                   <XMark />
                </div>
                <div className={styles.job_title_wrapper}>
-               <Image
+               <img
                      className={styles.company_logo_desktop}
-                     src={companyLogo}
+                     src={offer.image}
                      alt="company logo"
                   />
                   <div className={styles.header_wrapper}>
@@ -39,7 +40,7 @@ export const JobOfferModal = ({ offer, onClick }: JobOfferModalProps) => {
             </div>
             <div className={styles.content_container}>
                <div className={styles.description_wrapper}>
-                  <span className={styles.description_title}>{offer.title}</span>
+                  <span className={styles.description_title}>Offer description</span>
                   <p className={styles.description_text}>{offer.description}</p>
                </div>
                <div className={styles.data_wrapper}>
