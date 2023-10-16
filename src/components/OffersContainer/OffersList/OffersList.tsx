@@ -4,9 +4,9 @@ import Image from 'next/image'
 import styles from './OffersList.module.scss'
 import { ClearButton } from '../../ClearButton/ClearButton'
 import { JobOffer } from '../../../api/types'
-import { formatDistanceToNow } from 'date-fns'
 import { JobOfferModal } from '../../JobOfferModal/JobOfferModal'
-import companyLogo from '../../../../public/companyLogo.jpg'
+// import { useRouter } from 'next/router'
+
 interface OffersListProps {
 	offers: JobOffer[]
 	searchForJobTitle: string
@@ -15,9 +15,20 @@ interface OffersListProps {
 }
 
 export const OffersList = ({ offers, searchForJobTitle, onClearFilters, searchForLocation }: OffersListProps) => {
+	// const router = useRouter()
 	const [selectedOffer, setSelectedOffer] = useState<JobOffer | null>(null)
 	const [showJobOfferModal, setShowJobOfferModal] = useState<boolean>(false)
 	const [scrapedOffers, setScrapedOffers] = useState<any[]>([])
+
+	const handleScrapeOffers = async () => {
+        try {
+            const response = await fetch('/api/scrape', { method: 'POST' });
+            const data = await response.text();
+            console.log(data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
 	useEffect(() => {
 		fetch('/results.json')
@@ -53,6 +64,7 @@ export const OffersList = ({ offers, searchForJobTitle, onClearFilters, searchFo
 					<ClearButton onClick={onClearFilters}>Clear search</ClearButton>
 				)}
 			</span>
+			<button onClick={handleScrapeOffers}>Run Scraping Script</button>
 			<ul className={styles.list}>
 				{offers.map((offer, index) => (
 					<li key={index} className={styles.list_element} onClick={() => handleShowJobOfferModal(offer)}>

@@ -1,44 +1,6 @@
 [
   {
-    "title": "Java Developer with French/German",
-    "company": "Sollers Consulting",
-    "technologies": [
-      "Java"
-    ],
-    "addedAt": "15.09.2023",
-    "location": "Białystok",
-    "jobType": "Kontrakt B2B/Umowa o pracę",
-    "seniority": "Mid/Regular",
-    "employmentType": "Full-time",
-    "salary": "10 200 - 22 000 PLN",
-    "description": "About Software Development at Sollers:\nVersatility is the keyword when it comes to what we do in IT. systems such as Guidewire, Salesforce, TIA or INSIS.• Develop our own systems as a part of the internal R&D team.• Design IT solutions and prepare documentation.• Create unit tests.• Work directly with our clients as an active member of an agile project team.",
-    "city": "Białystok",
-    "offerLink": "https://bulldogjob.pl/companies/jobs/146883-java-developer-with-french-german-bialystok-gdansk-krakow-lublin-lodz-poznan-szczecin-warszawa-wroclaw-sollers-consulting",
-    "image": "https://cdn.bulldogjob.com/system/companies/logos/000/000/495/list/Sollers_logo_jpeg.jpg"
-  },
-  {
-    "title": "IT Infrastructure (Chief) Specialist / Server Operations",
-    "company": "Skanska",
-    "technologies": [
-      "Windows Server",
-      "Hyper-V",
-      "NetBackup",
-      "VMware",
-      "PowerShell"
-    ],
-    "addedAt": "16.09.2023",
-    "location": "Kraków",
-    "jobType": "Umowa o pracę",
-    "seniority": "Junior",
-    "employmentType": "Full-time",
-    "salary": "Ask",
-    "description": "We are looking for IT Infrastructure Specialist – Server Operations fot IT Global Infrastructure (Nordics, UK, CE, USA). The person will manage IT systems and infrastructure. Within these tasks, he/she will be reporting directly to the Server Operations Manager in Skanska IT Global Infrastructure. \n\nWorkplace: preferred place of work: Kraków we are also open  ",
-    "city": "Krakow",
-    "offerLink": "https://bulldogjob.pl/companies/jobs/146917-it-infrastructure-chief-specialist-server-operations-krakow-skanska",
-    "image": "https://cdn.bulldogjob.com/system/companies/logos/000/002/645/list/logo.png"
-  },
-  {
-    "title": "Senior Golang Developer (eBPF Focused)",
+    "title": "Seniorrrrrr Golang Developer (eBPF Focused)",
     "company": "On the Spot Development",
     "technologies": [
       "Go",
@@ -51,7 +13,7 @@
     "seniority": "Senior",
     "employmentType": "Full-time",
     "salary": "26 000 - 29 000 PLN",
-    "description": "Cycode is a complete software supply chain security solution that provides visibility, security, and integrity across all phases of the SDLC. Cycode integrates with DevOps tools and infrastructure providers, hardens their security postures by implementing consistent governance, and reduces the risk of breaches with a series of scanning engines that look ",
+    "description": "Cycode is a complete software supply chain security solution that provides visibility, security, and integrity across all phases of the SDLC. Cycode integrates with DevOps tools and infrastructure providers, hardens their security postures by implementing consistent governance, and reduces the risk of breaches with a series of scanning engines that look for issues like hardcoded secrets, infrastructure as code misconfigurations, code leaks, and more. \nAbout the role \nCycode, a cybersecurity startup, is looking for a full-time Senior Golang Engineer (eBPF focused) to join our team. We’re an enterprise security startup pioneering the cybersecurity industry’s first-ever solution for source code control, detection, and response. \nWe officially emerged from stealth mid-2019 with backing from YL Ventures and leading cybersecurity executives and experts including Mike Fey (former president & COO of Symantec), Andy Grolnick (former president & CEO, LogRhythm), and Justin Somaini (CSO, Unity Technologies). We’ve been on a roll ever since and are ready to grow our team and reach new milestones. \nThis is an incredible opportunity to immerse yourself in the exciting world of cybersecurity and break new ground in source code security, the future of the industry. You’ll work alongside a dynamic team of experts on a passionate mission to make an impact, as well as an incredible network of legendary cybersecurity luminaries and leaders.\n\n\nDeveloping high-quality eBPF code while following open source development principles and best practices;\nActive participation in the open-source community;\nAbility to speak at public conferences about achievements. Cycode is a complete software supply chain security solution that provides visibility, security, and integrity across all phases of the SDLC. Cycode integrates with DevOps tools and infrastructure providers, hardens their security postures by implementing consistent governance, and reduces the risk of breaches with a series of scanning engines that look for issues like hardcoded secrets, infrastructure as code misconfigurations, code leaks, and more. About the role Cycode, a cybersecurity startup, is looking for a full-time Senior Golang Engineer (eBPF focused) to join our team. We’re an enterprise security startup pioneering the cybersecurity industry’s first-ever solution for source code control, detection, and response. We officially emerged from stealth mid-2019 with backing from YL Ventures and leading cybersecurity executives and experts including Mike Fey (former president & COO of Symantec), Andy Grolnick (former president & CEO, LogRhythm), and Justin Somaini (CSO, Unity Technologies). We’ve been on a roll ever since and are ready to grow our team and reach new milestones. This is an incredible opportunity to immerse yourself in the exciting world of cybersecurity and break new ground in source code security, the future of the industry. You’ll work alongside a dynamic team of experts on a passionate mission to make an impact, as well as an incredible network of legendary cybersecurity luminaries and leaders.  ",
     "city": "Warsaw",
     "offerLink": "https://bulldogjob.pl/companies/jobs/146993-senior-golang-developer-ebpf-focused-warszawa-krakow-poznan-lodz-gdansk-wroclaw-lublin-on-the-spot-development",
     "image": "https://cdn.bulldogjob.com/system/companies/logos/000/003/973/list/onthespot-removebg_%284%29.png"
@@ -93,6 +55,43 @@
     "city": "Gdynia",
     "offerLink": "https://bulldogjob.pl/companies/jobs/147188-senior-software-engineer-python-back-end-aws-gdynia-adva-optical-networking-sp-z-o-o",
     "image": "https://cdn.bulldogjob.com/system/companies/logos/000/002/413/list/Adtran_Logo_Blue_300dpi.jpg"
+  },
+  {
+    "title": "Backend Engineer - Javaflix",
+    "company": "Baldur Connect",
+    "technologies": [
+      "Java",
+      "Spring Boot",
+      "AWS"
+    ],
+    "addedAt": "10.10.2023",
+    "location": "Remote",
+    "jobType": "Umowa o pracę",
+    "seniority": "Mid/Regular",
+    "employmentType": "Full-time",
+    "salary": "75 000 - 95 000 EUR",
+    "description": "Our Munich based client is building a highly innovative web platform in the streaming space. Due to company- and sector growth, they are looking to hire across the company, including for the Java Engineering Team. \nAs Java Software Engineer, you will contribute towards growing out the product further with  new features and further product launches in virtual reality and AI. \nThis is an opportunity to work on a product that is redefining the entertainment landscape. The opportunity will also allow you to share tech knowledge with Developers from partners such as Netflix, Amazon and Dazn. \nWhat is on offer:\n\nOption for share ownership in the company + competitive salary\nRemote friendly culture\nYou can take our word that you will not be bored in this role. This role is demanding and the tasks vary constantly.\nThe chance to work on a highly complex and innovative product with technologies such as: Java 11, Kotlin, Spring Boot, AWS Cloud Stack, Nginx, Undertow, Docker, Kubernetes, and many more.\nFlat hierarchies. You report directly to the CTO\nA truly agile company (yes really!)\nMacBooks and company phone as standard. Happy to get you any equipment you need though\nYour own tailored training budget\nWhen home office becomes lonely, you can come work in our new office in central Munich Our Munich based client is building a highly innovative web platform in the streaming space. Due to company- and sector growth, they are looking to hire across the company, including for the Java Engineering Team. As Java Software Engineer, you will contribute towards growing out the product further with  new features and further product launches in virtual reality and AI. This is an opportunity to work on a product that is redefining the entertainment landscape. The opportunity will also allow you to share tech knowledge with Developers from partners such as Netflix, Amazon and Dazn. What is on offer: ",
+    "city": "Munich",
+    "offerLink": "https://bulldogjob.pl/companies/jobs/147248-backend-engineer-javaflix-monachium-baldur-connect",
+    "image": "https://cdn.bulldogjob.com/system/companies/logos/000/003/756/list/Baldur_Connect_Logo_JPG_NEW_CORRECT_1_1830_12212.jpg"
+  },
+  {
+    "title": "Senior Backend Engineer (Node.js/Python) - Stealth Startup",
+    "company": "Baldur Connect",
+    "technologies": [
+      "Node.js",
+      "Python"
+    ],
+    "addedAt": "10.10.2023",
+    "location": "Monachium",
+    "jobType": "Umowa o pracę",
+    "seniority": "Senior",
+    "employmentType": "Full-time",
+    "salary": "75 000 - 95 000 EUR",
+    "description": "A new, secret technology startup in the consumer electronics space is looking for a Senior Backend Engineer to build an exciting innovative product from scratch.\nYou will be on a mission to build a product from scratch and in doing so help build a product that for over a billion users is life-changing.\nThis is a unique opportunity to work closely with a Munich based Founder who has a track record as being a successful Entrepreneur and Engineering executive with significant experience building and leading internationally distributed high-performance development teams.  \nWhat is on offer:\n\nBase salary up to 90,000 EUR\nPotential for stock options for our most Senior positions\nRemote working supported\nThe chance to work on something that matters\nFurther company benefits to be discussed based on your needs A new, secret technology startup in the consumer electronics space is looking for a Senior Backend Engineer to build an exciting innovative product from scratch. You will be on a mission to build a product from scratch and in doing so help build a product that for over a billion users is life-changing. This is a unique opportunity to work closely with a Munich based Founder who has a track record as being a successful Entrepreneur and Engineering executive with significant experience building and leading internationally distributed high-performance development teams. What is on offer:  ",
+    "city": "Munich",
+    "offerLink": "https://bulldogjob.pl/companies/jobs/147262-senior-backend-engineer-node-js-python-stealth-startup-monachium-baldur-connect",
+    "image": "https://cdn.bulldogjob.com/system/companies/logos/000/003/756/list/Baldur_Connect_Logo_JPG_NEW_CORRECT_1_1830_12212.jpg"
   },
   {
     "title": "Frontend Developer (JS/TypeScript) - Germany (Relocation + VISA)",
@@ -223,26 +222,6 @@
     "image": "https://cdn.bulldogjob.com/system/companies/logos/000/002/389/list/logo_bez_ramki.png"
   },
   {
-    "title": "Mid Java Developer",
-    "company": "Horus sp. z o.o.",
-    "technologies": [
-      "Java",
-      "Git",
-      "REST",
-      "SQL"
-    ],
-    "addedAt": "16.09.2023",
-    "location": "Warszawa",
-    "jobType": "Kontrakt B2B/Umowa o pracę",
-    "seniority": "Mid/Regular",
-    "employmentType": "Pełny etat",
-    "salary": "10 000 - 15 000 PLN",
-    "description": "Jesteśmy polską spółką wytwarzającą oprogramowanie, integrującą systemy i aplikacje biznesowe. Doradzamy klientom korporacyjnym  z wielu branż: m.in. telekomunikacyjnej, ubezpieczeniowej, medycznej, FMCG, zarówno w Polsce, jak i za granicą. Ponieważ intensywnie się rozwijamy, poszukujemy utalentowanych juniorów.  Obecnie szukamy juniorów chcących rozwijać swoje umiejętności zarówno backendowe, jak i frontendowe w projektach wspierających i automatyzujących różnego rodzaju procesy biznesowe dla klienta korporacyjnego z branży telekomunikacyjnej. \nOperujemy na stacku Javowym wykorzystując platformę BPM i low-code Bonita. Używamy głównie języków Groovy, JavaScript, SQL  i korzystamy z narzędzi takich jak GIT, Hibernate, Maven, IntelliJ Idea.\n\n\nimplementacja logiki biznesowej w modułach domenowych Java/Groovy w podejściu DDD\nimplementacja logiki procesowej w BPMN i skryptach Groovy\nmodelowanie encji (Hibernate/SQL)\ntworzenie GUI w narzędziu low code bazującym na AngularJS\nintegracje z systemami zewnętrznymi\npisanie testów automatycznych (jednostkowych i integracyjnych)\ncode-review\nprzygotowywanie procedur wdrożeniowych\nidentyfikacja i naprawa błędów aplikacji Jesteśmy polską spółką wytwarzającą oprogramowanie, integrującą systemy i aplikacje biznesowe. Doradzamy klientom korporacyjnym  z wielu branż: m.in. telekomunikacyjnej, ubezpieczeniowej, medycznej, FMCG, zarówno w Polsce, jak i za granicą. Ponieważ intensywnie się rozwijamy, poszukujemy utalentowanych juniorów.  Obecnie szukamy juniorów chcących rozwijać swoje umiejętności zarówno backendowe, jak i frontendowe w projektach wspierających i automatyzujących różnego rodzaju procesy biznesowe dla klienta korporacyjnego z branży telekomunikacyjnej. Operujemy na stacku Javowym wykorzystując platformę BPM i low-code Bonita. Używamy głównie języków Groovy, JavaScript, SQL  i korzystamy z narzędzi takich jak GIT, Hibernate, Maven, IntelliJ Idea. ",
-    "city": "Warszawa",
-    "offerLink": "https://bulldogjob.pl/companies/jobs/146551-mid-java-developer-warszawa-horus-sp-z-o-o",
-    "image": "https://cdn.bulldogjob.com/system/companies/logos/000/001/503/list/Horus-logo-v2-20130730_%282%29.png"
-  },
-  {
     "title": "Full-stack Developer #PHP #JavaScript Cross-Channel Solution - E-business innovation",
     "company": "Baldur Connect",
     "technologies": [
@@ -279,5 +258,26 @@
     "city": "Munich",
     "offerLink": "https://bulldogjob.pl/companies/jobs/147079-full-stack-mastery-fintech-5-0-monachium-baldur-connect",
     "image": "https://cdn.bulldogjob.com/system/companies/logos/000/003/756/list/Baldur_Connect_Logo_JPG_NEW_CORRECT_1_1830_12212.jpg"
+  },
+  {
+    "title": "Senior Fullstack Engineer (Spring Boot, Angular, Kafka, PostgreSQL, MongoDB) (m/f/d)",
+    "company": "DATEV",
+    "technologies": [
+      "Spring Boot",
+      "Angular",
+      "Kafka",
+      "PostgreSQL",
+      "MongoDB"
+    ],
+    "addedAt": "23.09.2023",
+    "location": "Warszawa",
+    "jobType": "Umowa o pracę",
+    "seniority": "Senior",
+    "employmentType": "Full-time",
+    "salary": "Ask",
+    "description": "With new cloud applications, we want to further increase the networking of our members and customers in the DATEV ecosystem. You will work on changing tasks in a modern DevOps team. Thereby, you will use agile development methods and current technologies to develop a new generation of DATEV cloud applications. By DevOps, we don't just mean the simple use of tools or roles, but rather the team spirit, “we build it we run it”. You will work closely with product teams and will be responsible with your team for a product for a certain period of time. \nOur Benefits:\n\nAttractive payment ranges based on your qualification, experience, and skills as well as many other financial incentives (for example sharing the costs of sportive activities, private medical care, …).\nHome office in the sense of mobile, location-independent work within Poland, including the corresponding technical equipment.\nLearning possibilities and education related to advance your career and your personal skills, as well as numerous internal communities like a large internal community of software engineering professionals and opportunities to visit conferences as a speaker or attendee.\nWe have a lot more to offer... do you want to find out? 😊\n\n\n\nYou create together with your team architecture and implementation concepts as well as interface designs.\nYou participate in design reviews with peers and collaborators to ensure the correct solution is picked.\nYou will primarily develop Java based backend applications in various products (domain-oriented microservices, private and public REST-APIs, ML enhanced web-applications, …) and Angular based frontends (SPA).\nYou develop data models and database accesses for relational and document-oriented databases.\nYou review code with peers to provide and get feedback on the implemented solution.\nYou are responsible for testing, rollout and go-live of applications and as well triage issues and provide debugging and tracking support to resolve them. With new cloud applications, we want to further increase the networking of our members and customers in the DATEV ecosystem. You will work on changing tasks in a modern DevOps team. Thereby, you will use agile development methods and current technologies to develop a new generation of DATEV cloud applications. By DevOps, we don't just mean the simple use of tools or roles, but rather the team spirit, “we build it we run it”. You will work closely with product teams and will be responsible with your team for a product for a certain period of time. Our Benefits: ",
+    "city": "Warsaw",
+    "offerLink": "https://bulldogjob.pl/companies/jobs/147165-senior-fullstack-engineer-spring-boot-angular-kafka-postgresql-mongodb-m-f-d-warszawa-datev",
+    "image": "https://cdn.bulldogjob.com/system/companies/logos/000/003/837/list/DATEV_Logo_Claim_englisch_100_RGB.png"
   }
 ]
