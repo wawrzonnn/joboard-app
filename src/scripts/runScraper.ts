@@ -14,7 +14,7 @@ import { scrapeOffers } from './scrapeOffers';
       alias: 'limit',
       describe: 'Limit the number of job offers',
       type: 'number',
-      default: 5,
+      default: 6,
     })
     .help()
     .alias('help', 'h')

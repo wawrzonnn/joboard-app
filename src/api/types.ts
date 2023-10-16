@@ -51,4 +51,5 @@ export interface JobOffer {
   addedAt: string;
   salary: string;
   offerLink: string
+  image: string
 }
