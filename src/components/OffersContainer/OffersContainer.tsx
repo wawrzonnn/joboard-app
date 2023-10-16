@@ -5,34 +5,42 @@ import { SearchInput } from '../SearchInput/SearchInput';
 import { SearchIcon } from '../../assets/icons/Search';
 import { MarkerIcon } from '../../assets/icons/Marker';
 import { OffersList } from './OffersList/OffersList';
-import { useQuery } from 'react-query';
 import { JobOffer, suggestionType } from '../../api/types';
-import { fetchJobOffers } from '../../api/jobOffers';
 import { removeDuplicatesSuggestion } from '../../utils/removeDuplicateSuggestion';
 import { useFilters } from '../../contexts/FilterContext';
 
 export const OffersContainer = () => {
    const { selectedJobTypes, selectedSeniority, selectedLocation, selectedSalary } = useFilters();
-   const { data: jobOffers } = useQuery<JobOffer[]>('jobOffers', fetchJobOffers);
+   const [scrapedOffers, setScrapedOffers] = useState<JobOffer[]>([]);
    const [filteredOffers, setFilteredOffers] = useState<JobOffer[]>([]);
    const [searchForJobTitle, setSearchForJobTitle] = useState('');
    const [searchForLocation, setSearchForLocation] = useState('');
    const [titleSuggestions, setTitleSuggestions] = useState<JobOffer[]>([]);
    const [locationSuggestions, setLocationSuggestions] = useState<JobOffer[]>([]);
 
+   useEffect(() => {
+      fetch('/results.json')
+         .then(response => response.json())
+         .then(data => {
+            setScrapedOffers(data);
+            setFilteredOffers(data);
+         });
+   }, []);
+console.log('huj', scrapedOffers);
    const filterOffers = (title: string, location: string) => {
-      if (jobOffers) {
-         const matchedOffers = jobOffers.filter(
+      console.log('Title:', title);
+    console.log('Location:', location);
+         const matchedOffers = scrapedOffers.filter(
             (offer) =>
                (!title || offer.title.toLowerCase().includes(title.toLowerCase())) &&
                (!location || offer.city.toLowerCase().includes(location.toLowerCase())) &&
                (!selectedJobTypes.length || selectedJobTypes.includes(offer.jobType)) &&
                (!selectedSeniority.length || selectedSeniority.includes(offer.seniority)) &&
-               (!selectedLocation.length || selectedLocation.includes(offer.workLocation)) &&
+               (!selectedLocation.length || selectedLocation.includes(offer.location)) &&
                (!selectedSalary || selectedSalary <= offer.salaryFrom),
          );
+         console.log('Matched Offers:', matchedOffers);
          setFilteredOffers(matchedOffers);
-      }
    };
 
    const handleSearchByJobTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,8 +49,8 @@ export const OffersContainer = () => {
 
       if (!inputValue) {
          setTitleSuggestions([]);
-      } else if (jobOffers) {
-         const matchedOffers = jobOffers.filter((offer) =>
+      } else if (scrapedOffers) {
+         const matchedOffers = scrapedOffers.filter((offer) =>
             offer.title.toLowerCase().includes(inputValue.toLowerCase()),
          );
          setTitleSuggestions(removeDuplicatesSuggestion(matchedOffers, suggestionType.TITLE));
@@ -59,8 +67,8 @@ export const OffersContainer = () => {
 
       if (!inputValue) {
          setLocationSuggestions([]);
-      } else if (jobOffers) {
-         const matchedOffers = jobOffers.filter((offer) =>
+      } else if (scrapedOffers) {
+         const matchedOffers = scrapedOffers.filter((offer) =>
             offer.city.toLowerCase().includes(inputValue.toLowerCase()),
          );
          setLocationSuggestions(removeDuplicatesSuggestion(matchedOffers, suggestionType.CITY));
@@ -88,13 +96,13 @@ export const OffersContainer = () => {
       setSearchForLocation('');
       setTitleSuggestions([]);
       setLocationSuggestions([]);
-      setFilteredOffers(jobOffers || []);
+      setFilteredOffers(scrapedOffers || []);
    };
 
    useEffect(() => {
       filterOffers(searchForJobTitle, searchForLocation);
    // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [jobOffers, selectedJobTypes, selectedSeniority, selectedLocation, selectedSalary]);
+   }, [scrapedOffers, selectedJobTypes, selectedSeniority, selectedLocation, selectedSalary]);
 
    return (
       <div className={styles.container}>

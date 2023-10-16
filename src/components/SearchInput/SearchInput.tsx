@@ -77,7 +77,7 @@ export const SearchInput = ({
                         <div className={styles.suggestion_content}>
                            <div>{renderSuggestion(offer)}</div>
                            {typeOfSuggestion === suggestionType.TITLE && (
-                              <div className={styles.company_name}>{offer.companyName}</div>
+                              <div className={styles.company_name}>{offer.company}</div>
                            )}
                         </div>
                      </li>
