@@ -1,17 +1,27 @@
-import puppeteer from 'puppeteer-extra';
-import StealthPlugin from 'puppeteer-extra-plugin-stealth';
+import puppeteer from 'puppeteer-core';
 import { Browser, Page } from 'puppeteer';
-
-puppeteer.use(StealthPlugin());
+import chrome from 'chrome-aws-lambda';
 
 export class ScraperBase {
   protected browser: Browser | null = null;
   protected page: Page | null = null;
 
   async initialize(): Promise<void> {
+    const executablePath = process.env.IS_VERCEL
+    ? await chrome.executablePath
+    : 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe';
     // @ts-ignore
-    this.browser = await puppeteer.launch({ headless: false, defaultViewport: null });
-    this.page = await this.browser.newPage();
+    this.browser = await puppeteer.launch({
+      headless: chrome.headless,
+      executablePath,
+      args: chrome.args,
+      defaultViewport: chrome.defaultViewport,
+    });
+    if (this.browser) {
+      this.page = await this.browser.newPage();
+  } else {
+      throw new Error('Browser is not initialized.');
+  }
   }
 
   async extractFromElement(element: any | null, selector: string, attribute?: string): Promise<string> {

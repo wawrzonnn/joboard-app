@@ -1,0 +1,10 @@
+{
+    "env": {
+      "IS_VERCEL": "1"
+    },
+    "build": {
+      "env": {
+        "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD": "1"
+      }
+    }
+  }
