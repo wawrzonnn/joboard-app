@@ -64,6 +64,8 @@ export class ScraperBulldogJob extends ScraperBase {
             let addedAt: string = '';
             let employmentType: string = '';
             let salary: string = 'Ask';
+            let salaryMin: string = '';
+            let salaryMax: string = '';
             let description: string = '';
             let city: string = '';
             let offerLink: string = '';
@@ -108,6 +110,12 @@ export class ScraperBulldogJob extends ScraperBase {
 						} else {
 							salary = 'Ask'
 						}
+                        const salaryRegex = /(\d{1,3}(?:\s*\d{3})*)(?:\s*-\s*(\d{1,3}(?:\s*\d{3})*))?/;
+                        const match = salary.match(salaryRegex);
+                        if (match) {
+                            salaryMin = match[1].replace(/\s+/g, ''); 
+                            salaryMax = match[2] ? match[2].replace(/\s+/g, '') : ''; 
+                        }
 
 						const descriptionGroup = await newPage.$('#accordionGroup')
 						if (descriptionGroup) {
@@ -158,7 +166,9 @@ export class ScraperBulldogJob extends ScraperBase {
                     salary,
                     description,
                     city,
-                    offerLink
+                    offerLink,
+                    salaryMin,
+                    salaryMax
                 };
     
                 offers.push(jobOffer); 

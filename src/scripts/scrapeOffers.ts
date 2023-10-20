@@ -44,6 +44,8 @@ export const scrapeOffers = async (searchTerms: string[], limit: number = 5) => 
 		seniority: offer.seniority,
 		employmentType: offer.employmentType,
 		salary: offer.salary,
+		salaryMin: offer.salaryMin,
+		salaryMax: offer.salaryMax,
 		description: offer.description,
 		city: offer.city,
 		offerLink: offer.offerLink,
