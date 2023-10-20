@@ -20,16 +20,16 @@ export class ScraperBase {
     if (!childElement) return '';
     
     if (attribute) {
-        return await this.page.evaluate((el, attribute) => el.getAttribute(attribute), childElement, attribute);
+        return await this.page.evaluate((el: { getAttribute: (arg0: any) => any; }, attribute: any) => el.getAttribute(attribute), childElement, attribute);
     } else {
-        return await this.page.evaluate(el => el.textContent.trim(), childElement);
+        return await this.page.evaluate((el: { textContent: string; }) => el.textContent.trim(), childElement);
     }
 }
 
 async extractTechStackFromOffer(element: any | null, selector: string): Promise<string[]> {
     if (!this.page || !element) return [];
     const childElements = await element.$$(selector);
-    return await Promise.all(childElements.map((el: any) => this.page!.evaluate(el => el.textContent.trim(), el)));
+    return await Promise.all(childElements.map((el: any) => this.page!.evaluate((el: { textContent: string; }) => el.textContent.trim(), el)));
 }
 
 async close(): Promise<void> {

@@ -69,7 +69,7 @@ export class ScraperBulldogJob extends ScraperBase {
             let offerLink: string = '';
             try {
                 await this.sleep(1000);  // Sleep for 1 second
-                const offerURL = await offer.evaluate(a => a.getAttribute('href'));
+                const offerURL = await offer.evaluate((a: { getAttribute: (arg0: any) => any; }) => a.getAttribute('href'));
                 console.log(`Offer URL for element ${index + 1}:`, offerURL);
                 if (offerURL && this.browser) {
                     const newPage = await this.browser.newPage();
@@ -85,7 +85,7 @@ export class ScraperBulldogJob extends ScraperBase {
 								if (siblingDiv.length) {
 									const paragraph = await siblingDiv[0].$('p')
 									if (paragraph) {
-										employmentType = await newPage.evaluate(p => (p.textContent ? p.textContent.trim() : ''), paragraph)
+                                        employmentType = await newPage.evaluate((p: Element) => (p.textContent ? p.textContent.trim() : ''), paragraph)
 									}
 								}
 							}
@@ -96,7 +96,7 @@ export class ScraperBulldogJob extends ScraperBase {
 
                         if (dateElements.length) {
                             const dateElement = dateElements[0];
-                            const dateString = await newPage.evaluate(p => (p.textContent ? p.textContent.trim() : ''), dateElement);
+                            const dateString = await newPage.evaluate((p: any) => (p.textContent ? p.textContent.trim() : ''), dateElement);
                             const offerDate = parse(dateString, 'dd.MM.yyyy', new Date());  
                             const offerDateMinusOneMonth = sub(offerDate, { months: 1 });
                             addedAt = format(offerDateMinusOneMonth, 'dd.MM.yyyy'); 
@@ -104,7 +104,7 @@ export class ScraperBulldogJob extends ScraperBase {
 
 						const salaryElement = await newPage.$('div.jsx-651043755.mb-4 > p')
 						if (salaryElement) {
-							salary = await newPage.evaluate(p => (p.textContent ? p.textContent.trim() : ''), salaryElement)
+                            salary = await newPage.evaluate((p: any) => (p.textContent ? p.textContent.trim() : ''), salaryElement);
 						} else {
 							salary = 'Ask'
 						}
@@ -113,7 +113,7 @@ export class ScraperBulldogJob extends ScraperBase {
 						if (descriptionGroup) {
 							const elements = await descriptionGroup.$$('p, div') 
 							const texts = await Promise.all(
-								elements.map(element => newPage.evaluate(el => (el.textContent ? el.textContent.trim() : ''), element))
+								elements.map((element: any) => newPage.evaluate((el: { textContent: any; }) => (el.textContent ? el.textContent.trim() : ''), element))
 							)
 
 							description = texts.join(' ') 
@@ -125,14 +125,15 @@ export class ScraperBulldogJob extends ScraperBase {
 
 						if (cityElements.length) {
 							const cityElement = cityElements[0]
-							city = await newPage.evaluate(p => (p.textContent ? p.textContent.trim() : ''), cityElement)
+							city = await newPage.evaluate((p: { textContent: any; }) => (p.textContent ? p.textContent.trim() : ''), cityElement)
 							const parentDiv = await cityElement.$x('..')
 							if (parentDiv.length) {
 								const siblingDiv = await parentDiv[0].$x('./div[1]')
 								if (siblingDiv.length) {
 									const paragraph = await siblingDiv[0].$('p')
 									if (paragraph) {
-										city = await newPage.evaluate(p => (p.textContent ? p.textContent.trim() : ''), paragraph)
+										city = await newPage.evaluate((p: Element) => (p.textContent ? p.textContent.trim() : ''), paragraph)
+
 									}
 								}
 							}
