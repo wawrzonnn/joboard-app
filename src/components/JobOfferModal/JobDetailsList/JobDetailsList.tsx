@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './JobDetailsList.module.scss';
 import { formatDistanceToNow } from 'date-fns';
-import { JobOffer } from '../../../api/types';
+import { JobOffer } from '@/types/frontend/types'
 
 interface JobDetailsListProps {
    offer: JobOffer | null;

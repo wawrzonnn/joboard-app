@@ -1,6 +1,6 @@
 import { ScraperBulldogJob } from '../scrapers/scraperBulldogJob'
 // import { ScraperIndeed } from '../scrapers/scraperIndeed'
-import { ScraperOptions } from '../scrapers/types'
+import { ScraperOptions } from '../types/backend/types'
 import fs from 'fs'
 import path from 'path'
 
@@ -49,7 +49,7 @@ export const scrapeOffers = async (searchTerms: string[], limit: number = 5) => 
 		description: offer.description,
 		city: offer.city,
 		offerLink: offer.offerLink,
-		image: offer.image
+		image: offer.image,
 	}))
 
 	const outputPath = path.join(__dirname, '../../public/results.json')

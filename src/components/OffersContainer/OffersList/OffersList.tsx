@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import styles from './OffersList.module.scss'
 import { ClearButton } from '../../ClearButton/ClearButton'
-import { JobOffer } from '../../../api/types'
+import { JobOffer } from '@/types/frontend/types'
 import { JobOfferModal } from '../../JobOfferModal/JobOfferModal'
 // import { useRouter } from 'next/router'
 

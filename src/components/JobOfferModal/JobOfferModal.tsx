@@ -6,7 +6,7 @@ import Image from 'next/image'
 import companyLogo from '../../assets/images/companyLogo.jpg';
 import { XMark } from '../../assets/icons/XMark';
 import JobDetailsList from './JobDetailsList/JobDetailsList';
-import { JobOffer } from '../../api/types';
+import { JobOffer } from '@/types/frontend/types'
 
 interface JobOfferModalProps {
    offer: JobOffer | null;
