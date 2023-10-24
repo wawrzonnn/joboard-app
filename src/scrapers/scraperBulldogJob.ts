@@ -16,7 +16,7 @@ export class ScraperBulldogJob extends ScraperBase {
 	}
 
 	async navigate(): Promise<void> {
-		await this.sleep(1000) // Sleep for 1 second
+		await this.sleep(1000) 
 		if (!this.page) {
 			throw new Error('Page has not been initialized. Please call initialize() first.')
 		}
@@ -30,7 +30,7 @@ export class ScraperBulldogJob extends ScraperBase {
 	}
 
 	async extractLocation(offer: ElementHandle): Promise<string> {
-		await this.sleep(1000) // Sleep for 1 second
+		await this.sleep(1000) 
 		const locationText = await this.extractFromElement(offer, 'span.group.flex.rounded-md')
 		if (locationText) return locationText
 
@@ -38,7 +38,7 @@ export class ScraperBulldogJob extends ScraperBase {
 	}
 
 	async getJobOffers(): Promise<JobOffer[]> {
-		await this.sleep(1000) // Sleep for 1 second
+		await this.sleep(1000)
 		if (!this.browser || !this.page) {
 			throw new Error('Browser has not been initialized. Please call initialize() first.')
 		}
@@ -46,7 +46,7 @@ export class ScraperBulldogJob extends ScraperBase {
 		const jobOffersLiElements = await this.page.$$('.container a.shadow-jobitem')
 		const offers: JobOffer[] = []
 		for (let index = 0; index < 5; index++) {
-			await this.sleep(1000) // Sleep for 1 second
+			await this.sleep(1000)
 			const offer = jobOffersLiElements[index]
 			if (!offer) {
 				break
@@ -70,7 +70,7 @@ export class ScraperBulldogJob extends ScraperBase {
 			let city: string = ''
 			let offerLink: string = ''
 			try {
-				await this.sleep(1000) // Sleep for 1 second
+				await this.sleep(1000)
 				const offerURL = await offer.evaluate((a: { getAttribute: (arg0: any) => any }) => a.getAttribute('href'))
 				console.log(`Offer URL for element ${index + 1}:`, offerURL)
 				if (offerURL && this.browser) {
@@ -105,7 +105,7 @@ export class ScraperBulldogJob extends ScraperBase {
 							(p: any) => (p.textContent ? p.textContent.trim() : ''),
 							dateElement
 						)
-						addedAt = 'valid to' + dateString
+						addedAt = `valid to ${dateString}`
 					}
 
 					const salaryElement = await newPage.$('div.jsx-651043755.mb-4 > p')
