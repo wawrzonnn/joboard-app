@@ -5,7 +5,7 @@ import { FilterSection } from './FilterSection/FilterSection';
 import { FilterSectionSalary } from './FilterSectionSalary/FilterSectionSalary';
 import { ClearButton } from '../ClearButton/ClearButton';
 import FiltersButton from './FiltersButton/FiltersButton';
-import { JobType, Seniority, WorkLocation } from '../../api/types';
+import { JobType, Seniority, WorkLocation } from '@/types/frontend/types';
 import { useFilters } from '../../contexts/FilterContext';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);

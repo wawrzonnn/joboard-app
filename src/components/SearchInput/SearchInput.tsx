@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import styles from './SearchInput.module.scss';
-import { JobOffer, suggestionType } from '../../api/types';
+import { JobOffer, suggestionType } from '@/types/frontend/types';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
 interface SearchInputProps {
    label?: string;
