@@ -71,13 +71,11 @@ export class ScraperBulldogJob extends ScraperBase {
 			try {
 				await this.sleep(1000)
 				const offerURL = await offer.evaluate((a: { getAttribute: (arg0: any) => any }) => a.getAttribute('href'))
-				console.log(`Offer URL for element ${index + 1}:`, offerURL)
 				if (offerURL && this.browser) {
 					const newPage = await this.browser.newPage()
 					await newPage.goto(offerURL, { waitUntil: 'networkidle0' })
 
 					const baseElements = await newPage.$x('//p[contains(@class, "text-gray-300") and contains(text(), "Typ")]')
-
 					if (baseElements.length) {
 						const baseElement = baseElements[0]
 						const parentDiv = await baseElement.$x('..')
