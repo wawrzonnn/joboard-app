@@ -1,5 +1,5 @@
 import { ScraperBulldogJob } from '../scrapers/scraperBulldogJob'
-// import { ScraperIndeed } from '../scrapers/scraperIndeed'
+import { ScraperPracuj } from '../scrapers/scraperIndeed'
 import { ScraperOptions } from '../types/backend/types'
 import fs from 'fs'
 import path from 'path'
@@ -14,29 +14,24 @@ export const scrapeOffers = async (searchTerms: string[], limit: number = 5) => 
 			maxRecords: limit,
 		}
 
-		const bulldogScraper = new ScraperBulldogJob(options)
-		await bulldogScraper.initialize()
-		await bulldogScraper.navigate()
-		const bulldogOffers = await bulldogScraper.getJobOffers()
-		await bulldogScraper.close()
+		// const bulldogScraper = new ScraperBulldogJob(options)
+		// await bulldogScraper.initialize()
+		// await bulldogScraper.navigate()
+		// const bulldogOffers = await bulldogScraper.getJobOffers()
+		// await bulldogScraper.close()
 
-		offers.push(...bulldogOffers)
+		const pracujScraper = new ScraperPracuj(options);
+		await pracujScraper.initialize();
+		await pracujScraper.navigate();
+		const pracujOffers = await pracujScraper.getJobOffers();
+		await pracujScraper.close();
+		offers.push(...pracujOffers)
 	}
-	// const indeedScraper = new ScraperIndeed(options);
-	// await indeedScraper.initialize();
-	// await indeedScraper.navigate();
-	// const indeedOffers = await indeedScraper.getJobOffers();
-	// await indeedScraper.close();
-
 	console.log(`Found ${offers.length} job offers:`)
 
 	const offersToSaveJSON = offers.map(offer => ({
 		title: offer.title,
-		// description: offer.description,
 		company: offer.company,
-		// salaryFrom: offer.salaryFrom,
-		// salaryTo: offer.salaryTo,
-		// currency: offer.currency,
 		technologies: offer.technologies,
 		addedAt: offer.addedAt,
 		location: offer.location,

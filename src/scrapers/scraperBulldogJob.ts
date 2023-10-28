@@ -1,7 +1,6 @@
-import { ScraperOptions, JobOffer } from '../types/backend/types'
+import { ScraperOptions, JobOfferBulldogJob } from '../types/backend/types'
 import { ScraperBase } from './scraperBase'
 import { ElementHandle } from 'puppeteer'
-import { sub, parse, format } from 'date-fns'
 
 export class ScraperBulldogJob extends ScraperBase {
 	options: ScraperOptions
@@ -37,14 +36,14 @@ export class ScraperBulldogJob extends ScraperBase {
 		return (await this.extractFromElement(offer, 'div span.text-xs')) || ''
 	}
 
-	async getJobOffers(): Promise<JobOffer[]> {
+	async getJobOffers(): Promise<JobOfferBulldogJob[]> {
 		await this.sleep(1000)
 		if (!this.browser || !this.page) {
 			throw new Error('Browser has not been initialized. Please call initialize() first.')
 		}
 
 		const jobOffersLiElements = await this.page.$$('.container a.shadow-jobitem')
-		const offers: JobOffer[] = []
+		const offers: JobOfferBulldogJob[] = []
 		for (let index = 0; index < 5; index++) {
 			await this.sleep(1000)
 			const offer = jobOffersLiElements[index]
@@ -161,7 +160,7 @@ export class ScraperBulldogJob extends ScraperBase {
 				console.error('error:', error)
 			}
 
-			const jobOffer: JobOffer = {
+			const jobOffer: JobOfferBulldogJob = {
 				title,
 				company,
 				technologies,
