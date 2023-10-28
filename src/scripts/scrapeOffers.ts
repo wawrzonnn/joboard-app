@@ -1,5 +1,5 @@
 import { ScraperBulldogJob } from '../scrapers/scraperBulldogJob'
-import { ScraperPracuj } from '../scrapers/scraperIndeed'
+import { ScraperPracuj } from '../scrapers/scraperPracuj'
 import { ScraperOptions } from '../types/backend/types'
 import fs from 'fs'
 import path from 'path'
