@@ -1,4 +1,4 @@
-import { JobOffer, suggestionType } from "../api/types";
+import { JobOffer, suggestionType } from "@/types/frontend/types";
 
 export const removeDuplicatesSuggestion = (array: JobOffer[], type: suggestionType): JobOffer[] => {
     const uniqueKeys = new Set();

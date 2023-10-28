@@ -1,127 +1,188 @@
-// import { ScraperOptions, JobOffer } from './types';
-// import { ScraperBase } from './scraperBase';
-// import { sub, parse, format } from 'date-fns';
-// import { ElementHandle } from 'puppeteer';
+import { ScraperOptions, JobOfferPracuj } from '../types/backend/types'
+import { ScraperBase } from './scraperBase'
+import { ElementHandle } from 'puppeteer'
 
-// export class ScraperIndeed extends ScraperBase {
-//   options: ScraperOptions;
+export class ScraperPracuj extends ScraperBase {
+	options: ScraperOptions
 
-//   constructor(options: ScraperOptions) {
-//     super();
-//     this.options = options;
-//   }
+	constructor(options: ScraperOptions) {
+		super()
+		this.options = options
+	}
 
-//   async navigate(): Promise<void> {
-//     if (!this.page) {
-//       throw new Error('Page has not been initialized. Please call initialize() first.');
-//     }
-//     const url = `https://www.indeed.com/q-${this.options.searchValue}-jobs.html`;
-//     try {
-//       await this.page.goto(url);
-//     } catch (error) {
-//       console.error('Error navigating to the page:', error);
-//       throw new Error('Failed to navigate to the page.');
-//     }
-//   }
+	async sleep(ms: number): Promise<void> {
+		return new Promise(resolve => setTimeout(resolve, ms))
+	}
 
-//   async extractLocation(offer: ElementHandle): Promise<string> {
-//     const locationText = await this.extractFromElement(offer, '.location');
-//     if (locationText) return locationText;
+	async navigate(): Promise<void> {
+		await this.sleep(1000);
+		if (!this.page) {
+			throw new Error('Page has not been initialized. Please call initialize() first.');
+		}
+		const url = `https://www.pracuj.pl/praca/${this.options.searchValue};kw`;
+		try {
+			await this.page.goto(url);
+			await this.sleep(1000); 
+			await this.page.click('button.size-medium.variant-primary.cookies_b1fqykql');
+		} catch (error) {
+			console.error('Error navigating to the page:', error);
+			throw new Error('Failed to navigate to the page.');
+		}
+	}
 
-//     return await this.extractFromElement(offer, 'div span.text-xs') || '';
-//   }
+	async extractLocation(offer: ElementHandle): Promise<string> {
+		await this.sleep(1000) 
+		const locationText = await this.extractFromElement(offer, 'span.group.flex.rounded-md')
+		if (locationText) return locationText
 
-//   async getJobOffers(): Promise<JobOffer[]> {
-//     if (!this.browser || !this.page) {
-//       throw new Error('Browser has not been initialized. Please call initialize() first.');
-//     }
+		return (await this.extractFromElement(offer, 'div span.text-xs')) || ''
+	}
 
-//     const jobOffersLiElements = await this.page.$$('.css-zu9cdh li');
-//     const offers = await Promise.all(
-//       jobOffersLiElements.map(async (offer, index) => {
-//         const [title, company, technologies, location, jobType, seniority] = await Promise.all([
-//           this.extractFromElement(offer, 'h2 > a > span'),
-//           this.extractFromElement(offer, '.companyName'),
-//           this.extractTechStackFromOffer(offer, '.tech-stack'),
-//           this.extractLocation(offer),
-//           this.extractFromElement(offer, 'div.flex.items-start > span'),
-//           this.extractFromElement(offer, '  div.flex.items-start:nth-of-type(3) > span'),
-//         ]);
+	async getJobOffers(): Promise<JobOfferPracuj[]> {
+		await this.sleep(1000)
+		if (!this.browser || !this.page) {
+			throw new Error('Browser has not been initialized. Please call initialize() first.')
+		}
 
-//         let addedAt: string = '';
-//         let employmentType: string = '';
-//         let salaryFrom: string = '';
-//         let salaryTo: string = '';
-//         let currency: string = '';
-//         let description: string = '';
-//         let offerLink: string = '';
-//         try {
-//           offerLink = 'https://www.indeed.com' + (await this.extractFromElement(offer, 'h2 > a', 'href'));
+		const jobOffersLiElements = await this.page.$$('[data-test="section-offers"] div div.listing_b1evff58')
+		const offers: JobOfferPracuj[] = []
+		for (let index = 0; index < 5; index++) {
+			await this.sleep(1000)
+			const offer = jobOffersLiElements[index]
+			if (!offer) {
+				break
+			}
+			const [title, company, technologies, location, jobType, seniority, image] = await Promise.all([
+				this.extractFromElement(offer, 'h2 > a'), // rdy
+				this.extractFromElement(offer, '.text-xxs'),
+				this.extractTechStackFromOffer(offer, 'span.py-2'),
+				this.extractLocation(offer),
+				this.extractFromElement(offer, 'div.flex.items-start > span'),
+				this.extractFromElement(offer, '  div.flex.items-start:nth-of-type(3) > span'),
+				this.extractFromElement(offer, 'div > div > img', 'src'),
+			])
 
-//           console.log(`Offer URL for element ${index + 1}:`, offerLink);
-//           if (offerLink && this.browser) {
-//             const newPage = await this.browser.newPage();
-//             await newPage.goto(offerLink, { waitUntil: 'networkidle0' });
+			let addedAt: string = ''
+			let employmentType: string = ''
+			let salary: string = 'Ask'
+			let salaryMin: string = ''
+			let salaryMax: string = ''
+			let description: string = ''
+			let city: string = ''
+			let offerLink: string = ''
+			try {
+				await this.sleep(1000)
+				const offerURL = await offer.evaluate((a: { getAttribute: (arg0: any) => any }) => a.getAttribute('href'))
+				console.log(`Offer URL for element ${index + 1}:`, offerURL)
+				if (offerURL && this.browser) {
+					const newPage = await this.browser.newPage()
+					await newPage.goto(offerURL, { waitUntil: 'networkidle0' })
 
-//             const salaryText = await newPage.$eval('.salaryText', el => el.textContent);
-//             const salaryInfo = await this.parseSalary('');
-//             salaryFrom = salaryInfo.salaryFrom;
-//             salaryTo = salaryInfo.salaryTo;
-//             currency = salaryInfo.currency;
+					const baseElements = await newPage.$x('//p[contains(@class, "text-gray-300") and contains(text(), "Typ")]')
 
-//             const dateElements = await newPage.$x('//div[contains(text(), "Posted Date")]/following-sibling::div');
+					if (baseElements.length) {
+						const baseElement = baseElements[0]
+						const parentDiv = await baseElement.$x('..')
+						if (parentDiv.length) {
+							const siblingDiv = await parentDiv[0].$x('./div[1]')
+							if (siblingDiv.length) {
+								const paragraph = await siblingDiv[0].$('p')
+								if (paragraph) {
+									employmentType = await newPage.evaluate(
+										(p: Element) => (p.textContent ? p.textContent.trim() : ''),
+										paragraph
+									)
+								}
+							}
+						}
+					}
 
-//             if (dateElements.length) {
-//               const dateElement = dateElements[0];
-//               const dateString = await newPage.evaluate(p => (p.textContent ? p.textContent.trim() : ''), dateElement);
-//               const offerDate = parse(dateString, 'dd.MM.yyyy', new Date());
-//               const offerDateMinusOneMonth = sub(offerDate, { months: 1 });
-//               addedAt = format(offerDateMinusOneMonth, 'dd.MM.yyyy');
-//             }
+					offerLink = offerURL
+					const dateElements = await newPage.$x('//p[contains(@class, "text-md") and contains(text(), "2023")]')
 
-//             const descriptionElement = await newPage.$('.jobDescriptionText');
-//             if (descriptionElement) {
-//               description = await newPage.evaluate(el => (el.textContent ? el.textContent.trim() : ''), descriptionElement);
-//             }
+					if (dateElements.length) {
+						const dateElement = dateElements[0]
+						const dateString = await newPage.evaluate(
+							(p: any) => (p.textContent ? p.textContent.trim() : ''),
+							dateElement
+						)
+						addedAt = `valid to ${dateString}`
+					}
 
-//             await newPage.close();
-//           }
-//         } catch (error) {
-//           console.error('error:', error);
-//         }
+					const salaryElement = await newPage.$('div.jsx-651043755.mb-4 > p')
+					if (salaryElement) {
+						salary = await newPage.evaluate((p: any) => (p.textContent ? p.textContent.trim() : ''), salaryElement)
+					} else {
+						salary = 'Ask'
+					}
+					const salaryRegex = /(\d{1,3}(?:\s*\d{3})*)(?:\s*-\s*(\d{1,3}(?:\s*\d{3})*))?/
+					const match = salary.match(salaryRegex)
+					if (match) {
+						salaryMin = match[1].replace(/\s+/g, '')
+						salaryMax = match[2] ? match[2].replace(/\s+/g, '') : ''
+					}
 
-//         return {
-//           title,
-//           company,
-//           technologies,
-//           location,
-//           jobType,
-//           seniority,
-//           addedAt,
-//           employmentType,
-//           salaryFrom,
-//           salaryTo,
-//           currency,
-//           description,
-//           offerLink
-//         };
-//       })
-//     );
+					const descriptionGroup = await newPage.$('#accordionGroup')
+					if (descriptionGroup) {
+						const elements = await descriptionGroup.$$('p, div')
+						const texts = await Promise.all(
+							elements.map((element: any) =>
+								newPage.evaluate((el: { textContent: any }) => (el.textContent ? el.textContent.trim() : ''), element)
+							)
+						)
 
-//     return offers.filter(offer => offer && offer.title).slice(0, this.options.maxRecords);
-//   }
+						description = texts.join(' ')
+					}
 
-//   async parseSalary(salaryText: string): Promise<{ salaryFrom: string; salaryTo: string; currency: string }> {
-//     const regex = /Estimated ([\$€£¥])?([\d\.]+[KMB]?) - ([\$€£¥])?([\d\.]+[KMB]?)/;
-//     const match = salaryText.match(regex);
+					const cityElements = await newPage.$x(
+						'//p[contains(@class, "text-gray-300") and contains(text(), "Location") or contains(text(), "Lokalizacja") ]'
+					)
 
-//     if (match) {
-//       const currency = match[1] || match[3];
-//       const salaryFrom = match[2];
-//       const salaryTo = match[4];
+					if (cityElements.length) {
+						const cityElement = cityElements[0]
+						city = await newPage.evaluate(
+							(p: { textContent: any }) => (p.textContent ? p.textContent.trim() : ''),
+							cityElement
+						)
+						const parentDiv = await cityElement.$x('..')
+						if (parentDiv.length) {
+							const siblingDiv = await parentDiv[0].$x('./div[1]')
+							if (siblingDiv.length) {
+								const paragraph = await siblingDiv[0].$('p')
+								if (paragraph) {
+									city = await newPage.evaluate((p: Element) => (p.textContent ? p.textContent.trim() : ''), paragraph)
+								}
+							}
+						}
+					}
 
-//       return { salaryFrom, salaryTo, currency };
-//     }
-//     return { salaryFrom: 'unknown', salaryTo: 'unknown', currency: 'unknown' };
-//   }
-// }
+					await newPage.close()
+				}
+			} catch (error) {
+				console.error('error:', error)
+			}
+
+			const jobOffer: JobOfferPracuj = {
+				title,
+				company,
+				technologies,
+				location,
+				jobType,
+				seniority,
+				image,
+				addedAt,
+				employmentType,
+				salary,
+				description,
+				city,
+				offerLink,
+				salaryMin,
+				salaryMax,
+			}
+
+			offers.push(jobOffer)
+		}
+
+		return offers
+	}
+}
