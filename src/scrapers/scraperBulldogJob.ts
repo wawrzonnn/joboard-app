@@ -10,12 +10,8 @@ export class ScraperBulldogJob extends ScraperBase {
 		this.options = options
 	}
 
-	async sleep(ms: number): Promise<void> {
-		return new Promise(resolve => setTimeout(resolve, ms))
-	}
-
 	async navigate(): Promise<void> {
-		await this.sleep(1000) 
+		await this.sleep(1000)
 		if (!this.page) {
 			throw new Error('Page has not been initialized. Please call initialize() first.')
 		}
@@ -29,7 +25,7 @@ export class ScraperBulldogJob extends ScraperBase {
 	}
 
 	async extractLocation(offer: ElementHandle): Promise<string> {
-		await this.sleep(1000) 
+		await this.sleep(1000)
 		const locationText = await this.extractFromElement(offer, 'span.group.flex.rounded-md')
 		if (locationText) return locationText
 

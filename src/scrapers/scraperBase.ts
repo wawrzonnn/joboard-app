@@ -32,6 +32,10 @@ async extractTechStackFromOffer(element: any | null, selector: string): Promise<
     return await Promise.all(childElements.map((el: any) => this.page!.evaluate((el: { textContent: string; }) => el.textContent.trim(), el)));
 }
 
+async sleep(ms: number): Promise<void> {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async close(): Promise<void> {
   if (this.browser) {
     await this.browser.close();

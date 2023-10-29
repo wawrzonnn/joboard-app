@@ -19,12 +19,13 @@ export const scrapeOffers = async (searchTerms: string[], limit: number = 5) => 
 		// await bulldogScraper.navigate()
 		// const bulldogOffers = await bulldogScraper.getJobOffers()
 		// await bulldogScraper.close()
+		// offers.push(...bulldogOffers)
 
-		const pracujScraper = new ScraperPracuj(options);
-		await pracujScraper.initialize();
-		await pracujScraper.navigate();
-		const pracujOffers = await pracujScraper.getJobOffers();
-		await pracujScraper.close();
+		const pracujScraper = new ScraperPracuj(options)
+		await pracujScraper.initialize()
+		await pracujScraper.navigate()
+		const pracujOffers = await pracujScraper.getJobOffers()
+		await pracujScraper.close()
 		offers.push(...pracujOffers)
 	}
 	console.log(`Found ${offers.length} job offers:`)
