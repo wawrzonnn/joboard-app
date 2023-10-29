@@ -1,6 +1,6 @@
 import { ScraperOptions, JobOfferPracuj } from '../types/backend/types'
 import { ScraperBase } from './scraperBase'
-import { formatAddedDatePracuj } from './utils'
+import { formatAddedAtStringPracuj, formatCityStringPracuj, formatSalaryStringPracuj, formatSeniorityStringPracuj } from './utils'
 
 export class ScraperPracuj extends ScraperBase {
 	options: ScraperOptions
@@ -11,14 +11,14 @@ export class ScraperPracuj extends ScraperBase {
 	}
 
 	async navigate(): Promise<void> {
-		await this.sleep(500)
+		await this.sleep(1000)
 		if (!this.page) {
 			throw new Error('Page has not been initialized. Please call initialize() first.')
 		}
 		const url = `https://www.pracuj.pl/praca/${this.options.searchValue};kw`
 		try {
 			await this.page.goto(url)
-			await this.sleep(500)
+			await this.sleep(1000)
 			await this.page.click('button.size-medium.variant-primary.cookies_b1fqykql')
 		} catch (error) {
 			console.error('Error navigating to the page:', error)
@@ -27,7 +27,7 @@ export class ScraperPracuj extends ScraperBase {
 	}
 
 	async getJobOffers(): Promise<JobOfferPracuj[]> {
-		await this.sleep(500)
+		await this.sleep(1000)
 		if (!this.browser || !this.page) {
 			throw new Error('Browser has not been initialized. Please call initialize() first.')
 		}
@@ -35,12 +35,12 @@ export class ScraperPracuj extends ScraperBase {
 		const jobOffersLiElements = await this.page.$$('[data-test="section-offers"] div div.listing_b1evff58')
 		const offers: JobOfferPracuj[] = []
 		for (let index = 0; index < 5; index++) {
-			await this.sleep(500)
+			await this.sleep(1000)
 			const offer = jobOffersLiElements[index]
 			if (!offer) {
 				break
 			}
-			const [title, company, employmentType, location, seniority, image, addedAtRaw, jobType, offerLink, salary] =
+			const [title, company, employmentType, location, seniorityRaw, image, addedAtRaw, jobType, offerLink, salaryRaw] =
 				await Promise.all([
 					this.extractFromElement(offer, 'h2 > a'),
 					this.extractFromElement(offer, 'div > a > h4'),
@@ -54,7 +54,9 @@ export class ScraperPracuj extends ScraperBase {
 					this.extractFromElement(offer, 'div.listing_c7z99rl > span.listing_sug0jpb'),
 				])
 
-			let addedAt = formatAddedDatePracuj(addedAtRaw)
+			let addedAt = formatAddedAtStringPracuj(addedAtRaw)
+			let salary = formatSalaryStringPracuj(salaryRaw)
+			let seniority = formatSeniorityStringPracuj(seniorityRaw)
 			let salaryMin: string = ''
 			let salaryMax: string = ''
 			let description: string = ''
@@ -62,7 +64,7 @@ export class ScraperPracuj extends ScraperBase {
 			let technologies: string[] = []
 
 			try {
-				await this.sleep(500)
+				await this.sleep(1000)
 				if (offerLink && this.browser) {
 					const newPage = await this.browser.newPage()
 					await newPage.goto(offerLink, { waitUntil: 'networkidle0' })
@@ -72,9 +74,10 @@ export class ScraperPracuj extends ScraperBase {
 						description = await newPage.evaluate((el: any) => el.textContent.trim(), descriptionElement)
 					}
 
-					const cityElement = await newPage.$('div.offer-viewqtkGPu')
+					const cityElement = await newPage.$('div.offer-viewqtkGPu');
 					if (cityElement) {
-						city = await newPage.evaluate((el: any) => el.textContent.trim(), cityElement)
+						const cityRaw = await newPage.evaluate((el: any) => el.textContent.trim(), cityElement);
+					 const city = formatCityStringPracuj(cityRaw);
 					}
 
 					const techElements = await newPage.$$('li > p.offer-viewU0gxPf')

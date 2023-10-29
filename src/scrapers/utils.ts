@@ -1,4 +1,4 @@
-export const formatAddedDatePracuj = (dateStr: string): string => {
+export const formatAddedAtStringPracuj = (dateStr: string): string => {
     const months: { [key: string]: string } = {
         stycznia: '01',
         lutego: '02',
@@ -19,3 +19,27 @@ export const formatAddedDatePracuj = (dateStr: string): string => {
     const year = parts[2];
     return `added at ${day}.${month}.${year}`;
 }
+
+export const formatSalaryStringPracuj = (salaryString: string): string => {
+    const indexOfDot = salaryString.indexOf('.');
+    if (indexOfDot !== -1) {
+      return salaryString.slice(0, indexOfDot + 1);
+    } else
+    return salaryString;
+  }
+
+  export const formatSeniorityStringPracuj = (seniorityString: string): string => {
+    const match = seniorityString.match(/\(([^)]+)\)/);
+    if (match && match[1]) {
+      return match[1];
+    } else
+    return seniorityString;
+  }
+
+  export const formatCityStringPracuj = (cityString: string): string => {
+    const index = cityString.indexOf(',');
+    if (index !== -1) {
+      return cityString.substring(0, index).trim();
+    } else
+    return cityString;
+  }
