@@ -1,6 +1,7 @@
 import { ScraperBulldogJob } from '../scrapers/scraperBulldogJob'
 import { ScraperPracuj } from '../scrapers/scraperPracuj'
 import { ScraperOptions } from '../types/backend/types'
+import { ScraperJustJoinIT } from '../scrapers/scraperJustJoinIT'
 import fs from 'fs'
 import path from 'path'
 
@@ -21,12 +22,19 @@ export const scrapeOffers = async (searchTerms: string[], limit: number = 5) => 
 		// await bulldogScraper.close()
 		// offers.push(...bulldogOffers)
 
-		const pracujScraper = new ScraperPracuj(options)
-		await pracujScraper.initialize()
-		await pracujScraper.navigate()
-		const pracujOffers = await pracujScraper.getJobOffers()
-		await pracujScraper.close()
-		offers.push(...pracujOffers)
+		// const pracujScraper = new ScraperPracuj(options)
+		// await pracujScraper.initialize()
+		// await pracujScraper.navigate()
+		// const pracujOffers = await pracujScraper.getJobOffers()
+		// await pracujScraper.close()
+		// offers.push(...pracujOffers)
+
+		const justJointITScraper = new ScraperJustJoinIT(options)
+		await justJointITScraper.initialize()
+		await justJointITScraper.navigate()
+		const justJointITOffers = await justJointITScraper.getJobOffers()
+		await justJointITScraper.close()
+		offers.push(...justJointITOffers)
 	}
 	console.log(`Found ${offers.length} job offers:`)
 
