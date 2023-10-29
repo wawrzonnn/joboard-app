@@ -1,6 +1,11 @@
 import { ScraperOptions, JobOfferPracuj } from '../types/backend/types'
 import { ScraperBase } from './scraperBase'
-import { formatAddedAtStringPracuj, formatCityStringPracuj, formatSalaryStringPracuj, formatSeniorityStringPracuj } from './utils'
+import {
+	formatAddedAtStringPracuj,
+	formatCityStringPracuj,
+	formatSalaryStringPracuj,
+	formatSeniorityStringPracuj,
+} from './utils'
 
 export class ScraperPracuj extends ScraperBase {
 	options: ScraperOptions
@@ -74,10 +79,10 @@ export class ScraperPracuj extends ScraperBase {
 						description = await newPage.evaluate((el: any) => el.textContent.trim(), descriptionElement)
 					}
 
-					const cityElement = await newPage.$('div.offer-viewqtkGPu');
+					const cityElement = await newPage.$('div.offer-viewqtkGPu')
 					if (cityElement) {
-						const cityRaw = await newPage.evaluate((el: any) => el.textContent.trim(), cityElement);
-					 const city = formatCityStringPracuj(cityRaw);
+						const cityRaw = await newPage.evaluate((el: any) => el.textContent.trim(), cityElement)
+						 city = formatCityStringPracuj(cityRaw)
 					}
 
 					const techElements = await newPage.$$('li > p.offer-viewU0gxPf')

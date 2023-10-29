@@ -1,0 +1,123 @@
+import { ScraperOptions, JobOfferPracuj } from '../types/backend/types'
+import { ScraperBase } from './scraperBase'
+
+export class ScraperJustJoinIT extends ScraperBase {
+	options: ScraperOptions
+
+	constructor(options: ScraperOptions) {
+		super()
+		this.options = options
+	}
+
+	async navigate(): Promise<void> {
+		await this.sleep(1000)
+		if (!this.page) {
+			throw new Error('Page has not been initialized. Please call initialize() first.')
+		}
+		const url = `https://justjoin.it/?keyword=${this.options.searchValue}&orderBy=DESC&sortBy=newest`
+
+		try {
+			await this.page.goto(url)
+		} catch (error) {
+			console.error('Error navigating to the page:', error)
+			throw new Error('Failed to navigate to the page.')
+		}
+	}
+
+	async getJobOffers(): Promise<JobOfferPracuj[]> {
+		await this.sleep(1000)
+		if (!this.browser || !this.page) {
+			throw new Error('Browser has not been initialized. Please call initialize() first.')
+		}
+		const jobOffersLiElements = await this.page.$$('[data-known-size="88"]')
+		const offers: JobOfferPracuj[] = []
+		for (let index = 0; index < 5; index++) {
+			await this.sleep(1000)
+			const offer = jobOffersLiElements[index]
+			if (!offer) {
+				break
+			}
+			const [
+				title,
+				company,
+				image,
+				offerLinkRaw,
+				salary,
+                salaryMin,
+                salaryMax,
+                city
+			] = await Promise.all([
+				this.extractFromElement(offer, 'h2.css-16gpjqw'),
+				this.extractFromElement(offer, 'div.css-fmb6qw span'),
+				this.extractFromElement(offer, 'div.css-xlz5cy > img', 'src'),
+				this.extractFromElement(offer, 'div.css-gpb9dg > a', 'href'),
+				this.extractFromElement(offer, 'div.css-1qaewdq'),
+				this.extractFromElement(offer, 'div.css-1qaewdq > span > span:nth-child(1)'),
+				this.extractFromElement(offer, 'div.css-1qaewdq > span > span:nth-child(2)'),
+				this.extractFromElement(offer, 'div.css-yo057c'),
+			])
+
+			let offerLink: string = `https://justjoin.it/${offerLinkRaw}`
+			let addedAt: string = 'No date'   
+			let jobType: string = ''
+			let seniority: string = ''
+			let employmentType: string = ''
+            let location: string = ''
+			let description: string = ''
+			let technologies: string[] = []
+
+			try {
+				await this.sleep(1000)
+				if (offerLink && this.browser) {
+					const newPage = await this.browser.newPage()
+					await newPage.goto(offerLink, { waitUntil: 'networkidle0' })
+
+                    const extractFromNewPage = async (selector: string) => {
+                        const element = await newPage.$(selector);
+                        return element ? await newPage.evaluate((el: any) => el.textContent.trim(), element) : '';
+                    };
+
+                    jobType = await extractFromNewPage('div:nth-child(1).css-8n1acl div.css-15qbbm2');
+                    seniority = await extractFromNewPage('div:nth-child(2).css-8n1acl div.css-15qbbm2');
+                    employmentType = await extractFromNewPage('div:nth-child(3).css-8n1acl div.css-15qbbm2');
+                    location = await extractFromNewPage('div:nth-child(4).css-8n1acl div.css-15qbbm2');
+                    description = await extractFromNewPage('div.css-ncc6e2');
+
+					const techElements = await newPage.$$('div.css-0 > h6')
+					if (techElements.length > 0) {
+						const techPromises = techElements.map(async techEl => {
+							return newPage.evaluate((el: any) => el.textContent.trim(), techEl)
+						})
+						 technologies = await Promise.all(techPromises)
+					}
+
+					await newPage.close()
+				}
+			} catch (error) {
+				console.error('error:', error)
+			}
+
+			const jobOffer: JobOfferPracuj = {
+				title,
+				company,
+				image,
+				salary,
+				salaryMin,
+				salaryMax,
+				city,
+				offerLink,
+				addedAt,
+				jobType,
+				seniority,
+				employmentType,
+				location,
+				description,
+				technologies,
+			}
+
+			offers.push(jobOffer)
+		}
+
+		return offers
+	}
+}
