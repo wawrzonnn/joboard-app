@@ -26,6 +26,11 @@ export class ScraperBase {
     }
 }
 
+async extractFromNewPage(page: Page, selector: string): Promise<string> {
+  const element = await page.$(selector);
+  return element ? await page.evaluate((el: any) => el.textContent.trim(), element) : '';
+}
+
 async extractTechStackFromOffer(element: any | null, selector: string): Promise<string[]> {
     if (!this.page || !element) return [];
     const childElements = await element.$$(selector);
