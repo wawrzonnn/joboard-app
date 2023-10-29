@@ -72,16 +72,12 @@ export class ScraperJustJoinIT extends ScraperBase {
 					const newPage = await this.browser.newPage()
 					await newPage.goto(offerLink, { waitUntil: 'networkidle0' })
 
-                    const extractFromNewPage = async (selector: string) => {
-                        const element = await newPage.$(selector);
-                        return element ? await newPage.evaluate((el: any) => el.textContent.trim(), element) : '';
-                    };
-
-                    jobType = await extractFromNewPage('div:nth-child(1).css-8n1acl div.css-15qbbm2');
-                    seniority = await extractFromNewPage('div:nth-child(2).css-8n1acl div.css-15qbbm2');
-                    employmentType = await extractFromNewPage('div:nth-child(3).css-8n1acl div.css-15qbbm2');
-                    location = await extractFromNewPage('div:nth-child(4).css-8n1acl div.css-15qbbm2');
-                    description = await extractFromNewPage('div.css-ncc6e2');
+					jobType = await this.extractFromNewPage(newPage, 'div:nth-child(1).css-8n1acl div.css-15qbbm2');
+					seniority = await this.extractFromNewPage(newPage, 'div:nth-child(2).css-8n1acl div.css-15qbbm2');
+					employmentType = await this.extractFromNewPage(newPage, 'div:nth-child(3).css-8n1acl div.css-15qbbm2');
+					location = await this.extractFromNewPage(newPage, 'div:nth-child(4).css-8n1acl div.css-15qbbm2');
+					description = await this.extractFromNewPage(newPage, 'div.css-ncc6e2');
+			
 
 					const techElements = await newPage.$$('div.css-0 > h6')
 					if (techElements.length > 0) {

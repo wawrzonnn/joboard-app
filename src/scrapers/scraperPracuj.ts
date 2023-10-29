@@ -62,11 +62,11 @@ export class ScraperPracuj extends ScraperBase {
 			let addedAt = formatAddedAtStringPracuj(addedAtRaw)
 			let salary = formatSalaryStringPracuj(salaryRaw)
 			let seniority = formatSeniorityStringPracuj(seniorityRaw)
-			let salaryMin: string = ''
-			let salaryMax: string = ''
 			let description: string = ''
 			let city: string = ''
 			let technologies: string[] = []
+			let salaryMin: string = ''
+			let salaryMax: string = ''
 
 			try {
 				await this.sleep(1000)
@@ -74,15 +74,11 @@ export class ScraperPracuj extends ScraperBase {
 					const newPage = await this.browser.newPage()
 					await newPage.goto(offerLink, { waitUntil: 'networkidle0' })
 
-					const descriptionElement = await newPage.$('div.offer-viewlvWH1V > p')
-					if (descriptionElement) {
-						description = await newPage.evaluate((el: any) => el.textContent.trim(), descriptionElement)
-					}
-
+					
 					const cityElement = await newPage.$('div.offer-viewqtkGPu')
 					if (cityElement) {
 						const cityRaw = await newPage.evaluate((el: any) => el.textContent.trim(), cityElement)
-						 city = formatCityStringPracuj(cityRaw)
+						city = formatCityStringPracuj(cityRaw)
 					}
 
 					const techElements = await newPage.$$('li > p.offer-viewU0gxPf')
@@ -92,7 +88,7 @@ export class ScraperPracuj extends ScraperBase {
 						})
 						technologies = await Promise.all(techPromises)
 					}
-
+					
 					const salaryMinElement = await newPage.$('span.offer-viewZGJhIB')
 					if (salaryMinElement) {
 						salaryMin = await newPage.evaluate((el: any) => {
@@ -101,11 +97,12 @@ export class ScraperPracuj extends ScraperBase {
 							return textWithoutLastChar
 						}, salaryMinElement)
 					}
-
-					const salaryMaxElement = await newPage.$('span.offer-viewYo2KTr')
-					if (salaryMaxElement) {
-						salaryMax = await newPage.evaluate((el: any) => el.textContent.trim(), salaryMaxElement)
-					}
+					
+					salaryMax = await this.extractFromNewPage(newPage, 'span.offer-viewYo2KTr');
+					
+					const descriptionElements = await newPage.$$('[data-test="section-responsibilities"] p');
+					const descriptions = await Promise.all(descriptionElements.map(el => newPage.evaluate((element: any) => element.textContent.trim(), el)));
+					description = descriptions.join(' ');
 
 					await newPage.close()
 				}
