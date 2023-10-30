@@ -2,7 +2,7 @@ import { ScraperOptions, JobOfferPracuj } from '../types/backend/types'
 import { ScraperBase } from './scraperBase'
 import {
 	formatAddedAtStringPracuj,
-	formatCityStringPracuj,
+	removeStringAfterComma,
 	formatSalaryStringPracuj,
 	formatSeniorityStringPracuj,
 } from './utils'
@@ -78,7 +78,7 @@ export class ScraperPracuj extends ScraperBase {
 					const cityElement = await newPage.$('div.offer-viewqtkGPu')
 					if (cityElement) {
 						const cityRaw = await newPage.evaluate((el: any) => el.textContent.trim(), cityElement)
-						city = formatCityStringPracuj(cityRaw)
+						city = removeStringAfterComma(cityRaw)
 					}
 
 					const techElements = await newPage.$$('li > p.offer-viewU0gxPf')
