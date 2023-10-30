@@ -36,10 +36,35 @@ export const formatSalaryStringPracuj = (salaryString: string): string => {
     return seniorityString;
   }
 
-  export const formatCityStringPracuj = (cityString: string): string => {
+  export const removeStringAfterComma = (cityString: string): string => {
     const index = cityString.indexOf(',');
     if (index !== -1) {
       return cityString.substring(0, index).trim();
     } else
     return cityString;
+  }
+
+  export const filterContract = (employmentTypes: string[]): string => {
+    for (let type of employmentTypes) {
+      if (type.toLowerCase().includes('contract')) {
+        return 'Contract';
+      }
+    }
+    return 'B2B/Contract';
+  }
+
+  export const extractSalaryMinNoFluffJobs = (salary: string): string => {
+    const parts = salary.split('–');
+    if (parts.length >= 1) {
+      return parts[0].trim().replace(/\s+/g, ''); 
+    }
+    return '';
+  }
+
+  export const extractSalaryMaxNoFluffJobs = (salary: string): string => {
+    const parts = salary.split('–');
+    if (parts.length >= 2) {
+      return parts[1].trim().replace(/\s+/g, '');
+    }
+    return '';
   }
