@@ -53,7 +53,7 @@ export const formatSalaryStringPracuj = (salaryString: string): string => {
     return 'B2B/Contract';
   }
 
-  export const extractSalaryMinNoFluffJobs = (salary: string): string => {
+  export const formatSalaryMinNoFluffJobs = (salary: string): string => {
     const parts = salary.split('–');
     if (parts.length >= 1) {
       return parts[0].trim().replace(/\s+/g, ''); 
@@ -61,10 +61,49 @@ export const formatSalaryStringPracuj = (salaryString: string): string => {
     return '';
   }
 
-  export const extractSalaryMaxNoFluffJobs = (salary: string): string => {
+  export const formatSalaryMaxNoFluffJobs = (salary: string): string => {
     const parts = salary.split('–');
     if (parts.length >= 2) {
       return parts[1].trim().replace(/\s+/g, '');
     }
     return '';
   }
+
+export const formatSalaryMinTheProtocol = (salary: string): string => {
+    if (salary.includes('k')) {
+        return salary.replace('k', '000');
+    }
+    const salaryNumber = parseFloat(salary);
+    if (salaryNumber < 300) {
+        return String(salaryNumber * 160);
+    }
+    return salary;
+}
+
+export const extractSeniorityLevelTheProtocol = (text: string): string => {
+  const levels = ["lead", "junior", "mid", "senior", "expert"];
+  for (let level of levels) {
+      if (text.toLowerCase().includes(level)) {
+          return level.charAt(0).toUpperCase() + level.slice(1).toLowerCase();
+      }
+  }
+  return '';
+}
+
+export const extractDateTheProtocol = (text: string): string => {
+    const match = text.match(/jeszcze (\d+)/);
+    if (!match) return text; 
+
+    const daysLeft = parseInt(match[1], 10);
+    const totalOfferDays = 30; 
+
+    const date = new Date();
+    date.setDate(date.getDate() - (totalOfferDays - daysLeft));
+
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+
+    return `${day}.${month}.${year}`;
+
+}

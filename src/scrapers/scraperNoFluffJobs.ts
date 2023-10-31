@@ -1,8 +1,8 @@
 import { ScraperOptions, JobOfferPracuj } from '../types/backend/types'
 import { ScraperBase } from './scraperBase'
 import {
-	extractSalaryMaxNoFluffJobs,
-	extractSalaryMinNoFluffJobs,
+	formatSalaryMaxNoFluffJobs,
+	formatSalaryMinNoFluffJobs,
 	filterContract,
 	removeStringAfterComma,
 } from './utils'
@@ -21,14 +21,9 @@ export class ScraperNoFluffJobs extends ScraperBase {
 			throw new Error('Page has not been initialized. Please call initialize() first.')
 		}
 		const url = `https://nofluffjobs.com/${this.options.searchValue}?page=1&sort=newest`
-		try {
 			await this.page.goto(url)
 			await this.sleep(1000)
 			await this.page.click('button#onetrust-accept-btn-handler')
-		} catch (error) {
-			console.error('Error navigating to the page:', error)
-			throw new Error('Failed to navigate to the page.')
-		}
 	}
 
 	async getJobOffers(): Promise<JobOfferPracuj[]> {
@@ -61,8 +56,8 @@ export class ScraperNoFluffJobs extends ScraperBase {
 			let location: string = ''
 			let description: string = ''
 			let technologies: string[] = []
-			let salaryMin: string = extractSalaryMinNoFluffJobs(salary)
-			let salaryMax: string = extractSalaryMaxNoFluffJobs(salary)
+			let salaryMin: string = formatSalaryMinNoFluffJobs(salary)
+			let salaryMax: string = formatSalaryMaxNoFluffJobs(salary)
 			let city: string = ''
 			try {
 				await this.sleep(1000)
