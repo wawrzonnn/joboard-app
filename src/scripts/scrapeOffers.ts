@@ -3,6 +3,7 @@ import { ScraperPracuj } from '../scrapers/scraperPracuj'
 import { ScraperOptions } from '../types/backend/types'
 import { ScraperJustJoinIT } from '../scrapers/scraperJustJoinIT'
 import { ScraperNoFluffJobs } from '../scrapers/scraperNoFluffJobs'
+import { ScraperTheProtocol } from '../scrapers/scraperTheProtocol'
 import fs from 'fs'
 import path from 'path'
 
@@ -37,12 +38,19 @@ export const scrapeOffers = async (searchTerms: string[], limit: number = 5) => 
 		// await justJointITScraper.close()
 		// offers.push(...justJointITOffers)
 
-		const noFluffJobsScraper = new ScraperNoFluffJobs(options)
-		await noFluffJobsScraper.initialize()
-		await noFluffJobsScraper.navigate()
-		const noFluffJobsOffers = await noFluffJobsScraper.getJobOffers()
-		await noFluffJobsScraper.close()
-		offers.push(...noFluffJobsOffers)
+		// const noFluffJobsScraper = new ScraperNoFluffJobs(options)
+		// await noFluffJobsScraper.initialize()
+		// await noFluffJobsScraper.navigate()
+		// const noFluffJobsOffers = await noFluffJobsScraper.getJobOffers()
+		// await noFluffJobsScraper.close()
+		// offers.push(...noFluffJobsOffers)
+
+		const theProtocolScraper = new ScraperTheProtocol(options)
+		await theProtocolScraper.initialize()
+		await theProtocolScraper.navigate()
+		const theProtocolOffers = await theProtocolScraper.getJobOffers()
+		await theProtocolScraper.close()
+		offers.push(...theProtocolOffers)
 
 	}
 	console.log(`Found ${offers.length} job offers:`)
