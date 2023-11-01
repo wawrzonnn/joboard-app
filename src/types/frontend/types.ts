@@ -31,6 +31,7 @@ export enum Position {
   }
 
 export interface JobOffer {
+	_id: string
 	salaryMin: number
 	salaryMax: string
 	preHighlight: ReactNode
