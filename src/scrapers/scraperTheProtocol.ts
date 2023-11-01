@@ -38,6 +38,7 @@ export class ScraperTheProtocol extends ScraperBase {
 		const offers: JobOfferPracuj[] = []
 
 		for (let index = 0; index < 5; index++) {
+
 			const offer = jobOffersLiElements[index]
 			if (!offer) {
 				break
@@ -67,7 +68,7 @@ export class ScraperTheProtocol extends ScraperBase {
 			let technologies: string[] = techElements
 
 			try {
-				await this.sleep(200)
+				await this.sleep(500)
 				if (offerLink && this.browser) {
 					const newPage = await this.browser.newPage()
 					await newPage.goto(offerLink, { waitUntil: 'networkidle0' })

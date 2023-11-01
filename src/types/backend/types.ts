@@ -17,7 +17,7 @@ export interface JobOfferBulldogJob {
 	salary: string;
 	offerLink: string;
 	image: string;
-	salaryMin: string;
+	salaryMin: string ;
 	salaryMax: string;
 }
 

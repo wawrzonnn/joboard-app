@@ -36,16 +36,7 @@ export class ScraperJustJoinIT extends ScraperBase {
 			if (!offer) {
 				break
 			}
-			const [
-				title,
-				company,
-				image,
-				offerLinkRaw,
-				salary,
-                salaryMin,
-                salaryMax,
-                city
-			] = await Promise.all([
+			const [title, company, image, offerLinkRaw, salary, salaryMinRaw, salaryMax, city] = await Promise.all([
 				this.extractFromElement(offer, 'h2.css-16gpjqw'),
 				this.extractFromElement(offer, 'div.css-fmb6qw span'),
 				this.extractFromElement(offer, 'div.css-xlz5cy > img', 'src'),
@@ -55,13 +46,13 @@ export class ScraperJustJoinIT extends ScraperBase {
 				this.extractFromElement(offer, 'div.css-1qaewdq > span > span:nth-child(2)'),
 				this.extractFromElement(offer, 'div.css-yo057c'),
 			])
-
-			let offerLink: string = `https://justjoin.it/${offerLinkRaw}`
-			let addedAt: string = getTodayDate()  
+			const salaryMin = salaryMinRaw.replace(/\s+/g, '')
+			const offerLink: string = `https://justjoin.it/${offerLinkRaw}`
+			const addedAt: string = getTodayDate()
 			let jobType: string = ''
 			let seniority: string = ''
 			let employmentType: string = ''
-            let location: string = ''
+			let location: string = ''
 			let description: string = ''
 			let technologies: string[] = []
 
@@ -71,19 +62,18 @@ export class ScraperJustJoinIT extends ScraperBase {
 					const newPage = await this.browser.newPage()
 					await newPage.goto(offerLink, { waitUntil: 'networkidle0' })
 
-					jobType = await this.extractFromNewPage(newPage, 'div:nth-child(1).css-8n1acl div.css-15qbbm2');
-					seniority = await this.extractFromNewPage(newPage, 'div:nth-child(2).css-8n1acl div.css-15qbbm2');
-					employmentType = await this.extractFromNewPage(newPage, 'div:nth-child(3).css-8n1acl div.css-15qbbm2');
-					location = await this.extractFromNewPage(newPage, 'div:nth-child(4).css-8n1acl div.css-15qbbm2');
-					description = await this.extractFromNewPage(newPage, 'div.css-ncc6e2');
-			
+					jobType = await this.extractFromNewPage(newPage, 'div:nth-child(1).css-8n1acl div.css-15qbbm2')
+					seniority = await this.extractFromNewPage(newPage, 'div:nth-child(2).css-8n1acl div.css-15qbbm2')
+					employmentType = await this.extractFromNewPage(newPage, 'div:nth-child(3).css-8n1acl div.css-15qbbm2')
+					location = await this.extractFromNewPage(newPage, 'div:nth-child(4).css-8n1acl div.css-15qbbm2')
+					description = await this.extractFromNewPage(newPage, 'div.css-ncc6e2')
 
 					const techElements = await newPage.$$('div.css-0 > h6')
 					if (techElements.length > 0) {
 						const techPromises = techElements.map(async techEl => {
 							return newPage.evaluate((el: any) => el.textContent.trim(), techEl)
 						})
-						 technologies = await Promise.all(techPromises)
+						technologies = await Promise.all(techPromises)
 					}
 
 					await newPage.close()
