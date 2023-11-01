@@ -1,6 +1,6 @@
 import { ScraperOptions, JobOfferPracuj } from '../types/backend/types'
 import { ScraperBase } from './scraperBase'
-
+import { getTodayDate } from './utils'
 export class ScraperJustJoinIT extends ScraperBase {
 	options: ScraperOptions
 
@@ -57,7 +57,7 @@ export class ScraperJustJoinIT extends ScraperBase {
 			])
 
 			let offerLink: string = `https://justjoin.it/${offerLinkRaw}`
-			let addedAt: string = 'No date'   
+			let addedAt: string = getTodayDate()  
 			let jobType: string = ''
 			let seniority: string = ''
 			let employmentType: string = ''

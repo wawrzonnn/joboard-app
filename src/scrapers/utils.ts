@@ -183,3 +183,32 @@ export const extractCityTheBulldogJob = async (newPage: any): Promise<string> =>
   }
   return '';
 }
+
+export const getTodayDate = (): string => {
+  const today = new Date();
+  const day = String(today.getDate()).padStart(2, '0');
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const year = today.getFullYear();
+  return `${day}.${month}.${year}`;
+};
+
+export const extractNoFluffAddedAtDate = (addedAt: string): string => {
+  const today = new Date();
+  let daysAgo = 0;
+
+  if (addedAt.includes("today")) {
+      daysAgo = 0;
+  } else {
+      const match = addedAt.match(/(\d+) day/);
+      if (match) {
+          daysAgo = parseInt(match[1], 10);
+      }
+  }
+
+  today.setDate(today.getDate() - daysAgo);
+  const day = String(today.getDate()).padStart(2, '0');
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const year = today.getFullYear();
+  
+  return `${day}.${month}.${year}`;
+}

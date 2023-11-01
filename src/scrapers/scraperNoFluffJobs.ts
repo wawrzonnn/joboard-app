@@ -1,6 +1,6 @@
 import { ScraperOptions, JobOfferPracuj } from '../types/backend/types'
 import { ScraperBase } from './scraperBase'
-import { formatSalaryMaxNoFluffJobs, formatSalaryMinNoFluffJobs, filterContract, removeStringAfterComma } from './utils'
+import { formatSalaryMaxNoFluffJobs, formatSalaryMinNoFluffJobs, filterContract, removeStringAfterComma, extractNoFluffAddedAtDate } from './utils'
 
 export class ScraperNoFluffJobs extends ScraperBase {
 	options: ScraperOptions
@@ -72,6 +72,10 @@ export class ScraperNoFluffJobs extends ScraperBase {
 
 					const cityRaw = await this.extractFromNewPage(newPage, 'span.locations-text > span')
 					city = removeStringAfterComma(cityRaw)
+
+					const addedAtRaw = await this.extractFromNewPage(newPage, 'common-posting-time-info')
+					addedAt = extractNoFluffAddedAtDate(addedAtRaw)
+					
 
 					const techElements = await newPage.$$('ul.mb-0 > li.tw-btn > span')
 					if (techElements.length > 0) {
