@@ -10,8 +10,8 @@ import React, {
 type SetState<T> = Dispatch<SetStateAction<T>>;
 
 interface FilterContextState {
-   selectedJobTypes: string[];
-   setSelectedJobTypes: SetState<string[]>;
+   selectedEmploymentType: string[];
+   setSelectedEmploymentType: SetState<string[]>;
    selectedSeniority: string[];
    setSelectedSeniority: SetState<string[]>;
    selectedLocation: string[];
@@ -26,14 +26,14 @@ interface FilterContextState {
 const FilterContext = createContext<FilterContextState | undefined>(undefined);
 
 export const FilterProvider = ({ children }: PropsWithChildren) => {
-   const [selectedJobTypes, setSelectedJobTypes] = useState<string[]>([]);
+   const [selectedEmploymentType, setSelectedEmploymentType] = useState<string[]>([]);
    const [selectedSeniority, setSelectedSeniority] = useState<string[]>([]);
    const [selectedLocation, setSelectedLocation] = useState<string[]>([]);
    const [selectedSalary, setSelectedSalary] = useState<number>(0);
    const [selectedPosition, setSelectedPosition] = useState<string[]>([]);
    
    const clearAllFilters = () => {
-      setSelectedJobTypes([]);
+      setSelectedEmploymentType([]);
       setSelectedSeniority([]);
       setSelectedLocation([]);
       setSelectedSalary(0);
@@ -43,8 +43,8 @@ export const FilterProvider = ({ children }: PropsWithChildren) => {
    return (
       <FilterContext.Provider
          value={{
-            selectedJobTypes,
-            setSelectedJobTypes,
+            selectedEmploymentType,
+            setSelectedEmploymentType,
             selectedSeniority,
             setSelectedSeniority,
             selectedLocation,

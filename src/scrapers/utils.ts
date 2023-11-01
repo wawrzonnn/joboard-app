@@ -92,21 +92,20 @@ export const extractSeniorityLevelTheProtocol = (text: string): string => {
 }
 
 export const extractDateTheProtocol = (text: string): string => {
-    const match = text.match(/jeszcze (\d+)/);
-    if (!match) return text; 
+  const match = text.match(/(jeszcze|valid for) (\d+)/);
+  if (!match) return text; 
 
-    const daysLeft = parseInt(match[1], 10);
-    const totalOfferDays = 30; 
+  const daysLeft = parseInt(match[2], 10);
+  const totalOfferDays = 30; 
 
-    const date = new Date();
-    date.setDate(date.getDate() - (totalOfferDays - daysLeft));
+  const date = new Date();
+  date.setDate(date.getDate() - (totalOfferDays - daysLeft));
 
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const year = date.getFullYear();
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
 
-    return `${day}.${month}.${year}`;
-
+  return `${day}.${month}.${year}`;
 }
 
 export const extractDateTheBulldogJob = (expiryDateString: string): string => {

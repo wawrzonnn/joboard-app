@@ -1,4 +1,4 @@
-import { ScraperOptions, JobOfferBulldogJob } from '../types/backend/types'
+import { ScraperOptions, OffersProps } from '../types/backend/types'
 import { ScraperBase } from './scraperBase'
 import { ElementHandle } from 'puppeteer'
 import {
@@ -31,16 +31,16 @@ export class ScraperBulldogJob extends ScraperBase {
 		return locationText || (await this.extractFromElement(offer, 'div span.text-xs')) || ''
 	}
 
-	async getJobOffers(): Promise<JobOfferBulldogJob[]> {
+	async getJobOffers(): Promise<OffersProps[]> {
 		await this.sleep(500)
 		if (!this.browser || !this.page) {
 			throw new Error('Browser has not been initialized. Please call initialize() first.')
 		}
 
 		const jobOffersLiElements = await this.page.$$('.container a.shadow-jobitem')
-		const offers: JobOfferBulldogJob[] = []
+		const offers: OffersProps[] = []
 
-		for (let index = 0; index < 5; index++) {
+		for (let index = 0; index < 10; index++) {
 			const offer = jobOffersLiElements[index]
 			if (!offer) {
 				break

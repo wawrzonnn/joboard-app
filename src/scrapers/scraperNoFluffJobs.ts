@@ -1,4 +1,4 @@
-import { ScraperOptions, JobOfferPracuj } from '../types/backend/types'
+import { ScraperOptions, OffersProps } from '../types/backend/types'
 import { ScraperBase } from './scraperBase'
 import { formatSalaryMaxNoFluffJobs, formatSalaryMinNoFluffJobs, filterContract, removeStringAfterComma, extractNoFluffAddedAtDate } from './utils'
 
@@ -24,14 +24,14 @@ export class ScraperNoFluffJobs extends ScraperBase {
 		}
 	}
 
-	async getJobOffers(): Promise<JobOfferPracuj[]> {
+	async getJobOffers(): Promise<OffersProps[]> {
 		await this.sleep(500)
 		if (!this.browser || !this.page) {
 			throw new Error('Browser has not been initialized. Please call initialize() first.')
 		}
 		const jobOffersLiElements = await this.page.$$('a.posting-list-item')
-		const offers: JobOfferPracuj[] = []
-		for (let index = 0; index < 5; index++) {
+		const offers: OffersProps[] = []
+		for (let index = 0; index < 10; index++) {
 			const offer = jobOffersLiElements[index]
 			if (!offer) {
 				break
@@ -98,7 +98,7 @@ export class ScraperNoFluffJobs extends ScraperBase {
 				console.error('error:', error)
 			}
 
-			const jobOffer: JobOfferPracuj = {
+			const jobOffer: OffersProps = {
 				title,
 				company,
 				image,
