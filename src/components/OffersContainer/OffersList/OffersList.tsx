@@ -66,7 +66,7 @@ export const OffersList = ({ offers, searchForJobTitle, onClearFilters, searchFo
 										</div>
 										<div className={styles.mobile_info_box}>
 											<p className={` ${styles.single_info} ${styles.single_info_mobile}`}>
-												{offer.location !== 'Remote' ? 'On-Site' : offer.location}
+												{offer.location}
 											</p>
 											<p className={styles.single_info}>{offer.seniority}</p>
 										</div>
