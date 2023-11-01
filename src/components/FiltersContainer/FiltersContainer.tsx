@@ -5,7 +5,7 @@ import { FilterSection } from './FilterSection/FilterSection';
 import { FilterSectionSalary } from './FilterSectionSalary/FilterSectionSalary';
 import { ClearButton } from '../ClearButton/ClearButton';
 import FiltersButton from './FiltersButton/FiltersButton';
-import { JobType, Seniority, WorkLocation } from '@/types/frontend/types';
+import { JobType, Position, Seniority, WorkLocation } from '@/types/frontend/types';
 import { useFilters } from '../../contexts/FilterContext';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
@@ -13,6 +13,7 @@ const cx = classNames.bind(styles);
 const jobType = Object.values(JobType);
 const seniority = Object.values(Seniority);
 const location = Object.values(WorkLocation);
+const position = Object.values(Position)
 
 export const FiltersContainer = () => {
    const {
@@ -20,6 +21,7 @@ export const FiltersContainer = () => {
       setSelectedSeniority,
       setSelectedLocation,
       setSelectedSalary,
+      setSelectedPosition,
       clearAllFilters,
    } = useFilters();
 
@@ -73,6 +75,12 @@ export const FiltersContainer = () => {
                   title="Location"
                   filters={location}
                   onFilterChange={setSelectedLocation}
+                  clearFiltersCount={clearFiltersCount}
+               />
+               <FilterSection
+                  title="Position"
+                  filters={position}
+                  onFilterChange={setSelectedPosition}
                   clearFiltersCount={clearFiltersCount}
                />
                <FilterSectionSalary

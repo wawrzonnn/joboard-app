@@ -8,3 +8,14 @@ export const matchSeniority = (offerSeniority: string) => {
     if (seniorKeywords.some(keyword => offerSeniority.toLowerCase().includes(keyword))) return 'Senior';
     return '';
 }
+
+export const matchPosition = (offerPosition: string) => {
+    const frontendKeywords = ['front'];
+    const backendKeywords = ['back'];
+    const fullstackKeywords = ['full'];
+
+    if (frontendKeywords.some(keyword => offerPosition.toLowerCase().includes(keyword))) return 'Frontend';
+    if (backendKeywords.some(keyword => offerPosition.toLowerCase().includes(keyword))) return 'Backend';
+    if (fullstackKeywords.some(keyword => offerPosition.toLowerCase().includes(keyword))) return 'Fullstack';
+    return '';
+}

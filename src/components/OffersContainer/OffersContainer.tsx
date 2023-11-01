@@ -9,11 +9,11 @@ import { OffersList } from './OffersList/OffersList'
 import { JobOffer, suggestionType } from '@/types/frontend/types'
 import { removeDuplicatesSuggestion } from '../../utils/removeDuplicateSuggestion'
 import { useFilters } from '../../contexts/FilterContext'
-import { matchSeniority } from '../../utils/matchFilters';
+import { matchPosition, matchSeniority } from '../../utils/matchFilters';
 import { useScrapedOffers } from '../../hooks/useScrapedOffers';
 
 export const OffersContainer = () => {
-    const { selectedJobTypes, selectedSeniority, selectedLocation, selectedSalary } = useFilters();
+    const { selectedJobTypes, selectedSeniority, selectedLocation, selectedSalary, selectedPosition } = useFilters();
     const scrapedOffers = useScrapedOffers();
     
     const [filteredOffers, setFilteredOffers] = useState<JobOffer[]>([]);
@@ -29,6 +29,7 @@ export const OffersContainer = () => {
                 (!location || offer.city.toLowerCase().includes(location.toLowerCase())) &&
                 (!selectedJobTypes.length || selectedJobTypes.includes(offer.jobType)) &&
                 (!selectedSeniority.length || selectedSeniority.includes(matchSeniority(offer.seniority))) &&
+				(!selectedPosition.length || selectedPosition.some(pos => matchPosition(offer.title) === pos)) &&
                 (!selectedLocation.length || selectedLocation.includes(offer.location)) &&
                 (!selectedSalary || selectedSalary <= offer.salaryMin)
         )
@@ -89,8 +90,7 @@ export const OffersContainer = () => {
 
 	useEffect(() => {
 		filterOffers(searchForJobTitle, searchForLocation)
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [scrapedOffers, selectedJobTypes, selectedSeniority, selectedLocation, selectedSalary])
+	}, [scrapedOffers, selectedJobTypes, selectedSeniority, selectedLocation, selectedSalary, selectedPosition])
 
 	return (
 		<div className={styles.container}>
