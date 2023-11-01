@@ -9,50 +9,31 @@ import { OffersList } from './OffersList/OffersList'
 import { JobOffer, suggestionType } from '@/types/frontend/types'
 import { removeDuplicatesSuggestion } from '../../utils/removeDuplicateSuggestion'
 import { useFilters } from '../../contexts/FilterContext'
+import { matchSeniority } from '../../utils/matchFilters';
+import { useScrapedOffers } from '../../hooks/useScrapedOffers';
 
 export const OffersContainer = () => {
+    const { selectedJobTypes, selectedSeniority, selectedLocation, selectedSalary } = useFilters();
+    const scrapedOffers = useScrapedOffers();
+    
+    const [filteredOffers, setFilteredOffers] = useState<JobOffer[]>([]);
+    const [searchForJobTitle, setSearchForJobTitle] = useState('');
+    const [searchForLocation, setSearchForLocation] = useState('');
+    const [titleSuggestions, setTitleSuggestions] = useState<JobOffer[]>([]);
+    const [locationSuggestions, setLocationSuggestions] = useState<JobOffer[]>([]);
 
-	const { selectedJobTypes, selectedSeniority, selectedLocation, selectedSalary } = useFilters()
-	const [scrapedOffers, setScrapedOffers] = useState<JobOffer[]>([])
-	const [filteredOffers, setFilteredOffers] = useState<JobOffer[]>([])
-	const [searchForJobTitle, setSearchForJobTitle] = useState('')
-	const [searchForLocation, setSearchForLocation] = useState('')
-	const [titleSuggestions, setTitleSuggestions] = useState<JobOffer[]>([])
-	const [locationSuggestions, setLocationSuggestions] = useState<JobOffer[]>([])
-
-
-	const jsonFile = '/results.json';
-
-	useEffect(() => {
-		fetch(jsonFile)
-			.then(res => res.json())
-			.then(data => {
-				const combinedData = [...data.frontend, ...data.backend, ...data.fullstack]
-					.map(offer => {
-						// Jeśli salaryMin jest stringiem, przekształć go na liczbę
-						if (typeof offer.salaryMin === 'string') {
-							offer.salaryMin = parseFloat(offer.salaryMin);
-						}
-						return offer;
-					});
-				setScrapedOffers(combinedData);
-				setFilteredOffers(combinedData);
-			});
-	}, []);
-	const filterOffers = (title: string, location: string) => {
-
-		const matchedOffers = scrapedOffers.filter(
-			offer =>
-				(!title || offer.title.toLowerCase().includes(title.toLowerCase())) &&
-				(!location || offer.city.toLowerCase().includes(location.toLowerCase())) &&
-				(!selectedJobTypes.length || selectedJobTypes.includes(offer.jobType)) &&
-				(!selectedSeniority.length || selectedSeniority.includes(offer.seniority)) &&
-				(!selectedLocation.length || selectedLocation.includes(offer.location)) &&
-				(!selectedSalary || selectedSalary <= offer.salaryMin)
-		)
-		console.log('Matched Offers:', matchedOffers)
-		setFilteredOffers(matchedOffers)
-	}
+    const filterOffers = (title: string, location: string) => {
+        const matchedOffers = scrapedOffers.filter(
+            offer =>
+                (!title || offer.title.toLowerCase().includes(title.toLowerCase())) &&
+                (!location || offer.city.toLowerCase().includes(location.toLowerCase())) &&
+                (!selectedJobTypes.length || selectedJobTypes.includes(offer.jobType)) &&
+                (!selectedSeniority.length || selectedSeniority.includes(matchSeniority(offer.seniority))) &&
+                (!selectedLocation.length || selectedLocation.includes(offer.location)) &&
+                (!selectedSalary || selectedSalary <= offer.salaryMin)
+        )
+        setFilteredOffers(matchedOffers);
+    }
 
 	const handleSearchByJobTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const inputValue = event.target.value

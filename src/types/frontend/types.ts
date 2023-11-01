@@ -8,13 +8,10 @@ export enum JobType {
   }
   
   export enum Seniority {
-    LEAD = 'Lead',
-    EXPERT = 'Expert',
-    SENIOR = 'Senior',
-    MID_REGULAR = 'Mid/Regular',
     JUNIOR = 'Junior',
-    INTERN = 'Intern',
-  }
+    MID = 'Mid/Regular',
+    SENIOR = 'Senior/Expert',
+}
   
   export enum WorkLocation {
     REMOTE = 'Remote',
