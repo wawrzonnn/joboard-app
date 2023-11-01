@@ -208,3 +208,16 @@
       flex-direction: row;
    }
 }
+
+.list_element {
+   min-width: auto;
+   width: 100%;
+}
+
+.single_info, .company_name {
+   white-space: normal;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   word-break: break-word;
+}
+
