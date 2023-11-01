@@ -27,7 +27,14 @@ export const OffersContainer = () => {
 		fetch(jsonFile)
 			.then(res => res.json())
 			.then(data => {
-				const combinedData = [...data.frontend, ...data.backend, ...data.fullstack];
+				const combinedData = [...data.frontend, ...data.backend, ...data.fullstack]
+					.map(offer => {
+						// Jeśli salaryMin jest stringiem, przekształć go na liczbę
+						if (typeof offer.salaryMin === 'string') {
+							offer.salaryMin = parseFloat(offer.salaryMin);
+						}
+						return offer;
+					});
 				setScrapedOffers(combinedData);
 				setFilteredOffers(combinedData);
 			});
@@ -41,7 +48,7 @@ export const OffersContainer = () => {
 				(!selectedJobTypes.length || selectedJobTypes.includes(offer.jobType)) &&
 				(!selectedSeniority.length || selectedSeniority.includes(offer.seniority)) &&
 				(!selectedLocation.length || selectedLocation.includes(offer.location)) &&
-				(!selectedSalary || selectedSalary <= offer.salaryFrom)
+				(!selectedSalary || selectedSalary <= offer.salaryMin)
 		)
 		console.log('Matched Offers:', matchedOffers)
 		setFilteredOffers(matchedOffers)

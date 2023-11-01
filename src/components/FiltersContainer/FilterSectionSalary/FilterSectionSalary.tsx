@@ -11,7 +11,8 @@ export const FilterSectionSalary = ({
    clearFiltersCount,
 }: FilterSectionSalaryProps) => {
    const [value, setValue] = useState(0);
-   const leftPosition = value / 1245;
+   const MAX_SALARY = 50000;
+   const leftPosition = (value / MAX_SALARY) * 97;
 
    useEffect(() => {
       setValue(0);
@@ -26,13 +27,13 @@ export const FilterSectionSalary = ({
 
    return (
       <div className={styles.container}>
-         <span className={styles.title}>Salary (min.)</span>
+         <span className={styles.title}>Min. Salary (PLN/month)</span>
          <div className={styles.slider_container}>
             <input
                type="range"
                min="0"
-               max="120000"
-               step="1500"
+               max={MAX_SALARY.toString()}
+               step="250"
                value={value}
                onChange={handleChange}
                className={styles.slider}
