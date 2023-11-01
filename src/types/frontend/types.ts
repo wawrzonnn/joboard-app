@@ -28,7 +28,7 @@ export enum JobType {
   }
 
 export interface JobOffer {
-	salaryMin: string
+	salaryMin: number
 	salaryMax: string
 	preHighlight: ReactNode
 	highlight: ReactNode
@@ -41,7 +41,7 @@ export interface JobOffer {
 	jobType: string
 	seniority: Seniority
 	location: WorkLocation
-	salaryFrom: number
+	salaryFrom: string
 	salaryTo: number
 	currency: string
 	technologies: string[]
