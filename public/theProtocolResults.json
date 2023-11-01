@@ -1,0 +1,121 @@
+[
+  {
+    "title": "Fullstack Developer",
+    "company": "Novaris Sp. z o.o.",
+    "technologies": [
+      "Spring Framework",
+      "JUnit",
+      "Mockito",
+      "Wiremock",
+      "Swagger",
+      "Hibernate",
+      "Angular",
+      "npm",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "addedAt": "31.10.2023",
+    "location": "zdalna, hybrydowa",
+    "jobType": "",
+    "seniority": "Mid",
+    "employmentType": "umowa o pracę (pełny etat)",
+    "salary": "18k–25kzł (B2B)",
+    "salaryMin": "18000",
+    "salaryMax": "25kzł(B2B)",
+    "description": "Technologie, których używamyWymaganeSpring FrameworkJUnitMockitoWiremockSwaggerHibernateAngularnpmHTMLCSSJavaScriptMile widzianeJiraO projekcieProjekt długoterminowyTwój zakres obowiązkówObowiązki zgodnie z zajmowanym stanowiskiem.Nasze wymaganiaMinimum 3 letnie doświadczenie z następującymi technologiami (im więcej, tym lepiej):Spring Framework, Java 8+, JUnit, Mockito, REST, Spring Cloud, Wiremock, Swagger, Hibernate, Angular 10 +, Npm, HTML5, CSS3, Saas, JavaScript,Doświadczenie w tworzeniu aplikacji w architekturze mikroserwisowej,Umiejętność analizowania logów i metryk,Doświadczenie w tworzeniu zaawansowanych algorytmów,Umiejętność pisania czystego, dobrze zaprojektowanego, wysokiej jakości kodu w zwinnym środowisku (TDD, BDD, wzorce projektowe),Przywiązanie do jakości wytwarzanych aplikacji i umiejętność pisania automatycznych testów jednostkowych i integracyjnych.Mile widzianePraktyczna znajomość zwinnych metodyk rozwoju oprogramowania (Agile/Scrum) na poziomie umożliwiającym dostarczanie produktu wysokiej jakości w szybkim tempie,Doświadczenie w pracy z narzędziami Atlassian – Jira.",
+    "city": "Poznań",
+    "offerLink": "https://theprotocol.it/szczegoly/praca/fullstack-developer-poznan-,oferta,497c0000-d78f-febc-c38d-08dbda653594?searchId=b0220810-7893-11ee-b874-ef8ba5b445d1&s=4826570898",
+    "image": "https://logos.gpcdn.pl/loga-firm/20083072/9b030000-5dac-0015-ab72-08db2ec67c51_280x280.png?width=96"
+  },
+  {
+    "title": "Magento Developer (wsparcie 2 m-czne)",
+    "company": "Cyclad",
+    "technologies": [
+      "PHP",
+      "Magento"
+    ],
+    "addedAt": "31.10.2023",
+    "location": "zdalna",
+    "jobType": "",
+    "seniority": "Mid",
+    "employmentType": "umowa o pracę (pełny etat)",
+    "salary": "11k–15kzł (UoP)",
+    "salaryMin": "11000",
+    "salaryMax": "15kzł(UoP)",
+    "description": "Technologie, których używamyWymaganePHPMagentoMile widzianeAngularO projekciePoszukujemy doświadczonego Magento Developera do dużego projektu typu greenfield, polegającego na opracowaniu nowej implementacji silnika do rezerwacji biletów lotniczych i usług dodatkowych. Dołącz do zespołu, który tworzy ciekawe projekty dla jednego z liderów branży lotniczej w Europie!Branża: LotniczaObszar projektu: rozwój nowego systemu do rezerwacji biletów lotniczych i usług dodatkowychLokalizacja: Warszawa lub 100% zdalnieCzas trwania projektu: dodatkowe wsparcie 2 m-czne zespołu deweloperów w ramach domknięcia projektu (max do końca roku)Język angielski: B1/B2Metodologia: Agile/ ScrumTechnologie: Magento 2, Open Source/Adobe Commerce, PHP 8, REST, SOAP, Swagger, GIT, Azure/AWS, Jira, Confluence, CI/CDTwój zakres obowiązkówRozwój internetowej platformy do rezerwacji biletów lotniczych i usług dodatkowych - projekt greenfieldPraca w zespołach Scrumowych, cross-functionalOpracowanie integracji z głównymi systemami zewnętrznymi, takimi jak bramki płatnicze czy system bookingowyPrzygotowanie dedykowanych rozwiązań dla klienta i ich prezentacjaOcena integracji danych własnych i zewnętrznych, wymagań dostawców technologii oraz opracowywanie strategii integracji platformyStosowanie najlepszych praktyk Magento, utrzymanie dokumentacji i koduNasze wymaganiaCo najmniej 3 lata doświadczenia w tworzeniu sklepów internetowych w oparciu o Magento, Open Source lub Adobe CommerceDoświadczenie z REST APIZnajomość języka programowania PHPUmiejętności wprowadzania zmian i administrowania platformą Adobe CommerceUmiejętności tworzenia integracji pomiędzy Adobe Commerce i zewnętrznymi systemami za pomocą SFTP, MQ, REST, SOAP",
+    "city": "Warszawa",
+    "offerLink": "https://theprotocol.it/szczegoly/praca/magento-developer-wsparcie-2-m-czne-warszawa,oferta,0cbc0000-d447-965a-89b4-08dbda1ddcb1?searchId=b0220810-7893-11ee-b874-ef8ba5b445d1&s=4826570898",
+    "image": "https://logos.gpcdn.pl/loga-firm/20005890/2c580000-43a8-f403-6c0c-08d9f5f2c7b4_280x280.png?width=96"
+  },
+  {
+    "title": "Java Senior / Tech lead",
+    "company": "Arche Consulting Sp z o.o.",
+    "technologies": [
+      "Java",
+      "SQL"
+    ],
+    "addedAt": "31.10.2023",
+    "location": "hybrydowa",
+    "jobType": "",
+    "seniority": "Senior",
+    "employmentType": "umowa o pracę (pełny etat)",
+    "salary": "20k–30kzł (UoP)",
+    "salaryMin": "20000",
+    "salaryMax": "30kzł(UoP)",
+    "description": "Technologie u pracodawcyWymaganeJavaSQLTwój zakres obowiązkówProjektowanie i rozwijanie funkcjonalności aplikacji, która spełnia wymagania biznesowe z wysoką jakością w określonych terminach,Rozwijanie łatwych w utrzymaniu, dobrze udokumentowanych funkcji aplikacji z myślą o standaryzacji, wspólnych komponentach, prostocie, wydajności, solidności i innych atrybutach rozwiązań korporacyjnych,Wkład wiedzy technicznej do definiowania wymagań aplikacji we współpracy z analitykami biznesowymi, przedstawicielami biznesu i innymi. Musisz być w stanie usprawnić, jak również rejestrować wymagania, wykonać analizę luk i zaoferować opcje funkcjonalności w stosownych przypadkach,Tworzenie dowodów koncepcji lub prototypów;Pomoc w identyfikacji wzorców i anty-wzorców kodowania oraz egzekwowanie wdrażania wzorców poprzez przeglądy kodu,Szybkie rozwiązywanie problemów napotkanych przez linie biznesowe w środowisku produkcyjnym, utrzymując pomocne, \"wysokie podejście\" do pracy z użytkownikami biznesowymi, wykonując analizę przyczyn źródłowych, ocenę technologii.Wymagania pracodawcy5+ lat odpowiedniego doświadczenia w tworzeniu oprogramowania,Doświadczenie w prowadzeniu zespołu i pomoc w mentorowaniu/prowadzeniu młodszych programistów java w dostarczaniu zmian dla aplikacji zespołu platformy,Wysoka biegłość w praktykach programistycznych: testy jednostkowe, ciągła integracja, refaktoryzacja, czysty kod,Dobrego zrozumienia wzorców projektowych Java i OO Design,Doświadczenie w tworzeniu usług internetowych REST w Javie,Biegłość w koncepcjach RDBMS i SQL,Znajomość Spring, Spring MVC i Spring Boot,Doświadczenie z: Hibernate, JPA, JMS, JTA, Junit, Jenkins, SVN, Git, Maven,Zrozumienie procedur wdrażania aplikacji,Zdolność do adaptacji w metodykach Scrum/Agile,Umiejętność interpretacji i rozwiązywania problemów z aplikacjami przy użyciu logów.",
+    "city": "Kraków",
+    "offerLink": "https://theprotocol.it/szczegoly/praca/java-senior---tech-lead-krako-w,oferta,20e40000-8020-8a60-31c9-08dbda107fa1?searchId=b0220810-7893-11ee-b874-ef8ba5b445d1&s=4826570898",
+    "image": "https://logos.gpcdn.pl/loga-firm/20093617/03000000-bb2f-3863-c3e5-08d930af1ec1_280x280.png?width=96"
+  },
+  {
+    "title": "Fullstack Developer",
+    "company": "JellyTech",
+    "technologies": [
+      "Python",
+      "Angular",
+      "HTML",
+      "CSS",
+      "Flask",
+      "REST",
+      "Git"
+    ],
+    "addedAt": "31.10.2023",
+    "location": "zdalna",
+    "jobType": "",
+    "seniority": "Mid",
+    "employmentType": "kontrakt B2B (pełny etat)",
+    "salary": "12k–20kzł (B2B)",
+    "salaryMin": "12000",
+    "salaryMax": "20kzł(B2B)",
+    "description": "Technologie, których używamyWymaganePythonAngularHTMLCSSFlaskRESTGitO projekcieProjekt realizowany dla Klienta z branży elektronicznej.Branża: elektronicznaStack technologiczny w projekcie: Python, Angular, HTML, CSS, Flask, REST, GitJęzyk komunikacji w projekcie: polskiTwój zakres obowiązkówRealny wpływ na rozwój aplikacji umożliwiającej optymalizację przesyłanej energii.Implementacja rozwiązań z wykorzystaniem odpowiednich narzędzi.Współpraca z Zespołem Projektowym.Przygotowanie dokumentacji.Przygotowanie testów.Nasze wymaganiaStawiasz na pisanie wysokiej jakości kodu.Posiadasz minimum 2-letnie doświadczenie w rozwijaniu aplikacji webowych.Masz praktyczną wiedzę z zakresu tworzenia serwisów REST oraz w pracy z systemami kontroli wersji Git.Lubisz się uczyć oraz dzielić wiedzą!Możesz powiedzieć o sobie: pasja i ciekawość technologii zmotywowały mnie do podjęcia tej pracy!Znajomość języka angielskiego na poziomie minimum B2.",
+    "city": "Warszawa",
+    "offerLink": "https://theprotocol.it/szczegoly/praca/fullstack-developer-warszawa-encyklopedyczna-2a,oferta,497c0000-d78f-febc-ccb1-08dbd9fde8c1?searchId=b0220810-7893-11ee-b874-ef8ba5b445d1&s=4826570898",
+    "image": "https://logos.gpcdn.pl/loga-firm/20255966/9b030000-5dac-0015-5da7-08db30568c07_280x280.png?width=96"
+  },
+  {
+    "title": "Fullstack CMS Developer",
+    "company": "JellyTech",
+    "technologies": [
+      "Contentful CMS",
+      "WordPress",
+      "Java",
+      "React.js",
+      "NextJS",
+      "AWS",
+      "Kubernetes"
+    ],
+    "addedAt": "31.10.2023",
+    "location": "zdalna",
+    "jobType": "",
+    "seniority": "Mid",
+    "employmentType": "kontrakt B2B (pełny etat)",
+    "salary": "21k–26.9kzł (B2B)",
+    "salaryMin": "21000",
+    "salaryMax": "26.9kzł(B2B)",
+    "description": "Technologie, których używamyWymaganeContentful CMSWordPressJavaReact.jsNextJSAWSKubernetesO projekcieProjekt dla klienta telekomunikacyjnego w Finlandii.Jako Fullstack CMS zajmować się będziesz dalszym rozwojem wszystkich publicznych stron internetowych klienta.Język komunikacji w projekcie: polski/angielskiTwój zakres obowiązkówRozwój stron internetowychWspółpraca z Zespołem DeveloperskimStosowanie prawidłowych standardów i dobrych praktyk kodowaniaRealny wpływ na budowę oraz rozwój nowych funkcjonalnościNasze wymaganiaMinimum 5 lat doświadczenia z CMSZnajomość Wordpress, Java, React.js, NextJS, KubernetesDoświadczenie w pracy w środowisku chmurowym - AWSZnajomość języka angielskiego na poziomie B2/C1",
+    "city": "Warszawa",
+    "offerLink": "https://theprotocol.it/szczegoly/praca/fullstack-cms-developer-warszawa-encyklopedyczna-2a,oferta,497c0000-d78f-febc-b9d2-08dbd9fdc028?searchId=b0220810-7893-11ee-b874-ef8ba5b445d1&s=4826570898",
+    "image": "https://logos.gpcdn.pl/loga-firm/20255966/9b030000-5dac-0015-5da7-08db30568c07_280x280.png?width=96"
+  }
+]
