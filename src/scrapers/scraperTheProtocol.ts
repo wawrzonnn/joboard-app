@@ -1,4 +1,4 @@
-import { ScraperOptions, JobOfferPracuj } from '../types/backend/types'
+import { ScraperOptions, OffersProps } from '../types/backend/types'
 import { ScraperBase } from './scraperBase'
 import {
 	formatSalaryMaxNoFluffJobs,
@@ -28,16 +28,16 @@ export class ScraperTheProtocol extends ScraperBase {
 		await this.page.click('[data-test="button-acceptAll"]')
 	}
 
-	async getJobOffers(): Promise<JobOfferPracuj[]> {
+	async getJobOffers(): Promise<OffersProps[]> {
 		await this.sleep(500)
 		if (!this.browser || !this.page) {
 			throw new Error('Browser has not been initialized. Please call initialize() first.')
 		}
 
 		const jobOffersLiElements = await this.page.$$('a.anchorClass_a6of9et')
-		const offers: JobOfferPracuj[] = []
+		const offers: OffersProps[] = []
 
-		for (let index = 0; index < 5; index++) {
+		for (let index = 0; index < 10; index++) {
 
 			const offer = jobOffersLiElements[index]
 			if (!offer) {
@@ -89,7 +89,7 @@ export class ScraperTheProtocol extends ScraperBase {
 				console.error('error:', error)
 			}
 
-			const jobOffer: JobOfferPracuj = {
+			const jobOffer: OffersProps = {
 				title,
 				company,
 				image,

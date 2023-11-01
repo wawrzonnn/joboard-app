@@ -5,19 +5,19 @@ import { FilterSection } from './FilterSection/FilterSection';
 import { FilterSectionSalary } from './FilterSectionSalary/FilterSectionSalary';
 import { ClearButton } from '../ClearButton/ClearButton';
 import FiltersButton from './FiltersButton/FiltersButton';
-import { JobType, Position, Seniority, WorkLocation } from '@/types/frontend/types';
+import { EmploymentType, Position, Seniority, Location } from '@/types/frontend/types';
 import { useFilters } from '../../contexts/FilterContext';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
-const jobType = Object.values(JobType);
+const employmentType = Object.values(EmploymentType);
 const seniority = Object.values(Seniority);
-const location = Object.values(WorkLocation);
+const location = Object.values(Location);
 const position = Object.values(Position)
 
 export const FiltersContainer = () => {
    const {
-      setSelectedJobTypes,
+      setSelectedEmploymentType,
       setSelectedSeniority,
       setSelectedLocation,
       setSelectedSalary,
@@ -60,9 +60,9 @@ export const FiltersContainer = () => {
             </header>
             <section>
                <FilterSection
-                  title="Job type"
-                  filters={jobType}
-                  onFilterChange={setSelectedJobTypes}
+                  title="Employment type"
+                  filters={employmentType}
+                  onFilterChange={setSelectedEmploymentType}
                   clearFiltersCount={clearFiltersCount}
                />
                <FilterSection

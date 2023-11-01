@@ -1,4 +1,4 @@
-import { ScraperOptions, JobOfferPracuj } from '../types/backend/types'
+import { ScraperOptions, OffersProps } from '../types/backend/types'
 import { ScraperBase } from './scraperBase'
 import {
 	formatAddedAtStringPracuj,
@@ -26,15 +26,15 @@ export class ScraperPracuj extends ScraperBase {
 			await this.page.click('button.size-medium.variant-primary.cookies_b1fqykql')
 	}
 
-	async getJobOffers(): Promise<JobOfferPracuj[]> {
+	async getJobOffers(): Promise<OffersProps[]> {
 		await this.sleep(500)
 		if (!this.browser || !this.page) {
 			throw new Error('Browser has not been initialized. Please call initialize() first.')
 		}
 
 		const jobOffersLiElements = await this.page.$$('[data-test="section-offers"] div div.listing_b1evff58')
-		const offers: JobOfferPracuj[] = []
-		for (let index = 0; index < 5; index++) {
+		const offers: OffersProps[] = []
+		for (let index = 0; index < 10; index++) {
 			const offer = jobOffersLiElements[index]
 			if (!offer) {
 				break
@@ -115,7 +115,7 @@ export class ScraperPracuj extends ScraperBase {
 				console.error('error:', error)
 			}
 
-			const jobOffer: JobOfferPracuj = {
+			const jobOffer: OffersProps = {
 				title,
 				company,
 				technologies,

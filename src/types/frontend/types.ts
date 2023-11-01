@@ -1,34 +1,31 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react'
 
-export enum JobType {
-    FULL_TIME = 'Full-time',
-    CONTRACT = 'Contract',
-    PART_TIME = 'Part-time',
-    FREELANCE = 'Freelance',
-  }
-  
-  export enum Seniority {
-    JUNIOR = 'Junior',
-    MID = 'Mid',
-    SENIOR = 'Senior',
+export enum EmploymentType {
+	B2B = 'B2B',
+	CONTRACT = 'Contract',
+}
+
+export enum Seniority {
+	JUNIOR = 'Junior',
+	MID = 'Mid',
+	SENIOR = 'Senior',
 }
 
 export enum Position {
-    FRONTEND = 'Frontend',
-    BACKEND = 'Backend',
-    FULLSTACK = 'Fullstack',
+	FRONTEND = 'Frontend',
+	BACKEND = 'Backend',
+	FULLSTACK = 'Fullstack',
 }
 
-  export enum WorkLocation {
-    REMOTE = 'Remote',
-    PART_REMOTE = 'Part-remote',
-    ON_SITE = 'On-site',
-  }
-  
-  export enum suggestionType {
-    TITLE = 'title',
-    CITY = 'city'
-  }
+export enum Location {
+	REMOTE = 'Remote',
+	HYBRID = 'Hybrid',
+}
+
+export enum suggestionType {
+	TITLE = 'title',
+	CITY = 'city',
+}
 
 export interface JobOffer {
 	_id: string
@@ -42,12 +39,12 @@ export interface JobOffer {
 	city: string
 	jobType: string
 	seniority: Seniority
-	location: WorkLocation
+	location: Location
 	position: Position
 	technologies: string[]
 	description: string
 	offerUrl: string
-	employmentType: string
+	employmentType: EmploymentType
 	addedAt: string
 	salary: string
 	offerLink: string

@@ -9,11 +9,11 @@ import { OffersList } from './OffersList/OffersList'
 import { JobOffer, suggestionType } from '@/types/frontend/types'
 import { removeDuplicatesSuggestion } from '../../utils/removeDuplicateSuggestion'
 import { useFilters } from '../../contexts/FilterContext'
-import { matchPosition, matchSeniority } from '../../utils/matchFilters';
+import { matchEmploymentType, matchLocation, matchPosition, matchSeniority } from '../../utils/matchFilters';
 import { useScrapedOffers } from '../../hooks/useScrapedOffers';
 
 export const OffersContainer = () => {
-    const { selectedJobTypes, selectedSeniority, selectedLocation, selectedSalary, selectedPosition } = useFilters();
+    const { selectedEmploymentType, selectedSeniority, selectedLocation, selectedSalary, selectedPosition } = useFilters();
     const scrapedOffers = useScrapedOffers();
     
     const [filteredOffers, setFilteredOffers] = useState<JobOffer[]>([]);
@@ -27,10 +27,10 @@ export const OffersContainer = () => {
             offer =>
                 (!title || offer.title.toLowerCase().includes(title.toLowerCase())) &&
                 (!location || offer.city.toLowerCase().includes(location.toLowerCase())) &&
-                (!selectedJobTypes.length || selectedJobTypes.includes(offer.jobType)) &&
+                (!selectedEmploymentType.length || selectedEmploymentType.includes(matchEmploymentType(offer.employmentType))) &&
                 (!selectedSeniority.length || selectedSeniority.includes(matchSeniority(offer.seniority))) &&
 				(!selectedPosition.length || selectedPosition.some(pos => matchPosition(offer.title) === pos)) &&
-                (!selectedLocation.length || selectedLocation.includes(offer.location)) &&
+                (!selectedLocation.length || selectedLocation.includes(matchLocation(offer.location))) &&
                 (!selectedSalary || selectedSalary <= offer.salaryMin)
         )
         setFilteredOffers(matchedOffers);
@@ -90,7 +90,7 @@ export const OffersContainer = () => {
 
 	useEffect(() => {
 		filterOffers(searchForJobTitle, searchForLocation)
-	}, [scrapedOffers, selectedJobTypes, selectedSeniority, selectedLocation, selectedSalary, selectedPosition])
+	}, [scrapedOffers, selectedEmploymentType, selectedSeniority, selectedLocation, selectedSalary, selectedPosition])
 
 	return (
 		<div className={styles.container}>
