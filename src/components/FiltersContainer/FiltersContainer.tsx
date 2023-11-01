@@ -10,7 +10,7 @@ import { useFilters } from '../../contexts/FilterContext';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
-const jobType = Object.values(EmploymentType);
+const employmentType = Object.values(EmploymentType);
 const seniority = Object.values(Seniority);
 const location = Object.values(Location);
 const position = Object.values(Position)
@@ -60,8 +60,8 @@ export const FiltersContainer = () => {
             </header>
             <section>
                <FilterSection
-                  title="Job type"
-                  filters={jobType}
+                  title="Employment type"
+                  filters={employmentType}
                   onFilterChange={setSelectedEmploymentType}
                   clearFiltersCount={clearFiltersCount}
                />
