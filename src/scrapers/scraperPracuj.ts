@@ -92,13 +92,13 @@ export class ScraperPracuj extends ScraperBase {
 						technologies = await Promise.all(techPromises)
 					}
 
-					const salaryMinElement = await newPage.$('span.offer-viewZGJhIB')
+					const salaryMinElement = await newPage.$('span.offer-viewZGJhIB');
 					if (salaryMinElement) {
 						salaryMin = await newPage.evaluate((el: any) => {
-							const textContent = el.textContent.trim()
-							const textWithoutLastChar = textContent.slice(0, -1)
-							return textWithoutLastChar
-						}, salaryMinElement)
+							const textContent = el.textContent.trim().replace(/\s+/g, '');
+							const textWithoutLastChar = textContent.slice(0, -1);
+							return textWithoutLastChar;
+						}, salaryMinElement);
 					}
 
 					salaryMax = await this.extractFromNewPage(newPage, 'span.offer-viewYo2KTr')

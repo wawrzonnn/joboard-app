@@ -56,10 +56,11 @@ export const formatSalaryStringPracuj = (salaryString: string): string => {
   export const formatSalaryMinNoFluffJobs = (salary: string): string => {
     const parts = salary.split('–');
     if (parts.length >= 1) {
-      return parts[0].trim().replace(/\s+/g, ''); 
+      return parts[0].trim().replace(/\s+/g, '');
     }
     return '';
-  }
+}
+
 
   export const formatSalaryMaxNoFluffJobs = (salary: string): string => {
     const parts = salary.split('–');
@@ -119,8 +120,12 @@ export const extractDateTheBulldogJob = (expiryDateString: string): string => {
 export const extractSalaryMin = (salaryString: string): string => {
   const salaryRegex = /(\d{1,3}(?:\s*\d{3})*)(?:\s*-\s*(\d{1,3}(?:\s*\d{3})*))?/;
   const match = salaryString.match(salaryRegex);
+  const exchangeRate = 4.5;
+
   if (match && match[1]) {
-      return match[1].replace(/\s+/g, '');
+      const yearlySalaryInEuro = parseInt(match[1].replace(/\s+/g, ''), 10);
+      const monthlySalaryInPLN = (yearlySalaryInEuro / 12) * exchangeRate;
+      return monthlySalaryInPLN.toFixed(2);
   }
   return '';
 }
