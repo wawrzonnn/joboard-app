@@ -8,14 +8,17 @@ export enum JobType {
   }
   
   export enum Seniority {
-    LEAD = 'Lead',
-    EXPERT = 'Expert',
-    SENIOR = 'Senior',
-    MID_REGULAR = 'Mid/Regular',
     JUNIOR = 'Junior',
-    INTERN = 'Intern',
-  }
-  
+    MID = 'Mid',
+    SENIOR = 'Senior',
+}
+
+export enum Position {
+    FRONTEND = 'Frontend',
+    BACKEND = 'Backend',
+    FULLSTACK = 'Fullstack',
+}
+
   export enum WorkLocation {
     REMOTE = 'Remote',
     PART_REMOTE = 'Part-remote',
@@ -28,27 +31,22 @@ export enum JobType {
   }
 
 export interface JobOffer {
+	_id: string
 	salaryMin: number
 	salaryMax: string
 	preHighlight: ReactNode
 	highlight: ReactNode
 	postHighlight: ReactNode
-	_id: string
 	title: string
 	company: string
 	city: string
-	country: string
 	jobType: string
 	seniority: Seniority
 	location: WorkLocation
-	salaryFrom: string
-	salaryTo: number
-	currency: string
+	position: Position
 	technologies: string[]
 	description: string
 	offerUrl: string
-	createdAt: string
-	updatedAt: string
 	employmentType: string
 	addedAt: string
 	salary: string

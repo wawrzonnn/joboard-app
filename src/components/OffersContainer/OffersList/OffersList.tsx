@@ -16,6 +16,7 @@ interface OffersListProps {
 export const OffersList = ({ offers, searchForJobTitle, onClearFilters, searchForLocation }: OffersListProps) => {
 	const [selectedOffer, setSelectedOffer] = useState<JobOffer | null>(null)
 	const [showJobOfferModal, setShowJobOfferModal] = useState<boolean>(false)
+	// const [scrapedOffers, setScrapedOffers] = useState<any[]>([])
 
 	// const handleScrapeOffers = async () => {
     //     try {
