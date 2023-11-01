@@ -178,9 +178,8 @@
       padding: 10px;
       display: flex;
       flex-direction: column;
-      // height: 45px;
-      // justify-content: space-between;
-      gap: 40px;
+      gap: 25px;
+      margin-top: 10px;
    }
    @include desktop {
       display: flex;
