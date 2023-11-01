@@ -18,18 +18,18 @@ export class ScraperTheProtocol extends ScraperBase {
 	}
 
 	async navigate(): Promise<void> {
-		await this.sleep(1000)
+		await this.sleep(500)
 		if (!this.page) {
 			throw new Error('Page has not been initialized. Please call initialize() first.')
 		}
 		const url = `https://theprotocol.it/filtry/${this.options.searchValue};sp/1;s?sort=date`
 		await this.page.goto(url)
-		await this.sleep(1000)
+		await this.sleep(500)
 		await this.page.click('[data-test="button-acceptAll"]')
 	}
 
 	async getJobOffers(): Promise<JobOfferPracuj[]> {
-		await this.sleep(1000)
+		await this.sleep(500)
 		if (!this.browser || !this.page) {
 			throw new Error('Browser has not been initialized. Please call initialize() first.')
 		}
@@ -38,7 +38,6 @@ export class ScraperTheProtocol extends ScraperBase {
 		const offers: JobOfferPracuj[] = []
 
 		for (let index = 0; index < 5; index++) {
-			await this.sleep(1000)
 			const offer = jobOffersLiElements[index]
 			if (!offer) {
 				break
@@ -68,7 +67,7 @@ export class ScraperTheProtocol extends ScraperBase {
 			let technologies: string[] = techElements
 
 			try {
-				await this.sleep(1000)
+				await this.sleep(200)
 				if (offerLink && this.browser) {
 					const newPage = await this.browser.newPage()
 					await newPage.goto(offerLink, { waitUntil: 'networkidle0' })

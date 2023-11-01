@@ -17,7 +17,7 @@ export const formatAddedAtStringPracuj = (dateStr: string): string => {
     const day = parts[0].padStart(2, '0');
     const month = months[parts[1] as keyof typeof months];
     const year = parts[2];
-    return `added at ${day}.${month}.${year}`;
+    return `${day}.${month}.${year}`;
 }
 
 export const formatSalaryStringPracuj = (salaryString: string): string => {
@@ -106,4 +106,109 @@ export const extractDateTheProtocol = (text: string): string => {
 
     return `${day}.${month}.${year}`;
 
+}
+
+export const extractDateTheBulldogJob = (expiryDateString: string): string => {
+  const [day, month, year] = expiryDateString.split('.').map(Number);
+  const expiryDate = new Date(year, month - 1, day);
+  expiryDate.setDate(expiryDate.getDate() - 30);
+
+  return `${String(expiryDate.getDate()).padStart(2, '0')}.${String(expiryDate.getMonth() + 1).padStart(2, '0')}.${expiryDate.getFullYear()}`;
+}
+
+export const extractSalaryMin = (salaryString: string): string => {
+  const salaryRegex = /(\d{1,3}(?:\s*\d{3})*)(?:\s*-\s*(\d{1,3}(?:\s*\d{3})*))?/;
+  const match = salaryString.match(salaryRegex);
+  if (match && match[1]) {
+      return match[1].replace(/\s+/g, '');
+  }
+  return '';
+}
+
+export const extractSalaryMax = (salaryString: string): string => {
+  const salaryRegex = /(\d{1,3}(?:\s*\d{3})*)(?:\s*-\s*(\d{1,3}(?:\s*\d{3})*))?/;
+  const match = salaryString.match(salaryRegex);
+  if (match && match[2]) {
+      return match[2].replace(/\s+/g, '');
+  }
+  return '';
+}
+
+
+export const extractEmploymentTypeBulldogJob = async (page: any): Promise<string> => {
+  let employmentType = '';
+
+  const employmentElements = await page.$x('//p[contains(@class, "text-gray-300") and contains(text(), "Typ")]');
+  if (employmentElements.length) {
+      const employmentEl = employmentElements[0];
+      const parentDiv = await employmentEl.$x('..');
+      if (parentDiv.length) {
+          const siblingDiv = await parentDiv[0].$x('./div[1]');
+          if (siblingDiv.length) {
+              const paragraph = await siblingDiv[0].$('p');
+              if (paragraph) {
+                  employmentType = await page.evaluate(
+                      (p: Element) => (p.textContent ? p.textContent.trim() : ''),
+                      paragraph
+                  );
+              }
+          }
+      }
+  }
+
+  return employmentType;
+}
+
+export const extractCityTheBulldogJob = async (newPage: any): Promise<string> => {
+  const cityElements = await newPage.$x(
+      '//p[contains(@class, "text-gray-300") and contains(text(), "Location") or contains(text(), "Lokalizacja") ]'
+  );
+  if (cityElements.length) {
+      const cityElement = cityElements[0];
+      let city = await newPage.evaluate(
+          (p: { textContent: any }) => (p.textContent ? p.textContent.trim() : ''),
+          cityElement
+      );
+      const parentDiv = await cityElement.$x('..');
+      if (parentDiv.length) {
+          const siblingDiv = await parentDiv[0].$x('./div[1]');
+          if (siblingDiv.length) {
+              const paragraph = await siblingDiv[0].$('p');
+              if (paragraph) {
+                  city = await newPage.evaluate((p: Element) => (p.textContent ? p.textContent.trim() : ''), paragraph);
+              }
+          }
+      }
+      return city;
+  }
+  return '';
+}
+
+export const getTodayDate = (): string => {
+  const today = new Date();
+  const day = String(today.getDate()).padStart(2, '0');
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const year = today.getFullYear();
+  return `${day}.${month}.${year}`;
+};
+
+export const extractNoFluffAddedAtDate = (addedAt: string): string => {
+  const today = new Date();
+  let daysAgo = 0;
+
+  if (addedAt.includes("today")) {
+      daysAgo = 0;
+  } else {
+      const match = addedAt.match(/(\d+) day/);
+      if (match) {
+          daysAgo = parseInt(match[1], 10);
+      }
+  }
+
+  today.setDate(today.getDate() - daysAgo);
+  const day = String(today.getDate()).padStart(2, '0');
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const year = today.getFullYear();
+  
+  return `${day}.${month}.${year}`;
 }

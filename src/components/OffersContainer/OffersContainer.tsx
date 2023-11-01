@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 import React, { useState, useEffect } from 'react'
 import styles from './OffersContainer.module.scss'
@@ -10,6 +11,7 @@ import { removeDuplicatesSuggestion } from '../../utils/removeDuplicateSuggestio
 import { useFilters } from '../../contexts/FilterContext'
 
 export const OffersContainer = () => {
+
 	const { selectedJobTypes, selectedSeniority, selectedLocation, selectedSalary } = useFilters()
 	const [scrapedOffers, setScrapedOffers] = useState<JobOffer[]>([])
 	const [filteredOffers, setFilteredOffers] = useState<JobOffer[]>([])
@@ -18,18 +20,20 @@ export const OffersContainer = () => {
 	const [titleSuggestions, setTitleSuggestions] = useState<JobOffer[]>([])
 	const [locationSuggestions, setLocationSuggestions] = useState<JobOffer[]>([])
 
+
+	const jsonFile = '/results.json';
+
 	useEffect(() => {
-		fetch('/results.json')
-			.then(response => response.json())
+		fetch(jsonFile)
+			.then(res => res.json())
 			.then(data => {
-				setScrapedOffers(data)
-				setFilteredOffers(data)
-			})
-	}, [])
-	console.log('huj', scrapedOffers)
+				const combinedData = [...data.frontend, ...data.backend, ...data.fullstack];
+				setScrapedOffers(combinedData);
+				setFilteredOffers(combinedData);
+			});
+	}, []);
 	const filterOffers = (title: string, location: string) => {
-		console.log('Title:', title)
-		console.log('Location:', location)
+
 		const matchedOffers = scrapedOffers.filter(
 			offer =>
 				(!title || offer.title.toLowerCase().includes(title.toLowerCase())) &&

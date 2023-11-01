@@ -1,6 +1,6 @@
 import { ScraperOptions, JobOfferPracuj } from '../types/backend/types'
 import { ScraperBase } from './scraperBase'
-
+import { getTodayDate } from './utils'
 export class ScraperJustJoinIT extends ScraperBase {
 	options: ScraperOptions
 
@@ -10,7 +10,7 @@ export class ScraperJustJoinIT extends ScraperBase {
 	}
 
 	async navigate(): Promise<void> {
-		await this.sleep(1000)
+		await this.sleep(500)
 		if (!this.page) {
 			throw new Error('Page has not been initialized. Please call initialize() first.')
 		}
@@ -25,14 +25,13 @@ export class ScraperJustJoinIT extends ScraperBase {
 	}
 
 	async getJobOffers(): Promise<JobOfferPracuj[]> {
-		await this.sleep(1000)
+		await this.sleep(500)
 		if (!this.browser || !this.page) {
 			throw new Error('Browser has not been initialized. Please call initialize() first.')
 		}
 		const jobOffersLiElements = await this.page.$$('[data-known-size="88"]')
 		const offers: JobOfferPracuj[] = []
 		for (let index = 0; index < 5; index++) {
-			await this.sleep(1000)
 			const offer = jobOffersLiElements[index]
 			if (!offer) {
 				break
@@ -58,7 +57,7 @@ export class ScraperJustJoinIT extends ScraperBase {
 			])
 
 			let offerLink: string = `https://justjoin.it/${offerLinkRaw}`
-			let addedAt: string = 'No date'   
+			let addedAt: string = getTodayDate()  
 			let jobType: string = ''
 			let seniority: string = ''
 			let employmentType: string = ''
@@ -67,7 +66,7 @@ export class ScraperJustJoinIT extends ScraperBase {
 			let technologies: string[] = []
 
 			try {
-				await this.sleep(1000)
+				await this.sleep(200)
 				if (offerLink && this.browser) {
 					const newPage = await this.browser.newPage()
 					await newPage.goto(offerLink, { waitUntil: 'networkidle0' })

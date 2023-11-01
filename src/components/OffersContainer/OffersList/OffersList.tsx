@@ -5,7 +5,6 @@ import styles from './OffersList.module.scss'
 import { ClearButton } from '../../ClearButton/ClearButton'
 import { JobOffer } from '@/types/frontend/types'
 import { JobOfferModal } from '../../JobOfferModal/JobOfferModal'
-// import { useRouter } from 'next/router'
 
 interface OffersListProps {
 	offers: JobOffer[]
@@ -15,33 +14,18 @@ interface OffersListProps {
 }
 
 export const OffersList = ({ offers, searchForJobTitle, onClearFilters, searchForLocation }: OffersListProps) => {
-	// const router = useRouter()
 	const [selectedOffer, setSelectedOffer] = useState<JobOffer | null>(null)
 	const [showJobOfferModal, setShowJobOfferModal] = useState<boolean>(false)
-	const [scrapedOffers, setScrapedOffers] = useState<any[]>([])
 
-	const handleScrapeOffers = async () => {
-        try {
-            const response = await fetch('/api/scrape', { method: 'POST' });
-            const data = await response.text();
-            console.log(data);
-        } catch (error) {
-            console.error(error);
-        }
-    }
-
-	useEffect(() => {
-		fetch('/results.json')
-			.then(response => {
-				if (!response.ok) {
-					console.error('error:', response.status, response.statusText)
-					return
-				}
-				return response.json()
-			})
-			.then(data => setScrapedOffers(data))
-			.catch(error => console.error('error:', error))
-	}, [])
+	// const handleScrapeOffers = async () => {
+    //     try {
+    //         const response = await fetch('/api/scrape', { method: 'POST' });
+    //         const data = await response.text();
+    //         console.log(data);
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
+    // }
 
 	const handleShowJobOfferModal = (offer: JobOffer) => {
 		setSelectedOffer(offer)
@@ -64,7 +48,7 @@ export const OffersList = ({ offers, searchForJobTitle, onClearFilters, searchFo
 					<ClearButton onClick={onClearFilters}>Clear search</ClearButton>
 				)}
 			</span>
-			<button onClick={handleScrapeOffers}>Run Scraping Script</button>
+			{/* <button onClick={handleScrapeOffers}>Run Scraping Script</button> */}
 			<ul className={styles.list}>
 				{offers.map((offer, index) => (
 					<li key={index} className={styles.list_element} onClick={() => handleShowJobOfferModal(offer)}>

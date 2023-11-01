@@ -1,11 +1,6 @@
 import { ScraperOptions, JobOfferPracuj } from '../types/backend/types'
 import { ScraperBase } from './scraperBase'
-import {
-	formatSalaryMaxNoFluffJobs,
-	formatSalaryMinNoFluffJobs,
-	filterContract,
-	removeStringAfterComma,
-} from './utils'
+import { formatSalaryMaxNoFluffJobs, formatSalaryMinNoFluffJobs, filterContract, removeStringAfterComma, extractNoFluffAddedAtDate } from './utils'
 
 export class ScraperNoFluffJobs extends ScraperBase {
 	options: ScraperOptions
@@ -16,25 +11,27 @@ export class ScraperNoFluffJobs extends ScraperBase {
 	}
 
 	async navigate(): Promise<void> {
-		await this.sleep(1000)
+		await this.sleep(500)
 		if (!this.page) {
 			throw new Error('Page has not been initialized. Please call initialize() first.')
 		}
 		const url = `https://nofluffjobs.com/${this.options.searchValue}?page=1&sort=newest`
-			await this.page.goto(url)
-			await this.sleep(1000)
-			await this.page.click('button#onetrust-accept-btn-handler')
+		await this.page.goto(url)
+		await this.sleep(500)
+		const button = await this.page.$('button#onetrust-accept-btn-handler')
+		if (button) {
+			await button.click()
+		}
 	}
 
 	async getJobOffers(): Promise<JobOfferPracuj[]> {
-		await this.sleep(1000)
+		await this.sleep(500)
 		if (!this.browser || !this.page) {
 			throw new Error('Browser has not been initialized. Please call initialize() first.')
 		}
 		const jobOffersLiElements = await this.page.$$('a.posting-list-item')
 		const offers: JobOfferPracuj[] = []
 		for (let index = 0; index < 5; index++) {
-			await this.sleep(1000)
 			const offer = jobOffersLiElements[index]
 			if (!offer) {
 				break
@@ -60,7 +57,7 @@ export class ScraperNoFluffJobs extends ScraperBase {
 			let salaryMax: string = formatSalaryMaxNoFluffJobs(salary)
 			let city: string = ''
 			try {
-				await this.sleep(1000)
+				await this.sleep(200)
 				if (offerLink && this.browser) {
 					const newPage = await this.browser.newPage()
 					await newPage.goto(offerLink, { waitUntil: 'networkidle0' })
@@ -75,6 +72,10 @@ export class ScraperNoFluffJobs extends ScraperBase {
 
 					const cityRaw = await this.extractFromNewPage(newPage, 'span.locations-text > span')
 					city = removeStringAfterComma(cityRaw)
+
+					const addedAtRaw = await this.extractFromNewPage(newPage, 'common-posting-time-info')
+					addedAt = extractNoFluffAddedAtDate(addedAtRaw)
+					
 
 					const techElements = await newPage.$$('ul.mb-0 > li.tw-btn > span')
 					if (techElements.length > 0) {
