@@ -23,9 +23,8 @@ export class ScraperPracuj extends ScraperBase {
 		const url = `https://www.pracuj.pl/praca/${this.options.searchValue};kw`
 			await this.page.goto(url)
 			await this.sleep(500)
-			await this.page.click('button.size-medium.variant-primary.cookies_b1fqykql')
+			await this.page.click('button.size-medium.variant-primary')
 	}
-
 	async getJobOffers(): Promise<OffersProps[]> {
 		await this.sleep(500)
 		if (!this.browser || !this.page) {
