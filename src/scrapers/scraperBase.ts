@@ -1,19 +1,34 @@
-import puppeteer from 'puppeteer-extra';
-import StealthPlugin from 'puppeteer-extra-plugin-stealth';
-import { Browser, Page } from 'puppeteer';
+// import puppeteer from 'puppeteer-extra';
+// import StealthPlugin from 'puppeteer-extra-plugin-stealth';
+// import { Browser, Page } from 'puppeteer';
 
-puppeteer.use(StealthPlugin());
+// puppeteer.use(StealthPlugin());
+
+// export class ScraperBase {
+//   protected browser: Browser | null = null;
+//   protected page: Page | null = null;
+
+//   async initialize(): Promise<void> {
+//     // @ts-ignore
+//     this.browser = await puppeteer.launch({ headless: false, defaultViewport: null });
+//     this.page = await this.browser.newPage();
+//   }
+import chromium from 'chrome-aws-lambda';
+import { Browser, Page } from 'puppeteer-core';
 
 export class ScraperBase {
   protected browser: Browser | null = null;
   protected page: Page | null = null;
 
   async initialize(): Promise<void> {
-    // @ts-ignore
-    this.browser = await puppeteer.launch({ headless: false, defaultViewport: null });
+    this.browser = await chromium.puppeteer.launch({
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath,
+      headless: chromium.headless,
+    });
     this.page = await this.browser.newPage();
   }
-
   async extractFromElement(element: any | null, selector: string, attribute?: string): Promise<string> {
     if (!this.page || !element) return '';
     const childElement = await element.$(selector);
