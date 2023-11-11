@@ -11,7 +11,8 @@ import { maxLetters } from './utils'
 export const scrapeOffers = async (searchTerms: string[], limit: number = 5) => {
 	console.log('Scrapping...')
 
-	const scrapers = [ScraperTheProtocol, ScraperJustJoinIT, ScraperPracuj, ScraperNoFluffJobs, ScraperBulldogJob]
+	// const scrapers = [ScraperTheProtocol, ScraperJustJoinIT, ScraperPracuj, ScraperNoFluffJobs, ScraperBulldogJob]
+	const scrapers = [ScraperTheProtocol]
 
 	const allResults: { [key: string]: any[] } = {}
 
@@ -33,20 +34,20 @@ export const scrapeOffers = async (searchTerms: string[], limit: number = 5) => 
 			allResults[searchTerm].push(
 				...scraperOffers.map(offer => ({
 					title: maxLetters(offer.title, 45),
-					company: maxLetters(offer.company, 30),
-					technologies: offer.technologies,
-					addedAt: offer.addedAt,
-					location: offer.location,
-					jobType: offer.jobType,
-					seniority: offer.seniority,
-					employmentType: offer.employmentType,
-					salary: offer.salary,
-					salaryMin: offer.salaryMin,
-					salaryMax: offer.salaryMax,
-					description: offer.description,
-					city: offer.city,
-					offerLink: offer.offerLink,
-					image: offer.image,
+					// company: maxLetters(offer.company, 30),
+					// technologies: offer.technologies,
+					// addedAt: offer.addedAt,
+					// location: offer.location,
+					// jobType: offer.jobType,
+					// seniority: offer.seniority,
+					// employmentType: offer.employmentType,
+					// salary: offer.salary,
+					// salaryMin: offer.salaryMin,
+					// salaryMax: offer.salaryMax,
+					// description: offer.description,
+					// city: offer.city,
+					// offerLink: offer.offerLink,
+					// image: offer.image,
 				}))
 			)
 		}
