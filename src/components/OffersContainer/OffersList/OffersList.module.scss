@@ -52,8 +52,9 @@
 	cursor: pointer;
 	@include mobile {
 		min-width: 200px;
-      min-height: 180px;;
+		min-height: 180px;
 		position: relative;
+		padding-bottom: 50px;
 	}
 }
 .company_logo_desktop {
@@ -66,22 +67,20 @@
 
 .company_logo_mobile {
 	@include mobile {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		width: 75px;
 		height: 75px;
 		height: 100%;
 		border: 1px solid var(--gray-light, #dadada);
 		border-radius: 5px;
-      margin-top: -5px;
-      img {
-         width: 60px;
-         height: 60px;
-      }
+		margin-top: -5px;
 	}
 	@include desktop {
 		display: none;
 	}
 }
-
 .job_title_wrapper {
 	display: flex;
 	gap: 25px;
@@ -95,7 +94,7 @@
 	font-weight: 600;
 	line-height: 130%;
 	letter-spacing: -0.4px;
-   @include mobile {
+	@include mobile {
 		line-height: 100%;
 	}
 }
@@ -139,7 +138,7 @@
 		padding-right: 0;
 		white-space: nowrap;
 		width: 100%;
-      border-right: none;
+		border-right: none;
 	}
 }
 
@@ -182,12 +181,12 @@
 	}
 }
 
-.mobile_info_box{
+.mobile_info_box {
 	@include mobile {
-      display: flex;
+		display: flex;
 		flex-direction: column;
-      gap: 8px;
-      margin-top: -5px;
+		gap: 8px;
+		margin-top: -5px;
 	}
 	@include desktop {
 		display: flex;

@@ -1,34 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './FiltersButton.module.scss';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 interface FiltersButtonProps {
-   onToggle?: () => void;
-   onClick?: () => void;
+   isOpen: boolean;
+   setOpenMenu: (open: boolean) => void;
 }
 
-export const FiltersButton = ({ onToggle, onClick }: FiltersButtonProps) => {
-   const [isToggled, setIsToggled] = useState(false);
-
+export const FiltersButton = ({ isOpen, setOpenMenu }: FiltersButtonProps) => {
    const handleToggle = () => {
-      setIsToggled(!isToggled);
-      if (onToggle) {
-         onToggle();
-      }
-      if (onClick) {
-         onClick(); 
-      }
+      setOpenMenu(!isOpen);
    };
 
-   const getButtonClasses = cx({
-      [styles.default]: true,
-      [styles.isToggled]: isToggled,
-   });
-   
+   const buttonLabel = isOpen ? 'Close' : 'Filter Offers';
+   const buttonClass = cx(styles.default, { [styles.isToggled]: isOpen });
+
    return (
-      <button className={getButtonClasses} onClick={handleToggle}>
-         {isToggled ? 'Close' : 'Filter offers'}
+      <button className={buttonClass} onClick={handleToggle}>
+         {buttonLabel}
       </button>
    );
 };
