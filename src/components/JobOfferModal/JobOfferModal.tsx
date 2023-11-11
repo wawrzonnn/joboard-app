@@ -1,9 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-
 import React from 'react';
 import styles from './JobOfferModal.module.scss';
 import Image from 'next/image'
-import companyLogo from '../../assets/images/companyLogo.jpg';
 import { XMark } from '../../assets/icons/XMark';
 import JobDetailsList from './JobDetailsList/JobDetailsList';
 import { JobOffer } from '@/types/frontend/types'

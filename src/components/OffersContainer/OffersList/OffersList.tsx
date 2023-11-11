@@ -19,13 +19,13 @@ export const OffersList = ({ offers, searchForJobTitle, onClearFilters, searchFo
 	// const [scrapedOffers, setScrapedOffers] = useState<any[]>([])
 
 	const handleScrapeOffers = async () => {
-	    try {
-	        const response = await fetch('/api/scrape', { method: 'POST' });
-	        const data = await response.text();
-	        console.log(data);
-	    } catch (error) {
-	        console.error(error);
-	    }
+		try {
+			const response = await fetch('/api/scrape', { method: 'POST' })
+			const data = await response.text()
+			console.log(data)
+		} catch (error) {
+			console.error(error)
+		}
 	}
 
 	const handleShowJobOfferModal = (offer: JobOffer) => {
@@ -58,12 +58,14 @@ export const OffersList = ({ offers, searchForJobTitle, onClearFilters, searchFo
 							<div>
 								<span className={styles.job_title}>{offer.title}</span>
 								<div className={styles.info_wrapper}>
+									<div>
 										<img className={styles.company_logo_mobile} src={offer.image} alt='company logo' />
-										<div className={styles.mobile_info_box}>
-												<p className={` ${styles.company_name} ${styles.single_info_mobile}`}>{offer.company}</p>
-												<p className={styles.single_info}>{offer.city}</p>
-												<p className={` ${styles.single_info} ${styles.single_info_mobile}`}>{offer.location}</p>
-												<p className={styles.single_info}>{offer.seniority}</p>
+									</div>
+									<div className={styles.mobile_info_box}>
+										<p className={` ${styles.company_name} ${styles.single_info_mobile}`}>{offer.company}</p>
+										<p className={styles.single_info}>{offer.city}</p>
+										<p className={` ${styles.single_info} ${styles.single_info_mobile}`}>{offer.location}</p>
+										<p className={styles.single_info}>{offer.seniority}</p>
 									</div>
 									<p className={styles.salary}>{offer.salary}</p>
 								</div>

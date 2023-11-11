@@ -28,18 +28,19 @@ export const FiltersContainer = () => {
 	const [clearFiltersCount, setClearFiltersCount] = useState<number>(0)
 	const [openMenu, setOpenMenu] = useState<boolean>(false)
 
+
+	const handleCloseMenu = () => {
+		setOpenMenu(false);
+	 };
+
 	const handleClearFilters = () => {
 		clearAllFilters()
 		setClearFiltersCount(prev => prev + 1)
 	}
 
-	const handleOpenMenu = () => {
-		setOpenMenu(!openMenu)
-	}
-
 	const getMobileMenuClasses = cx({
 		[styles.filters_wrapper]: true,
-		[styles.hidden]: !openMenu,
+		[styles.hidden]: !openMenu
 	})
 
 	const getMobileHeaderClasses = cx({
@@ -51,14 +52,14 @@ export const FiltersContainer = () => {
 			<div className={styles.container}>
 				<div className={getMobileHeaderClasses}>
 					<Logo />
-					<FiltersButton onClick={handleOpenMenu} />
+					<FiltersButton isOpen={openMenu} setOpenMenu={setOpenMenu} />
 				</div>
 				<div className={getMobileMenuClasses}>
 					<header className={styles.header}>
 						<p className={styles.header_title}>Filter offers</p>
 						<ClearButton onClick={handleClearFilters}>Clear filters</ClearButton>
 					</header>
-					<section>
+					<section className={styles.open_filters}>
 						<FilterSection
 							title='Employment type'
 							filters={employmentType}
@@ -84,6 +85,7 @@ export const FiltersContainer = () => {
 							clearFiltersCount={clearFiltersCount}
 						/>
 						<FilterSectionSalary setSelectedSalary={setSelectedSalary} clearFiltersCount={clearFiltersCount} />
+						<button className={styles.xmark} onClick={handleCloseMenu}>Close</button>
 					</section>
 				</div>
 			</div>
