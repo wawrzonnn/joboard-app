@@ -8,8 +8,7 @@ import { scrapeOffers } from './scrapeOffers'
 			alias: 'search',
 			describe: 'Search term for the job',
 			type: 'array',
-			// default: ['backend', 'frontend', 'fullstack'],
-			default: ['backend'],
+			default: ['backend', 'frontend', 'fullstack'],
 		})
 		.option('l', {
 			alias: 'limit',
