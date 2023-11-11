@@ -10,19 +10,19 @@ export class ScraperBase {
 
   async initialize(): Promise<void> {
     // @ts-ignore
-    this.browser = await puppeteer.launch({ headless: false, defaultViewport: null }); // local
+    // this.browser = await puppeteer.launch({ headless: false, defaultViewport: null }); // local
 
 
 
-    // const browser = await puppeteer.launch({
-    //   args: chromium.args,
-    //   defaultViewport: chromium.defaultViewport,
-    //   executablePath: await chromium.executablePath(),
-    //   headless: chromium.headless,
-    //   ignoreHTTPSErrors: true,
-    // });
+    const browser = await puppeteer.launch({
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+      ignoreHTTPSErrors: true,
+    });
   
-    // this.browser = browser;
+    this.browser = browser;
   
     if (this.browser) {
       this.page = await this.browser.newPage();
