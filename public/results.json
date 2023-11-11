@@ -1,13 +1,229 @@
 {
   "backend": [
     {
-      "title": "Full Stack .NET Junior Developer"
+      "title": "Full Stack .NET Junior Developer",
+      "company": "DKode",
+      "technologies": [
+        "C#",
+        ".NET",
+        "SQL",
+        "JavaScript",
+        "Git",
+        "Visual Studio",
+        "HTML",
+        "CSS",
+        "JQuery"
+      ],
+      "addedAt": "11.11.2023",
+      "location": "full office",
+      "jobType": "",
+      "seniority": "Junior",
+      "employmentType": "contract of employment (full-time)",
+      "salary": "5k–7.5kzł (CoE)",
+      "salaryMin": "5000",
+      "salaryMax": "7.5kzł(CoE)",
+      "description": "Technologies we useExpectedC#.NETSQLJavaScriptGitVisual StudioHTMLCSSJQueryOptionalVB.NETReact.jsMicrosoft Power BIMicrosoft AzureAzure DevOpsOperating systemWindowsYour responsibilitiesLocation: Goleniów (near Szczecin)Initial 3-month trial period is office-based, followed by a hybrid/remote work arrangement, depending on the candidate's preference.This is a full-time, on-site role located in Goleniów (near Szczecin) for a Junior Full Stack .NET Developer. The Junior Full Stack .NET Developer will be responsible for developing and maintaining .NET applications, integrating with other APIs and services, writing reusable code, and debugging and troubleshooting as necessary. Occasionally, you might be required to maintain clients' current systems (not development related).Our requirementsCandidates should have at least a B2 level of proficiency in English. No prior commercial experience is required, but we're looking for candidates with knowledge of the following technologies:- C#- .NET- MS SQL- JavaScript (jQuery)- HTML, CSS- Git- Visual StudioOptionalFamiliarity with the following technologies is a plus:- VB .NET- React- PowerBI- WinForms- Azure- Azure DevOps (Repo, CI/CD)",
+      "city": "Goleniów",
+      "offerLink": "https://theprotocol.it/szczegoly/praca/full-stack-net-junior-developer-golenio-w-konstytucji-3-maja-1,oferta,20e40000-8020-8a60-36f4-08dbe25246f8?searchId=cf45a5d0-80b8-11ee-a5c7-496537686d44&s=1741211767",
+      "image": "https://logos.gpcdn.pl/loga-firm/1074144071/9b030000-5dac-0015-8346-08dbc580deb3_280x280.png?width=96"
     },
     {
-      "title": "Junior Python Developer"
+      "title": "Junior Python Developer",
+      "company": "CO.BRICK SPÓŁKA Z OGRANICZO...",
+      "technologies": [
+        "Python",
+        "AWS"
+      ],
+      "addedAt": "09.11.2023",
+      "location": "home office, hybrid",
+      "jobType": "",
+      "seniority": "Junior",
+      "employmentType": "B2B contract (full-time)",
+      "salary": "150–150zł (B2B)",
+      "salaryMin": "24000",
+      "salaryMax": "150zł(B2B)",
+      "description": "Technologies we useExpectedPythonAWSAbout the projectOur client is embarking on a groundbreaking project to develop a platform that enables consistent, continuous, and highly automated marking of financial curves. This platform will empower traders to create and share curves regularly throughout the day for end-of-day processing. The goal is to ensure access to reliable and transparent market snapshots, enhance interdepartmental communication, and yield improved quantitative results, such as risk parameters for VaR.START DATE: January 2024If you’re passionate about financial technology, have a background in banking, and possess the technical skills to drive innovation, we invite you to join our team and be part of this exciting project. Apply now and contribute to shaping the future of financial curve marking!Your responsibilitiesCollaborate with a dynamic team of developers to implement and enhance the automated marking platform.Contribute to the creation of curves, ensuring consistency and accuracy in the financial data.Utilize C# or Python programming skills to develop and maintain software components.Leverage AWS Cloud experience to optimize the platform’s performance and scalability.Apply knowledge of financial analyst processes to meet the project’s specific requirements.Work closely with traders to understand their needs and provide technical solutions.Ensure the platform meets high standards of security, efficiency, and reliability.Collaborate with team members to troubleshoot issues and implement improvements.Our requirementsBackground in banking or finance to understand the nuances of financial markets.Proven experience working with AWS Cloud services.Familiarity with financial analyst processes and workflows.Strong communication skills in English.",
+      "city": "Gliwice",
+      "offerLink": "https://theprotocol.it/szczegoly/praca/junior-python-developer-gliwice-kaczyniec-9,oferta,497c0000-d78f-febc-34e8-08dbe12ab2fe?searchId=cf45a5d0-80b8-11ee-a5c7-496537686d44&s=1741211767",
+      "image": "https://logos.gpcdn.pl/loga-firm/1074011175/03000000-bb2f-3863-e9be-08d8ede8b2f7_280x280.png?width=96"
     },
     {
-      "title": "Senior Python Developer"
+      "title": "Senior Python Developer",
+      "company": "CO.BRICK SPÓŁKA Z OGRANICZO...",
+      "technologies": [
+        "Python",
+        "AWS"
+      ],
+      "addedAt": "09.11.2023",
+      "location": "home office, hybrid",
+      "jobType": "",
+      "seniority": "Senior",
+      "employmentType": "B2B contract (full-time)",
+      "salary": "150–150zł (B2B)",
+      "salaryMin": "24000",
+      "salaryMax": "150zł(B2B)",
+      "description": "Technologies we useExpectedPythonAWSAbout the projectOur client is embarking on a groundbreaking project to develop a platform that enables consistent, continuous, and highly automated marking of financial curves. This platform will empower traders to create and share curves regularly throughout the day for end-of-day processing. The goal is to ensure access to reliable and transparent market snapshots, enhance interdepartmental communication, and yield improved quantitative results, such as risk parameters for VaR.START DATE: January 2024If you’re passionate about financial technology, have a background in banking, and possess the technical skills to drive innovation, we invite you to join our team and be part of this exciting project. Apply now and contribute to shaping the future of financial curve marking!Your responsibilitiesCollaborate with a dynamic team of developers to implement and enhance the automated marking platform.Contribute to the creation of curves, ensuring consistency and accuracy in the financial data.Utilize C# or Python programming skills to develop and maintain software components.Leverage AWS Cloud experience to optimize the platform’s performance and scalability.Apply knowledge of financial analyst processes to meet the project’s specific requirements.Work closely with traders to understand their needs and provide technical solutions.Ensure the platform meets high standards of security, efficiency, and reliability.Collaborate with team members to troubleshoot issues and implement improvements.Our requirementsBackground in banking or finance to understand the nuances of financial markets.Proven experience working with AWS Cloud services.Familiarity with financial analyst processes and workflows.Strong communication skills in English.",
+      "city": "Gliwice",
+      "offerLink": "https://theprotocol.it/szczegoly/praca/senior-python-developer-gliwice-kaczyniec-9,oferta,0cbc0000-d447-965a-bf46-08dbe12aa4a0?searchId=cf45a5d0-80b8-11ee-a5c7-496537686d44&s=1741211767",
+      "image": "https://logos.gpcdn.pl/loga-firm/1074011175/03000000-bb2f-3863-e9be-08d8ede8b2f7_280x280.png?width=96"
+    }
+  ],
+  "frontend": [
+    {
+      "title": "Full Stack .NET Junior Developer",
+      "company": "DKode",
+      "technologies": [
+        "C#",
+        ".NET",
+        "SQL",
+        "JavaScript",
+        "Git",
+        "Visual Studio",
+        "HTML",
+        "CSS",
+        "JQuery"
+      ],
+      "addedAt": "11.11.2023",
+      "location": "full office",
+      "jobType": "",
+      "seniority": "Junior",
+      "employmentType": "contract of employment (full-time)",
+      "salary": "5k–7.5kzł (CoE)",
+      "salaryMin": "5000",
+      "salaryMax": "7.5kzł(CoE)",
+      "description": "Technologies we useExpectedC#.NETSQLJavaScriptGitVisual StudioHTMLCSSJQueryOptionalVB.NETReact.jsMicrosoft Power BIMicrosoft AzureAzure DevOpsOperating systemWindowsYour responsibilitiesLocation: Goleniów (near Szczecin)Initial 3-month trial period is office-based, followed by a hybrid/remote work arrangement, depending on the candidate's preference.This is a full-time, on-site role located in Goleniów (near Szczecin) for a Junior Full Stack .NET Developer. The Junior Full Stack .NET Developer will be responsible for developing and maintaining .NET applications, integrating with other APIs and services, writing reusable code, and debugging and troubleshooting as necessary. Occasionally, you might be required to maintain clients' current systems (not development related).Our requirementsCandidates should have at least a B2 level of proficiency in English. No prior commercial experience is required, but we're looking for candidates with knowledge of the following technologies:- C#- .NET- MS SQL- JavaScript (jQuery)- HTML, CSS- Git- Visual StudioOptionalFamiliarity with the following technologies is a plus:- VB .NET- React- PowerBI- WinForms- Azure- Azure DevOps (Repo, CI/CD)",
+      "city": "Goleniów",
+      "offerLink": "https://theprotocol.it/szczegoly/praca/full-stack-net-junior-developer-golenio-w-konstytucji-3-maja-1,oferta,20e40000-8020-8a60-36f4-08dbe25246f8?searchId=d902ef10-80b8-11ee-bca3-8f95fe162e66&s=-2964786717",
+      "image": "https://logos.gpcdn.pl/loga-firm/1074144071/9b030000-5dac-0015-8346-08dbc580deb3_280x280.png?width=96"
+    },
+    {
+      "title": "Software Engineer (Front-End - Mobile)",
+      "company": "Mindbox S.A.",
+      "technologies": [
+        "JavaScript",
+        "React.js",
+        "React Native",
+        "Android",
+        "iOS"
+      ],
+      "addedAt": "09.11.2023",
+      "location": "hybrid",
+      "jobType": "",
+      "seniority": "Mid",
+      "employmentType": "B2B contract (full-time)",
+      "salary": "28k–32kzł (B2B)",
+      "salaryMin": "28000",
+      "salaryMax": "32kzł(B2B)",
+      "description": "Technologies we useExpectedJavaScriptReact.jsReact NativeAndroidiOSOptionalTypeScriptGraphQLOperating systemmacOSAbout the projectProject for: the UK’s premier provider of banking as a service (Baas), which enables businesses to embed financial services products such as payments, deposits, point-of-sale credit and merchant cash advances directly into their customer journeys without the hassle of becoming a bank.We’re a high performing team that’s always on the lookout for exceptional people. We encourage an inclusive and diverse working environment, where teamwork, input and collaboration is valued no matter your level. We believe walking in our customers’ shoes allows us to build cutting-edge products. For us, running a commercially sustainable business is about being agile and having a positive impact on society. We take pride in what we create, work with integrity and understand the impact of our actions.Your responsibilitiesWork with stakeholders across the business to drive the direction of mobile development and put long term interests of customers at the heart of key decisionsDevelop clean, elegant, and reusable code that is well tested and easy to maintain and extendSupport other engineers to develop and grow, and act as a subject matter expertCollaborate across our mobile chapter to uphold standards and best practisesOur requirementsProgramming skills in JavaScript, preferably with TypeScript and GraphQL experienceIn-depth knowledge of the React and React Native frameworksA good understanding of the Android and iOS platformsA passion for crafting well-tested and maintainable softwareExperience delivering software as part of an agile team",
+      "city": "Warszawa",
+      "offerLink": "https://theprotocol.it/szczegoly/praca/software-engineer-front-end---mobile-warszawa,oferta,20e40000-8020-8a60-2da2-08dbe12a5af0?searchId=d902ef10-80b8-11ee-bca3-8f95fe162e66&s=-2964786717",
+      "image": "https://logos.gpcdn.pl/loga-firm/20066298/2c580000-43a8-f403-3b11-08d993cd83aa_280x280.png?width=96"
+    },
+    {
+      "title": "Tech Lead Angular",
+      "company": "Harvey Nash Technology Sp. ...",
+      "technologies": [
+        "Angular",
+        "TypeScript",
+        "JavaScript",
+        "Agile",
+        "RxJS Observables",
+        "Promises"
+      ],
+      "addedAt": "09.11.2023",
+      "location": "hybrid",
+      "jobType": "",
+      "seniority": "Lead",
+      "employmentType": "contract of employment (full-time)",
+      "salary": "37k–45kzł (CoE)",
+      "salaryMin": "37000",
+      "salaryMax": "45kzł(CoE)",
+      "description": "Technologies we useExpectedAngularTypeScriptJavaScriptAgileRxJS ObservablesPromisesOperating systemWindowsLinuxAbout the projectFor one of our top clients, an international company from the fintech industry, we are looking for a Technical Lead with strong programming experience working with Angular and JS development.Hybrid work, 2/3 days from the office per week in Warsaw.Your responsibilitiesYou will lead complex technical projects within the Agile team focused on delivering reusable components, reusable APIs, component libraries and HTML / CSS in support of sophisticated visual design and UX.Our requirements3+ years of experience leading projects prefferably in Agile environment.7+ years of development experience using Angular, Typescript and frontend tools (Promises, RxJS Observables, etc.).Excellent communication skills in English.Experience driving SDLC standards and architecture.Eager to share your knowledge and to be a great team player who will lead the team to success.",
+      "city": "Warszawa",
+      "offerLink": "https://theprotocol.it/szczegoly/praca/tech-lead-angular-warszawa-mokotowska-49,oferta,0cbc0000-d447-965a-282f-08dbe1228c60?searchId=d902ef10-80b8-11ee-bca3-8f95fe162e66&s=-2964786717",
+      "image": "https://logos.gpcdn.pl/loga-firm/20151789/2c580000-43a8-f403-bbe4-08d89868f4df_280x280.jpg?width=96"
+    }
+  ],
+  "fullstack": [
+    {
+      "title": "Full Stack .NET Junior Developer",
+      "company": "DKode",
+      "technologies": [
+        "C#",
+        ".NET",
+        "SQL",
+        "JavaScript",
+        "Git",
+        "Visual Studio",
+        "HTML",
+        "CSS",
+        "JQuery"
+      ],
+      "addedAt": "11.11.2023",
+      "location": "full office",
+      "jobType": "",
+      "seniority": "Junior",
+      "employmentType": "contract of employment (full-time)",
+      "salary": "5k–7.5kzł (CoE)",
+      "salaryMin": "5000",
+      "salaryMax": "7.5kzł(CoE)",
+      "description": "Technologies we useExpectedC#.NETSQLJavaScriptGitVisual StudioHTMLCSSJQueryOptionalVB.NETReact.jsMicrosoft Power BIMicrosoft AzureAzure DevOpsOperating systemWindowsYour responsibilitiesLocation: Goleniów (near Szczecin)Initial 3-month trial period is office-based, followed by a hybrid/remote work arrangement, depending on the candidate's preference.This is a full-time, on-site role located in Goleniów (near Szczecin) for a Junior Full Stack .NET Developer. The Junior Full Stack .NET Developer will be responsible for developing and maintaining .NET applications, integrating with other APIs and services, writing reusable code, and debugging and troubleshooting as necessary. Occasionally, you might be required to maintain clients' current systems (not development related).Our requirementsCandidates should have at least a B2 level of proficiency in English. No prior commercial experience is required, but we're looking for candidates with knowledge of the following technologies:- C#- .NET- MS SQL- JavaScript (jQuery)- HTML, CSS- Git- Visual StudioOptionalFamiliarity with the following technologies is a plus:- VB .NET- React- PowerBI- WinForms- Azure- Azure DevOps (Repo, CI/CD)",
+      "city": "Goleniów",
+      "offerLink": "https://theprotocol.it/szczegoly/praca/full-stack-net-junior-developer-golenio-w-konstytucji-3-maja-1,oferta,20e40000-8020-8a60-36f4-08dbe25246f8?searchId=e1614490-80b8-11ee-a472-fd845d6df2a7&s=4826570898",
+      "image": "https://logos.gpcdn.pl/loga-firm/1074144071/9b030000-5dac-0015-8346-08dbc580deb3_280x280.png?width=96"
+    },
+    {
+      "title": "Młodszy informatyk",
+      "company": "Uniwersytet Gdański",
+      "technologies": [
+        "PHP",
+        "Microsoft SQL Server",
+        "MySQL",
+        "MariaDB",
+        "SQL",
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "addedAt": "09.11.2023",
+      "location": "stacjonarna",
+      "jobType": "",
+      "seniority": "Junior",
+      "employmentType": "umowa o pracę (pełny etat)",
+      "salary": "5k–8kzł (UoP)",
+      "salaryMin": "5000",
+      "salaryMax": "8kzł(UoP)",
+      "description": "Technologie, których używamyWymaganePHPMicrosoft SQL ServerMySQLMariaDBSQLHTMLCSSJavaScriptMile widzianeLinuxDrupalWordPressBootstrapSystem operacyjnyWindowsTwój zakres obowiązkówObowiązki zgodne z powierzonym stanowiskiem.Nasze wymaganiaZnajomość języka PHP 7+ (mile widziane podejście obiektowe),Umiejętność projektowania rozwiązań z wykorzystaniem MS SQL Server,Umiejętność projektowania rozwiązań z wykorzystaniem MySQL/MariaDB,Umiejętność tworzenia zapytań SQL, łączenia tabel, grupowania danych oraz tworzenia i pracy na widokachZnajomość technologii frontendowych, takich jak HTML5, CSS3, JavaScript,Znajomość najnowszych trendów w tworzeniu stron WWW,Znajomość języka angielskiego na poziomie umożliwiającym rozumienie dokumentacji technicznej,Komunikatywność i zdolność analitycznego myślenia.Mile widzianeZnajomość środowisk UNIX/Linux oraz Apache/NGINX,Umiejętność konfiguracji serwerowych usług i procesów,Znajomość CMF Drupal, CMS Wordpress,Znajomość Frameworka Bootstrap.",
+      "city": "Gdańsk",
+      "offerLink": "https://theprotocol.it/szczegoly/praca/modszy-informatyk-gdan-sk-jana-baz-yn-skiego-8,oferta,0cbc0000-d447-965a-f4d0-08dbe12b10c9?searchId=e1614490-80b8-11ee-a472-fd845d6df2a7&s=4826570898",
+      "image": "https://logos.gpcdn.pl/loga-firm/20313031/ee4d0000-5df0-0015-4949-08db6b2cce28_280x280.png?width=96"
+    },
+    {
+      "title": "Senior Java/API Software Engineer",
+      "company": "Cyclad",
+      "technologies": [
+        "Java",
+        "Git",
+        "REST API",
+        "Spring Framework",
+        "CI/CD",
+        "Maven",
+        "Gradle",
+        "JavaScript",
+        "JUnit"
+      ],
+      "addedAt": "09.11.2023",
+      "location": "zdalna, hybrydowa",
+      "jobType": "",
+      "seniority": "Senior",
+      "employmentType": "umowa o pracę (pełny etat)",
+      "salary": "18k–25kzł (UoP)",
+      "salaryMin": "18000",
+      "salaryMax": "25kzł(UoP)",
+      "description": "Technologie, których używamyWymaganeJavaGitREST APISpring FrameworkCI/CDMavenGradleJavaScriptJUnitSystem operacyjnyLinuxO projekcie Branża: Bankowość Siedziba firmy: Warszawa Obszar projektu: Rozwój aplikacji bankowych, projektowanie API Praca zdalna: 100% lub hybrydowo do wyboru Długość projektu: długofalowa współpraca Język angielski: B2 Metodologia: Agile Wynagrodzenie: 18 - 25k brutto na umowę o pracę, w zależności od posiadanych kwalifikacji i stażu pracyTwój zakres obowiązkówDoradztwo techniczne projektów w zakresie projektowania API i analizy technicznej epic-ówOdpowiedzialność za rozwój oprogramowania z wykorzystaniem różnych języków programowania oraz powiązanych narzędzi i frameworkówTworzenie i weryfikacja plików swagger oraz operacji API w zwinnym zespole odpowiedzialnym za kompleksową dostawęPrzeglądanie kodu napisanego przez innych inżynierów, wykonywanie testów i tworzenie przypadków testów automatycznychUtrzymywanie stworzonych API jako osoba kontaktowa techniczna II i III poziomuNasze wymagania5+ lat doświadczenia w programowaniu w języku Java i JavaScript oraz projektowaniu REST APIZnajomość dowolnej platformy do zarządzania APIDoskonała wiedza z zakresu ekosystemu SpringPraktyczna znajomość narzędzi i procesów programistycznych (Git, CI/CD, Maven/Gradle)Dobra znajomość języka angielskiegoGotowość do pełnienie samodzielnej roli i przejęcia usług od dostawcyDyspozycyjność do podróży służbowych (dwa razy w roku)Mile widzianeDoświadczenie z rozwiązaniami chmurowymi lub big data",
+      "city": "Warszawa",
+      "offerLink": "https://theprotocol.it/szczegoly/praca/senior-java-api-software-engineer-warszawa-chodna-48,oferta,0cbc0000-d447-965a-a499-08dbe1227526?searchId=e1614490-80b8-11ee-a472-fd845d6df2a7&s=4826570898",
+      "image": "https://logos.gpcdn.pl/loga-firm/20005890/2c580000-43a8-f403-6c0c-08d9f5f2c7b4_280x280.png?width=96"
     }
   ]
 }
