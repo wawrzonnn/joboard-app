@@ -37,7 +37,7 @@ export class ScraperTheProtocol extends ScraperBase {
 		const jobOffersLiElements = await this.page.$$('a.anchorClass_a6of9et')
 		const offers: OffersProps[] = []
 
-		for (let index = 0; index < 4; index++) {
+		for (let index = 0; index < 10; index++) {
 
 			const offer = jobOffersLiElements[index]
 			if (!offer) {

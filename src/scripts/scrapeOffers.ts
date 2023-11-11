@@ -11,8 +11,8 @@ import { maxLetters } from './utils'
 export const scrapeOffers = async (searchTerms: string[], limit: number = 5) => {
 	console.log('Scrapping...')
 
-	// const scrapers = [ScraperTheProtocol, ScraperJustJoinIT, ScraperPracuj, ScraperNoFluffJobs, ScraperBulldogJob]
-	const scrapers = [ScraperTheProtocol]
+	const scrapers = [ScraperTheProtocol, ScraperJustJoinIT, ScraperPracuj, ScraperNoFluffJobs, ScraperBulldogJob]
+	// const scrapers = [ScraperTheProtocol]
 
 	const allResults: { [key: string]: any[] } = {}
 
