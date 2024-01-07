@@ -28,6 +28,7 @@ export const OffersList = ({ offers, searchForJobTitle, onClearFilters, searchFo
 		}
 	}
 
+
 	const handleShowJobOfferModal = (offer: JobOffer) => {
 		setSelectedOffer(offer)
 		setShowJobOfferModal(true)
@@ -49,7 +50,7 @@ export const OffersList = ({ offers, searchForJobTitle, onClearFilters, searchFo
 					<ClearButton onClick={onClearFilters}>Clear search</ClearButton>
 				)}
 			</span>
-			<button onClick={handleScrapeOffers}>Run Scraping Script</button>
+			<button onClick={handleScrapeOffers}>Run Scraper</button>
 			<ul className={styles.list}>
 				{offers.map((offer, index) => (
 					<li key={index} className={styles.list_element} onClick={() => handleShowJobOfferModal(offer)}>
