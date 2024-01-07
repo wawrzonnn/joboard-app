@@ -15,7 +15,7 @@ export class ScraperBase {
 
 
 //lokalnie
-    this.browser = await puppeteer.launch({ headless: false, defaultViewport: null });
+    this.browser = await puppeteer.launch({ headless: true, defaultViewport: null });
 
 
 

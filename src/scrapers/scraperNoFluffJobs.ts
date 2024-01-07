@@ -31,7 +31,7 @@ export class ScraperNoFluffJobs extends ScraperBase {
 		}
 		const jobOffersLiElements = await this.page.$$('a.posting-list-item')
 		const offers: OffersProps[] = []
-		for (let index = 0; index < 10; index++) {
+		for (let index = 0; index < 3; index++) {
 			const offer = jobOffersLiElements[index]
 			if (!offer) {
 				break

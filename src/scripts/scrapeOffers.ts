@@ -11,8 +11,8 @@ import { maxLetters } from './utils'
 export const scrapeOffers = async (searchTerms: string[], limit: number = 5) => {
 	console.log('Scrapping...')
 
-	const scrapers = [ScraperTheProtocol, ScraperJustJoinIT, ScraperPracuj, ScraperNoFluffJobs, ScraperBulldogJob]
-	// const scrapers = [ScraperTheProtocol]
+	// const scrapers = [ScraperTheProtocol, ScraperJustJoinIT, ScraperPracuj, ScraperNoFluffJobs, ScraperBulldogJob]
+	const scrapers = [ScraperNoFluffJobs]
 
 	const allResults: { [key: string]: any[] } = {}
 
@@ -53,7 +53,8 @@ export const scrapeOffers = async (searchTerms: string[], limit: number = 5) => 
 		}
 	}
 
-	const outputPath = path.join(__dirname, '../../public/results.json')
-	fs.writeFileSync(outputPath, JSON.stringify(allResults, null, 2))
+	// const outputPath = path.join(__dirname, '/results.json')
+	// fs.writeFileSync(outputPath, JSON.stringify(allResults, null, 2))
 	console.log(`Saved job offers to results.json`)
+	console.log('Scraping completed, results:', allResults);
 }
