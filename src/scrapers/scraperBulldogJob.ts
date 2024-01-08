@@ -26,7 +26,7 @@ export class ScraperBulldogJob extends ScraperBase {
 		await this.page.goto(url)
 	}
 
-	async extractLocation(offer: ElementHandle): Promise<string> {
+	async extractLocation(offer: any): Promise<string> {
 		const locationText = await this.extractFromElement(offer, 'span.group.flex.rounded-md')
 		return locationText || (await this.extractFromElement(offer, 'div span.text-xs')) || ''
 	}
