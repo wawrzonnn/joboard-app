@@ -1,39 +1,62 @@
-import puppeteer from 'puppeteer-core';
-import StealthPlugin from 'puppeteer-extra-plugin-stealth';
-import { Browser, Page } from 'puppeteer-core';
-import chromium from "@sparticuz/chromium"
+// import puppeteer from 'puppeteer-extra';
+// import StealthPlugin from 'puppeteer-extra-plugin-stealth';
+// import { Browser, Page } from 'puppeteer';
+
+// import chromium from "@sparticuz/chromium"
 // puppeteer.use(StealthPlugin());
+// // import chromium from 'chrome-aws-lambda';
+// export class ScraperBase {
+//   protected browser: Browser | null = null;
+//   protected page: Page | null = null;
+
+//   async initialize(): Promise<void> {
+//     // @ts-ignore
+
+
+
+
+// //lokalnie
+//     // this.browser = await puppeteer.launch({ headless: true, defaultViewport: null });
+
+
+
+// zdalnie
+//     const browser = await puppeteer.launch({
+//       args: chromium.args,
+//       defaultViewport: chromium.defaultViewport,
+//       executablePath: await chromium.executablePath(),
+//       headless: chromium.headless,
+//       ignoreHTTPSErrors: true,
+//     });
+//     this.browser = browser;
+    
+
+    
+
+
+
+
+//     if (this.browser) {
+//       this.page = await this.browser.newPage();
+//     }
+//   }
+
+import puppeteer from 'puppeteer-core';
+import chromium from '@sparticuz/chromium';
+import { Browser, Page } from 'puppeteer-core';
 
 export class ScraperBase {
   protected browser: Browser | null = null;
   protected page: Page | null = null;
 
   async initialize(): Promise<void> {
-    // @ts-ignore
-
-
-
-
-//lokalnie
-    // this.browser = await puppeteer.launch({ headless: true, defaultViewport: null });
-
-
-
-//zdalnie
-    const browser = await puppeteer.launch({
-      args: chromium.args,
+    this.browser = await puppeteer.launch({
+      args: [...chromium.args, '--hide-scrollbars', '--disable-web-security'],
       defaultViewport: chromium.defaultViewport,
       executablePath: await chromium.executablePath(),
       headless: chromium.headless,
       ignoreHTTPSErrors: true,
     });
-    this.browser = browser;
-  
-
-
-
-
-
 
     if (this.browser) {
       this.page = await this.browser.newPage();
