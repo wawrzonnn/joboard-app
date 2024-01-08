@@ -13,8 +13,8 @@
   "dependencies": {
     "@next/font": "^13.5.4",
     "@sparticuz/chromium": "^110.0.1",
+    "@sparticuz/chromium-min": "^119.0.2",
     "@types/puppeteer": "^7.0.4",
-    "chrome-aws-lambda": "^10.1.0",
     "classnames": "^2.3.2",
     "csv-writer": "^1.6.0",
     "date-fns": "^2.30.0",
