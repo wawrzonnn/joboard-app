@@ -15,19 +15,19 @@ export class ScraperBase {
 
 
 //lokalnie
-    this.browser = await puppeteer.launch({ headless: true, defaultViewport: null });
+    // this.browser = await puppeteer.launch({ headless: true, defaultViewport: null });
 
 
 
 //zdalnie
-    // const browser = await puppeteer.launch({
-    //   args: chromium.args,
-    //   defaultViewport: chromium.defaultViewport,
-    //   executablePath: await chromium.executablePath(),
-    //   headless: chromium.headless,
-    //   ignoreHTTPSErrors: true,
-    // });
-    // this.browser = browser;
+    const browser = await puppeteer.launch({
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+      ignoreHTTPSErrors: true,
+    });
+    this.browser = browser;
   
 
 
