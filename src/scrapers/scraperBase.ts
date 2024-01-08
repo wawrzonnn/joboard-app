@@ -1,8 +1,8 @@
-import puppeteer from 'puppeteer-extra';
+import puppeteer from 'puppeteer-core';
 import StealthPlugin from 'puppeteer-extra-plugin-stealth';
-import { Browser, Page } from 'puppeteer';
+import { Browser, Page } from 'puppeteer-core';
 import chromium from "@sparticuz/chromium"
-puppeteer.use(StealthPlugin());
+// puppeteer.use(StealthPlugin());
 
 export class ScraperBase {
   protected browser: Browser | null = null;
